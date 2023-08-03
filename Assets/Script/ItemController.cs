@@ -11,12 +11,16 @@ namespace CollectionSystem
         [SerializeField] private bool ItemOne = false;
         [SerializeField] private bool ItemTwo = false;
 
+        [SerializeField] private RandomSpawner _Spawner = null;
+
         [SerializeField] private Inventory _keyInventory = null;
 
-        // Start is called before the first frame update
-        void Start()
+        void Awake()
         {
+            _Spawner = GetComponent<RandomSpawner>();
 
+            Debug.Log(_Spawner);
+            Debug.Log(_keyInventory);
         }
 
         public void ObjectInteraction()
@@ -25,13 +29,24 @@ namespace CollectionSystem
             {
                 _keyInventory.hasItemOne = true;
                 Debug.Log(gameObject.name);
-                gameObject.SetActive(false);
+                Destroy(gameObject);
+
+                _keyInventory.Message();
+
+                _Spawner.Message();
+                //Debug.Log("Number Of Item Ones is " + Spawner.NumberOfItems);
+
+                //Spawner.NumberOfItems -= 1;
+
+                //Spawner.SpawnItemOne();
             }
             else if (ItemTwo)
             {
                 _keyInventory.hasItemTwo = true;
                 Debug.Log(gameObject.name);
                 gameObject.SetActive(false);
+
+                //Spawner.SpawnItemTwo();
             }
         }
 
