@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 namespace CollectionSystem
 {
@@ -14,9 +14,13 @@ namespace CollectionSystem
 
         [SerializeField] private GameObject Player;
 
+        [SerializeField] private GameObject CarModel;
+
         [SerializeField] private Camera PlayerCamera;
 
         [SerializeField] private Camera CarCamera;
+
+        [SerializeField] private Image Crosshair = null;
 
         [SerializeField] private RandomSpawner _Spawner = null;
 
@@ -26,28 +30,23 @@ namespace CollectionSystem
 
         void Awake()
         {
-            _Spawner = GetComponent<RandomSpawner>();
 
-            Debug.Log(_Spawner);
-            Debug.Log(_keyInventory);
-            Debug.Log(_Car);
+            CarCamera.gameObject.SetActive(false);
+            GetComponent<WheelController>().enabled = false;
         }
         public void ObjectInteraction()
         {
             if(ItemOne)
             {
                 _keyInventory.hasItemOne = true;
+                //Debug.Log("Number Of Item Ones is " + _Spawner.NumberOfItemOne);
                 Debug.Log(gameObject.name);
                 Destroy(gameObject);
 
-                _keyInventory.Message();
-
                 _Spawner.Message();
-                //Debug.Log("Number Of Item Ones is " + Spawner.NumberOfItems);
 
-                //Spawner.NumberOfItems -= 1;
+                _Spawner.SpawnItemOne();
 
-                //Spawner.SpawnItemOne();
             }
             else if (ItemTwo)
             {
@@ -61,29 +60,45 @@ namespace CollectionSystem
             {
                 _keyInventory.hasCar = true;
                 Player.SetActive(false);
-                _Car.CarMovement();
 
-                if (Input.GetKey(KeyCode.Z))
-                {
-                    Debug.Log("Back To Player");
-                    _keyInventory.hasCar = false;
-                    CarCamera.gameObject.SetActive(false);
-                    Player.SetActive(true);
-                }
-                else
-                {
-                    Debug.Log("Z is not pressed");
-                }
+                Crosshair.gameObject.SetActive(false);
+                CarCamera.gameObject.SetActive(true);
+                GetComponent<WheelController>().enabled = true;
+
+                Player.transform.parent = CarModel.transform;
             }
         }
 
-        // Update is called once per frame
-        void Update()
+        private void Update()
         {
-            /*if (Input.GetKey(KeyCode.Z))
+            BackToPlayer();
+        }
+
+        public void BackToPlayer()
+        {
+            if (_keyInventory.hasCar == true)
             {
-                Debug.Log("Z");
-            }*/
+
+                Debug.Log("Has Car");
+                if (Input.GetKeyDown(KeyCode.Backspace))
+                {
+                    Debug.Log("Backspace is pressed");
+                    _keyInventory.hasCar = false;
+                    GetComponent<WheelController>().enabled = false;
+                    Player.transform.parent = null;
+                    CarCamera.gameObject.SetActive(false);
+                    Player.SetActive(true);
+                    Crosshair.gameObject.SetActive(true);
+                }
+                else
+                {
+                    Debug.Log("Backspace is not pressed");
+                }
+            }
+            else
+            {
+                Debug.Log("Not In Car");
+            }
         }
     }
 }
