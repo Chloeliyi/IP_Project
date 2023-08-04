@@ -9,12 +9,16 @@ namespace CollectionSystem
     {
         public GameObject ItemOne;
         public GameObject ItemTwo;
+        //public GameObject ItemThree;
+        //public GameObject ItemFour;
+
         int ItemsAtSpawn = 2;
+        //public int NumberOfItemOne;
 
         private void Start()
         {
-            SpawnItemOne();
-            SpawnItemTwo();
+            SpawnItemOneAtStart();
+            //SpawnItemTwo();
         }
 
         public void Message()
@@ -22,7 +26,7 @@ namespace CollectionSystem
             Debug.Log("This is Random Spawner");
         }
 
-        public void SpawnItemOne()
+        public void SpawnItemOneAtStart()
         {
 
             /*int SpawnPointX = Random.Range(0, 11);
@@ -31,17 +35,24 @@ namespace CollectionSystem
 
             Vector3 SpawnPosition = new Vector3(SpawnPointX, SpawnPointY, SpawnPointZ);*/
 
-            for (var NumberOfItems = 0; NumberOfItems <= ItemsAtSpawn; NumberOfItems++)
+            for (var i = 0; i <= ItemsAtSpawn; i++)
             {
                 Vector3 SpawnPosition = new Vector3(Random.Range(-10, 11), 1, Random.Range(-10, 11));
 
                 Instantiate(ItemOne, SpawnPosition, Quaternion.identity);
 
-                Debug.Log("Number Of Item Ones is " + NumberOfItems);
+                Debug.Log("Number Of Item Ones is " + i);
             }
         }
 
-        public void SpawnItemTwo()
+        public void SpawnItemOne()
+        {
+            Vector3 SpawnPosition = new Vector3(Random.Range(-10, 11), 1, Random.Range(-10, 11));
+
+            Instantiate(ItemOne, SpawnPosition, Quaternion.identity);
+        }
+
+        public void SpawnItemTwoAtStart()
         {
 
             for (var i = 0; i <= ItemsAtSpawn; i++)
@@ -50,8 +61,51 @@ namespace CollectionSystem
 
                 Instantiate(ItemTwo, SpawnPosition, Quaternion.identity);
 
-                Debug.Log(i);
+                //Debug.Log(i);
             }
         }
+
+        public void SpawnItemTwo()
+        {
+            Vector3 SpawnPosition = new Vector3(Random.Range(-10, 11), 1, Random.Range(-10, 11));
+
+            Instantiate(ItemTwo, SpawnPosition, Quaternion.identity);
+        }
+
+        /*public void SpawnItemThreeAtStart()
+        {
+
+            for (var i = 0; i <= ItemsAtSpawn; i++)
+            {
+                Vector3 SpawnPosition = new Vector3(Random.Range(-10, 11), 1, Random.Range(-10, 11));
+
+                Instantiate(ItemThree, SpawnPosition, Quaternion.identity);
+            }
+        }
+
+        public void SpawnItemThree()
+        {
+            Vector3 SpawnPosition = new Vector3(Random.Range(-10, 11), 1, Random.Range(-10, 11));
+
+            Instantiate(ItemThree, SpawnPosition, Quaternion.identity);
+        }
+
+        public void SpawnItemFourAtStart()
+        {
+
+            for (var i = 0; i <= ItemsAtSpawn; i++)
+            {
+                Vector3 SpawnPosition = new Vector3(Random.Range(-10, 11), 1, Random.Range(-10, 11));
+
+                Instantiate(ItemFour, SpawnPosition, Quaternion.identity);
+            }
+        }
+        
+         public void SpawnItemFour()
+        {
+            Vector3 SpawnPosition = new Vector3(Random.Range(-10, 11), 1, Random.Range(-10, 11));
+
+            Instantiate(ItemFour, SpawnPosition, Quaternion.identity);
+        }*/
     }
 }
