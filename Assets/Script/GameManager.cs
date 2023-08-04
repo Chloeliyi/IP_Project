@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class GameManager : MonoBehaviour
     public GameObject QuitMenu;
 
     public GameObject PauseMenu;
+
+    public TextMeshProUGUI ItemsCollected;
+
+    public TextMeshProUGUI NumberOfItems;
 
     private void Start()
     {
