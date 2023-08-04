@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2791066722225118320}
   m_Layer: 0
   m_Name: car_placeholder
-  m_TagString: Untagged
+  m_TagString: Car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,11 +121,13 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   garageEntrance: {fileID: 0}
-  serviceArea: {fileID: 0}
+  servicePoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  avoidanceDistance: 3
+  avoidanceSpeed: 3
 --- !u!195 &6146372845469588614
 NavMeshAgent:
   m_ObjectHideFlags: 0
