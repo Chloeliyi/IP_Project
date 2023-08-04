@@ -59,23 +59,25 @@ public class CarControllerAI : MonoBehaviour
         currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.transform == garageEntrance)
+        if (other.gameObject.tag == "garage")
         {
+            Debug.Log("garage triggered");
             // Car has entered the garage trigger area
             CheckServiceNeeded();
         }
-    }
+    } 
 
     void CheckServiceNeeded()
     {
         // Replace this logic with your own conditions to check if the car needs service/repairs
         // For demonstration purposes, let's assume the car needs service 50% of the time
-        needsService = Random.value < 0.5f;
+        needsService = Random.value <0.5f;
 
         if (needsService)
         {
+            Debug.Log("service needed");
             // Car needs service, move to the service area in the garage
             navAgent.SetDestination(serviceArea.position);
             isInsideGarage = true;
