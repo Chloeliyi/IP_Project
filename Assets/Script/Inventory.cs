@@ -9,6 +9,7 @@ namespace CollectionSystem
     {
         public bool hasItemOne = false;
         public bool hasItemTwo = false;
+        public bool hasCar = false;
 
         public void Message()
         {
