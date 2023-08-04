@@ -29,22 +29,15 @@ namespace CollectionSystem
 
         private void FixedUpdate()
         {
-            //CarMovement();
+            CarMovement();
         }
 
         private void Start()
         {
-            CarCamera.gameObject.SetActive(false);
-        }
-
-        private void Update()
-        {
-            
         }
 
         public void CarMovement()
         {
-            CarCamera.gameObject.SetActive(true);
             //Get forward/reverse acceleration from the vertical axis (W and S keys)
             currentAcceleration = acceleration * Input.GetAxis("Vertical");
 
@@ -73,9 +66,6 @@ namespace CollectionSystem
             UpdateWheel(frontRight, frontRightTransform);
             UpdateWheel(backLeft, backLeftTransform);
             UpdateWheel(backRight, backRightTransform);
-
-            Debug.Log(currentAcceleration);
-            Debug.Log(currentBreakForce);
         }
 
         void UpdateWheel(WheelCollider col, Transform trans)
