@@ -15,10 +15,6 @@ public class GameManager : MonoBehaviour
 
     public GameObject PauseMenu;
 
-    public TextMeshProUGUI ItemsCollected;
-
-    public TextMeshProUGUI NumberOfItems;
-
     private void Start()
     {
         QuitMenu.SetActive(false);
@@ -28,13 +24,13 @@ public class GameManager : MonoBehaviour
         //PauseMenu.SetActive(false);
     }
 
-    /*private void Update()
+    private void Update()
     {
         if (Input.GetKey(KeyCode.Escape))
         {
             PauseMenu.SetActive(true);
         }
-    }*/
+    }
     public void OnStartButton()
     {
 
