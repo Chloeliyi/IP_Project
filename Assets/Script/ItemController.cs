@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace CollectionSystem
 {
@@ -22,6 +23,10 @@ namespace CollectionSystem
 
         [SerializeField] private Image Crosshair = null;
 
+        public TMP_Text ItemsCollected;
+
+        [SerializeField] private int NumberOfItemsCollected = 0;
+
         [SerializeField] private RandomSpawner _Spawner = null;
 
         [SerializeField] private Inventory _keyInventory = null;
@@ -33,6 +38,8 @@ namespace CollectionSystem
 
             CarCamera.gameObject.SetActive(false);
             GetComponent<WheelController>().enabled = false;
+
+            ItemsCollected.text = NumberOfItemsCollected.ToString();
         }
         public void ObjectInteraction()
         {
@@ -40,21 +47,29 @@ namespace CollectionSystem
             {
                 _keyInventory.hasItemOne = true;
                 //Debug.Log("Number Of Item Ones is " + _Spawner.NumberOfItemOne);
+                Debug.Log("Has Item One Is " + _keyInventory.hasItemOne);
                 Debug.Log(gameObject.name);
                 Destroy(gameObject);
 
-                _Spawner.Message();
+                NumberOfItemsCollected++;
 
-                _Spawner.SpawnItemOne();
+                Debug.Log("Number of items collected is " + NumberOfItemsCollected);
+
+                StartCoroutine(TurnOff());
+                _keyInventory.hasItemOne = false;
+                Debug.Log("Coroutine ended");
+                Debug.Log("Has Item One Is " + _keyInventory.hasItemOne);
+
+                //_Spawner.SpawnItemOne();
 
             }
             else if (ItemTwo)
             {
                 _keyInventory.hasItemTwo = true;
                 Debug.Log(gameObject.name);
-                gameObject.SetActive(false);
+                Destroy(gameObject);
 
-                //Spawner.SpawnItemTwo();
+                _Spawner.SpawnItemTwo();
             }
             else if (Car)
             {
@@ -66,11 +81,20 @@ namespace CollectionSystem
                 GetComponent<WheelController>().enabled = true;
 
                 Player.transform.parent = CarModel.transform;
+                Player.transform.Rotate(0.0f, 270.0f, 0.0f, Space.Self);
             }
         }
-
-        private void Update()
+         
+        IEnumerator TurnOff()
         {
+            yield return new WaitForSeconds(1.0f);
+        }
+
+        public void Update()
+        {
+            ItemsCollected.text = NumberOfItemsCollected.ToString();
+            Debug.Log(ItemsCollected.text);
+
             BackToPlayer();
         }
 
