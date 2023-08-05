@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &681223892940866658
+--- !u!1 &6702004375775962204
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,12 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1561943215921116588}
-  - component: {fileID: 5138235517397011991}
-  - component: {fileID: 119014525776729963}
-  - component: {fileID: 2975380367488823828}
-  - component: {fileID: 1949934166056964797}
-  - component: {fileID: 5216971421877858038}
+  - component: {fileID: 4745492089688397202}
+  - component: {fileID: 1385086713960607273}
+  - component: {fileID: 6183635704817006421}
+  - component: {fileID: 9024316812301767210}
+  - component: {fileID: 5726874719571653251}
+  - component: {fileID: 2022146073961057992}
   m_Layer: 6
   m_Name: ItemTwo
   m_TagString: InteractiveObject
@@ -21,36 +21,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1561943215921116588
+--- !u!4 &4745492089688397202
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 681223892940866658}
+  m_GameObject: {fileID: 6702004375775962204}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.74131, y: 0.0000009536743, z: -2.1270747}
+  m_LocalPosition: {x: -15.366392, y: 0.0000009536743, z: -2.985632}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5138235517397011991
+--- !u!33 &1385086713960607273
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 681223892940866658}
+  m_GameObject: {fileID: 6702004375775962204}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &119014525776729963
+--- !u!23 &6183635704817006421
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 681223892940866658}
+  m_GameObject: {fileID: 6702004375775962204}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -86,26 +86,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &2975380367488823828
+--- !u!135 &9024316812301767210
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 681223892940866658}
+  m_GameObject: {fileID: 6702004375775962204}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &1949934166056964797
+--- !u!54 &5726874719571653251
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 681223892940866658}
+  m_GameObject: {fileID: 6702004375775962204}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -115,13 +115,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5216971421877858038
+--- !u!114 &2022146073961057992
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 681223892940866658}
+  m_GameObject: {fileID: 6702004375775962204}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d12587dbad93e4418892cda0d595d37, type: 3}
@@ -130,7 +130,18 @@ MonoBehaviour:
   ItemOne: 0
   ItemTwo: 1
   Car: 0
+  Player: {fileID: 5813768727537548214, guid: a38ccbd24f2380c489f45f923572ae3b, type: 3}
+  CarModel: {fileID: 3806378108320364807, guid: ba530ca962697b14988653dcd256168e,
+    type: 3}
+  PlayerCamera: {fileID: 1734022245366181278, guid: 91fb0a8de65e1ed4ca5aa384faa32266,
+    type: 3}
+  CarCamera: {fileID: 223086562673632092, guid: ebbc849ec7001964cbd36db56fe445ea,
+    type: 3}
+  Crosshair: {fileID: 6228751413266505920, guid: 07edf8807a2bd034b815c8063d99d687,
+    type: 3}
+  ItemsCollected: {fileID: 5477433158680282780, guid: 5c69c65a583d5ed4b9f0b7daa60cc8d9,
+    type: 3}
   _Spawner: {fileID: 701334963737298234, guid: da3f7abf077342f4abf41b661892a1e7, type: 3}
   _keyInventory: {fileID: 3439213193734442148, guid: 84abbd6103b5ba04faeac34f3851d5aa,
     type: 3}
-  _Car: {fileID: 0}
+  _Car: {fileID: 4582738163968140220, guid: ba530ca962697b14988653dcd256168e, type: 3}

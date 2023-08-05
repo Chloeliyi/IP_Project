@@ -709,7 +709,7 @@ MonoBehaviour:
   ItemOne: 0
   ItemTwo: 0
   Car: 1
-  Player: {fileID: 0}
+  Player: {fileID: 5813768727537548214, guid: a38ccbd24f2380c489f45f923572ae3b, type: 3}
   CarModel: {fileID: 3806378108320364807}
   PlayerCamera: {fileID: 0}
   CarCamera: {fileID: 529366525457087307}
