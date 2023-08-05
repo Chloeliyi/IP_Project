@@ -5,7 +5,8 @@ using UnityEngine.AI;
 
 public class CarControllerAI : MonoBehaviour
 {
-   public Transform[] waypoints;   // Array of waypoints for city roaming
+    
+    public Transform[] waypoints;   // Array of waypoints for city roaming
     public Transform garageEntrance;   // Reference to the garage entrance
     public List<ServicePoint> servicePoints;      // Reference to the service area inside the garage
 
@@ -24,6 +25,9 @@ public class CarControllerAI : MonoBehaviour
     private bool isInsideGarage;      // Flag to check if the car is inside the garage
 
     private ServicePoint currentServicePoint;
+    public float playerDetectDistance = 5f; // Distance to detect players
+    public GameObject[] players; // Array to store all player GameObjects in the scene
+
     void Start()
     {
         navAgent = GetComponent<NavMeshAgent>();
@@ -32,6 +36,8 @@ public class CarControllerAI : MonoBehaviour
         isInsideGarage = false;
         currentServicePoint = null;
 
+        // Find all player GameObjects in the scene and store them in the players array
+        players = GameObject.FindGameObjectsWithTag("Player");
         // Start car movement
         GoToNextWaypoint();
     }
@@ -79,6 +85,22 @@ public class CarControllerAI : MonoBehaviour
                 GoToNextWaypoint();
             }
         }
+        bool playerDetected = false;
+        foreach (GameObject player in players)
+        {
+            float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+            if (distanceToPlayer < playerDetectDistance)
+            {
+                playerDetected = true;
+                break;
+            }
+        }
+
+        if (playerDetected)
+        {
+            // If a player is detected nearby, slow down the car and eventually stop it
+            StopCar();
+        }
     }
 
     void GoToNextWaypoint()
@@ -94,6 +116,12 @@ public class CarControllerAI : MonoBehaviour
         currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
     }
 
+
+    void StopCar()
+    {
+        // Stop the car by setting its desired velocity and NavMeshAgent velocity to zero
+        navAgent.velocity = Vector3.zero;
+    }
 
     void SlowdownCar()
     {
