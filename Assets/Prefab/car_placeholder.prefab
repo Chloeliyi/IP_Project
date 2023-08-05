@@ -125,6 +125,9 @@ MonoBehaviour:
   slowdownDistance: 10
   avoidanceDistance: 3
   avoidanceSpeed: 3
+  playerDetectDistance: 5
+  players:
+  - {fileID: 2922105367182626839, guid: 1e693ebc95f33ad4c81599a29be43fcf, type: 3}
 --- !u!195 &6146372845469588614
 NavMeshAgent:
   m_ObjectHideFlags: 0
