@@ -18,12 +18,7 @@ namespace CollectionSystem
         private void Start()
         {
             SpawnItemOneAtStart();
-            //SpawnItemTwo();
-        }
-
-        public void Message()
-        {
-            Debug.Log("This is Random Spawner");
+            //SpawnItemTwoAtStart();
         }
 
         public void SpawnItemOneAtStart()
@@ -39,6 +34,7 @@ namespace CollectionSystem
             {
                 Vector3 SpawnPosition = new Vector3(Random.Range(-10, 11), 1, Random.Range(-10, 11));
 
+                //Instantiate(ItemOne, SpawnPosition, Quaternion.identity);
                 Instantiate(ItemOne, SpawnPosition, Quaternion.identity);
 
                 Debug.Log("Number Of Item Ones is " + i);
