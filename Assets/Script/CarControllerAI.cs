@@ -5,12 +5,18 @@ using UnityEngine.AI;
 
 public class CarControllerAI : MonoBehaviour
 {
-    public Transform[] waypoints;   // Array of waypoints for city roaming
+   public Transform[] waypoints;   // Array of waypoints for city roaming
     public Transform garageEntrance;   // Reference to the garage entrance
     public List<ServicePoint> servicePoints;      // Reference to the service area inside the garage
 
-    public float avoidanceDistance = 3f; // Radius to detect nearby cars for avoidance
-    public float avoidanceSpeed = 10f;  // Speed when avoiding obstacles (lower than regular speed)
+    public float maxSpeed = 30f; // Maximum speed of the car
+    public float acceleration = 20f; // Acceleration of the car
+    public float deceleration = 30f; // Deceleration of the car
+    public float arrivalDistance = 10f; // Distance from the destination to start slowing down
+    public float slowdownDistance = 10f; // Distance from the garage entrance to start slowing down
+    public float avoidanceDistance = 50f; // Radius to detect nearby cars for avoidance
+    public float avoidanceSpeed = 5f;  // Speed when avoiding obstacles (lower than regular speed)
+
 
     private NavMeshAgent navAgent;    // Reference to the NavMeshAgent component
     private int currentWaypointIndex; // Index of the current waypoint
@@ -24,8 +30,7 @@ public class CarControllerAI : MonoBehaviour
         currentWaypointIndex = 0;
         needsService = false;
         isInsideGarage = false;
-        currentServicePoint = null;//Initialize the service point reference to null
-
+        currentServicePoint = null;
 
         // Start car movement
         GoToNextWaypoint();
@@ -33,26 +38,73 @@ public class CarControllerAI : MonoBehaviour
 
     void Update()
     {
-        // Check if the car has reached its destination (waypoint or service point)
+        if (isInsideGarage)
+        {
+            // Car is inside the garage, perform service/repairs
+            PerformService();
+            return;
+        }
+
+        // Avoid other cars
+        AvoidOtherCars();
+
+        // Check if the car is near the garage entrance
+        float distanceToEntrance = Vector3.Distance(transform.position, garageEntrance.position);
+        if (distanceToEntrance <= slowdownDistance)
+        {
+            // Slow down the car smoothly as it approaches the garage entrance
+            SlowdownCar();
+
+            // Avoid hitting the garage entrance
+            Vector3 garageEntranceDirection = garageEntrance.position - transform.position;
+            garageEntranceDirection.y = 0f;
+            if (garageEntranceDirection != Vector3.zero)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(-garageEntranceDirection);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
+            }
+        }
+        else
+        {
+            // Car is not near the garage entrance, continue with regular speed
+            navAgent.speed = maxSpeed;
+        }
+
+        // Check if the car has reached its destination (waypoint)
         if (!navAgent.pathPending && navAgent.remainingDistance <= navAgent.stoppingDistance)
         {
             if (!navAgent.hasPath || navAgent.velocity.sqrMagnitude == 0f)
             {
                 // Car has reached its destination
-                if (isInsideGarage)
-                {
-                    // Car is inside the garage, perform service/repairs
-                    PerformService();
-                }
-                else
-                {
-                    // Car has reached a waypoint, continue roaming
-                    GoToNextWaypoint();
-                }
+                GoToNextWaypoint();
             }
         }
+    }
 
-        //AvoidOtherCars();
+    void GoToNextWaypoint()
+    {
+        // Move the car to the next waypoint
+        if (waypoints.Length == 0)
+        {
+            Debug.LogError("No waypoints assigned for car movement!");
+            return;
+        }
+
+        navAgent.SetDestination(waypoints[currentWaypointIndex].position);
+        currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
+    }
+
+
+    void SlowdownCar()
+    {
+        // Calculate the deceleration factor based on distance to the garage entrance
+        float decelerationFactor = Mathf.Clamp01(Vector3.Distance(transform.position, garageEntrance.position) / slowdownDistance);
+
+        // Calculate the desired speed by reducing the max speed based on the deceleration factor
+        float desiredSpeed = maxSpeed * decelerationFactor;
+
+        // Smoothly adjust the car's speed based on the desired speed
+        navAgent.speed = Mathf.Lerp(navAgent.speed, desiredSpeed, Time.deltaTime * deceleration);
     }
 
     void AvoidOtherCars()
@@ -77,25 +129,8 @@ public class CarControllerAI : MonoBehaviour
                 navAgent.SetDestination(newDestination);
             }
         }
-        else
-        {
-            // No car detected nearby, resume normal speed
-            //navAgent.speed = Mathf.Lerp(navAgent.speed, navAgent.baseOffset, Time.deltaTime);
-        }
     }
 
-    void GoToNextWaypoint()
-    {
-        // Move the car to the next waypoint
-        if (waypoints.Length == 0)
-        {
-            Debug.LogError("No waypoints assigned for car movement!");
-            return;
-        }
- 
-        navAgent.SetDestination(waypoints[currentWaypointIndex].position);
-        currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -111,7 +146,7 @@ public class CarControllerAI : MonoBehaviour
     {
         // Replace this logic with your own conditions to check if the car needs service/repairs
         // For demonstration purposes, let's assume the car needs service 50% of the time
-        needsService = Random.value <0.5f;
+        needsService = Random.value <1f;
 
         if (needsService)
         {
@@ -124,16 +159,6 @@ public class CarControllerAI : MonoBehaviour
                 isInsideGarage = true;
                 currentServicePoint.TryOccupy();
             }
-            else
-            {
-                // No available service points, continue roaming
-                GoToNextWaypoint();
-            }
-        }
-        else
-        {
-            // Car does not need service, continue roaming
-            GoToNextWaypoint();
         }
     }
 
@@ -165,7 +190,7 @@ public class CarControllerAI : MonoBehaviour
         yield return new WaitForSeconds(3f);
         isInsideGarage = false;
         currentServicePoint.Release();
+        yield return new WaitForEndOfFrame();
         Debug.Log("bye bye car");
-        GoToNextWaypoint();
     }
 }
