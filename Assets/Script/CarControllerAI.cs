@@ -17,6 +17,7 @@ public class CarControllerAI : MonoBehaviour
     public float slowdownDistance = 10f; // Distance from the garage entrance to start slowing down
     public float avoidanceDistance = 50f; // Radius to detect nearby cars for avoidance
     public float avoidanceSpeed = 5f;  // Speed when avoiding obstacles (lower than regular speed)
+    public float stopDistance = 4f; // Distance at which the car should stop when there's an obstacle
 
 
     private NavMeshAgent navAgent;    // Reference to the NavMeshAgent component
@@ -38,6 +39,7 @@ public class CarControllerAI : MonoBehaviour
 
         // Find all player GameObjects in the scene and store them in the players array
         players = GameObject.FindGameObjectsWithTag("Player");
+
         // Start car movement
         GoToNextWaypoint();
     }
@@ -101,6 +103,17 @@ public class CarControllerAI : MonoBehaviour
             // If a player is detected nearby, slow down the car and eventually stop it
             StopCar();
         }
+
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.forward, out hit, avoidanceDistance))
+        {
+            if (hit.collider.CompareTag("Car") && hit.distance < avoidanceDistance)
+            {
+                // Stop the car when there's another car in front within the avoidanceDistance
+                StopCar();
+                return;
+            }
+        }
     }
 
     void GoToNextWaypoint()
@@ -119,8 +132,7 @@ public class CarControllerAI : MonoBehaviour
 
     void StopCar()
     {
-        // Stop the car by setting its desired velocity and NavMeshAgent velocity to zero
-        navAgent.velocity = Vector3.zero;
+      navAgent.velocity = Vector3.zero;
     }
 
     void SlowdownCar()
@@ -215,7 +227,7 @@ public class CarControllerAI : MonoBehaviour
 
     IEnumerator ServiceDelay()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(10f);
         isInsideGarage = false;
         currentServicePoint.Release();
         yield return new WaitForEndOfFrame();
