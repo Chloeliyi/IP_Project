@@ -117,6 +117,8 @@ public class PlayerScript : MonoBehaviour
             transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + horizontalInput * mouseSensitivity);
             camera.rotation = Quaternion.Euler(camera.rotation.eulerAngles + new Vector3(verticalInput.x,0f,0f) * mouseSensitivity);
         }
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     /// <summary>
