@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3101387604583574477}
   - component: {fileID: 7812243329207643172}
   - component: {fileID: 1576333596634654820}
-  - component: {fileID: 7812243329207643175}
   m_Layer: 5
   m_Name: Items
   m_TagString: Untagged
@@ -67,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dcf5f4e27ad3b2547a345e7d3cd42f12, type: 2}
   m_sharedMaterial: {fileID: -7719186285660377861, guid: dcf5f4e27ad3b2547a345e7d3cd42f12,
@@ -137,18 +136,3 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7812243329207643175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5907452019228827953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 786645eb65c710c4cb888d5e6a002718, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ItemsCollectedLabel: {fileID: 1576333596634654820}
-  Inventory: {fileID: 5933569615159903467, guid: 84abbd6103b5ba04faeac34f3851d5aa,
-    type: 3}
