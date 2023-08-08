@@ -11,24 +11,41 @@ namespace CollectionSystem
         public bool hasItemOne = false;
         public bool hasItemTwo = false;
         public bool hasCar = false;
-        public int NumberOfItemsCollected = 0;
 
+        public int NumberOfItemsCollected;
+        public int RandomCollect;
+
+        //public TextMeshProUGUI ItemsCollectedLabel;
         //public TextMeshProUGUI ToBeCollectedLabel;
-        //public int RandomCollect;
 
+        //[SerializeField] private RandomNumber RandomCollectNum;
         //public UnityEvent<Inventory> OnItemsCollected;
 
         private void Awake()
         {
-            NumberOfItemsCollected = 0;
-
-            Debug.Log("Number Of Items Collected At Start : " + NumberOfItemsCollected);
-
+            //RandomCollectNum.RandomCollectNum();
+            //ToBeCollectedLabel = GetComponent<TextMeshProUGUI>();
+            //ItemsCollectedLabel = GetComponent<TextMeshProUGUI>();
+            RandomCollectNum();
         }
-        public void ItemsCollected()
+
+        private void Update()
+        {
+        }
+
+        public void UpdateItemsCount()
         {
             NumberOfItemsCollected++;
+
+            //ItemsCollectedLabel.text = NumberOfItemsCollected.ToString();
             Debug.Log("Number of items collected is " + NumberOfItemsCollected);
+        }
+
+        public void RandomCollectNum()
+        {
+            RandomCollect = Random.Range(1, 6);
+            //ToBeCollectedLabel.text = "/" + RandomCollect.ToString();
+            Debug.Log("Random Number To Be Collected :  " + RandomCollect);
         }
     }
 }

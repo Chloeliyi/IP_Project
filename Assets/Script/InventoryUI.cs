@@ -11,7 +11,7 @@ namespace CollectionSystem
 
         public TextMeshProUGUI ItemsCollectedLabel;
 
-        [SerializeField] private Inventory Inventory;
+        //[SerializeField] private Inventory Inventory;
          
         void Start()
         {
@@ -20,10 +20,10 @@ namespace CollectionSystem
             //UpdateItemLabel();
         }
 
-        public void UpdateItemLabel()
+        /*public void UpdateItemLabel()
         {
             ItemsCollectedLabel.text = Inventory.NumberOfItemsCollected.ToString();
             Debug.Log("Label of items collected is " + ItemsCollectedLabel.text);
-        }
+        }*/
     }
 }
