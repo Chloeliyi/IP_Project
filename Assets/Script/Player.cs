@@ -16,6 +16,8 @@ namespace CollectionSystem
         public float lookSpeed = 2f;
         public float lookXLimit = 45f;
 
+        //[SerializeField] private int Test = 0;
+
         Vector3 moveDirection = Vector3.zero;
         float rotationX = 0;
 
@@ -28,11 +30,20 @@ namespace CollectionSystem
             characterController = GetComponent<CharacterController>();
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+
+            //Debug.Log("This is Test " + Test);
         }
 
         // Update is called once per frame
         void Update()
         {
+
+            /*if (Input.GetKeyDown(KeyCode.R))
+            {
+                Test += 1;
+                Debug.Log("This is Test " + Test);
+            }*/
+
             //Movement
             Vector3 forward = transform.TransformDirection(Vector3.forward);
             Vector3 right = transform.TransformDirection(Vector3.right);

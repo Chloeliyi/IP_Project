@@ -13,7 +13,6 @@ namespace CollectionSystem
         //public GameObject ItemFour;
 
         int ItemsAtSpawn = 2;
-        //public int NumberOfItemOne;
 
         private void Start()
         {
@@ -34,7 +33,6 @@ namespace CollectionSystem
             {
                 Vector3 SpawnPosition = new Vector3(Random.Range(-10, 11), 1, Random.Range(-10, 11));
 
-                //Instantiate(ItemOne, SpawnPosition, Quaternion.identity);
                 Instantiate(ItemOne, SpawnPosition, Quaternion.identity);
 
                 Debug.Log("Number Of Item Ones is " + i);

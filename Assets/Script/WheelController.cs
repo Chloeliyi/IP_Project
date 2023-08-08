@@ -32,8 +32,10 @@ namespace CollectionSystem
             CarMovement();
         }
 
-        private void Start()
+        void Awake()
         {
+            CarCamera.gameObject.SetActive(false);
+            GetComponent<WheelController>().enabled = false;
         }
 
         public void CarMovement()
