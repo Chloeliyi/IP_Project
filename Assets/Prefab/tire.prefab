@@ -130,21 +130,8 @@ MonoBehaviour:
   ItemOne: 0
   ItemTwo: 1
   Car: 0
-  Player: {fileID: 7063111895633759723, guid: a38ccbd24f2380c489f45f923572ae3b, type: 3}
-  CarModel: {fileID: 7610518602196853262, guid: ba530ca962697b14988653dcd256168e,
-    type: 3}
-  PlayerCamera: {fileID: 1734022245366181278, guid: 91fb0a8de65e1ed4ca5aa384faa32266,
-    type: 3}
-  CarCamera: {fileID: 223086562673632092, guid: ebbc849ec7001964cbd36db56fe445ea,
-    type: 3}
   Crosshair: {fileID: 6228751413266505920, guid: 07edf8807a2bd034b815c8063d99d687,
     type: 3}
-  _Spawner: {fileID: 701334963737298234, guid: da3f7abf077342f4abf41b661892a1e7, type: 3}
   _keyInventory: {fileID: 5933569615159903467, guid: 84abbd6103b5ba04faeac34f3851d5aa,
     type: 3}
-  _Car: {fileID: 7121931486957303989, guid: ba530ca962697b14988653dcd256168e, type: 3}
-  RandomCollectNum: {fileID: 1689664765079902648, guid: 77f0ee29bc9f75e4da8b67c1ecbcdea5,
-    type: 3}
-  ItemsCollected: {fileID: 7812243329207643175, guid: 896b1adc399b18b41a38dbe829cf8e24,
-    type: 3}
-  WaitTime: 1
+  _Car: {fileID: 661231441248453940, guid: ba530ca962697b14988653dcd256168e, type: 3}

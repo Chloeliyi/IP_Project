@@ -46,6 +46,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasItemOne: 0
   hasItemTwo: 0
-  hasCar: 1
-  NumberOfItemsCollected: 0
+  hasCar: 0
+  NumberOfItemsCollected: 2
   RandomCollect: 0

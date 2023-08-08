@@ -109,11 +109,6 @@ MonoBehaviour:
   ItemOne: 0
   ItemTwo: 0
   Car: 1
-  Player: {fileID: 7063111895633759723, guid: a38ccbd24f2380c489f45f923572ae3b, type: 3}
-  CarModel: {fileID: 173101417888702351}
-  PlayerCamera: {fileID: 1734022245366181278, guid: 91fb0a8de65e1ed4ca5aa384faa32266,
-    type: 3}
-  CarCamera: {fileID: 3597446356232789443}
   Crosshair: {fileID: 6228751413266505920, guid: 07edf8807a2bd034b815c8063d99d687,
     type: 3}
   _keyInventory: {fileID: 5933569615159903467, guid: 84abbd6103b5ba04faeac34f3851d5aa,
@@ -964,7 +959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 280c1143847947c4a808199dc37352eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Camera: {fileID: 0}
+  Camera: {fileID: 1734022245366181265, guid: 91fb0a8de65e1ed4ca5aa384faa32266, type: 3}
 --- !u!1 &3941778229503898180
 GameObject:
   m_ObjectHideFlags: 0
