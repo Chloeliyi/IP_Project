@@ -29,12 +29,28 @@ namespace CollectionSystem
                 _keyInventory.UpdateItemsCount();
 
                 Debug.Log("Number Of Items Collected : " + _keyInventory.NumberOfItemsCollected);
-                StartCoroutine(TurnOnAndOff());
+                StartCoroutine(TurnItemOneOnAndOff());
             }
+            /*else if (_keyInventory.hasItemTwo)
+            {
+                _keyInventory.UpdateItemsCount();
 
+                Debug.Log("Number Of Items Collected : " + _keyInventory.NumberOfItemsCollected);
+                StartCoroutine(TurnItemTwoOnAndOff());
+            }*/
+        }
+        public void ItemTwoCollected()
+        {
+            if (_keyInventory.hasItemTwo)
+            {
+                _keyInventory.UpdateItemsCount();
+
+                Debug.Log("Number Of Items Collected : " + _keyInventory.NumberOfItemsCollected);
+                StartCoroutine(TurnItemTwoOnAndOff());
+            }
         }
 
-        IEnumerator TurnOnAndOff()
+        IEnumerator TurnItemOneOnAndOff()
         {
             Debug.Log("Coroutine Start");
             Debug.Log("Has Item One Is " + _keyInventory.hasItemOne);
@@ -49,6 +65,22 @@ namespace CollectionSystem
             Debug.Log("Has Item One Is " + _keyInventory.hasItemOne);
 
             _Spawner.SpawnItemOne();
+        }
+        IEnumerator TurnItemTwoOnAndOff()
+        {
+            Debug.Log("Coroutine Start");
+            Debug.Log("Has Item Two Is " + _keyInventory.hasItemTwo);
+            Debug.Log(gameObject.name);
+
+            yield return new WaitForSeconds(WaitTime);
+
+            _keyInventory.hasItemTwo = false;
+            gameObject.SetActive(false);
+
+            Debug.Log("Coroutine ended");
+            Debug.Log("Has Item Two Is " + _keyInventory.hasItemTwo);
+
+            _Spawner.SpawnItemTwo();
         }
     }
 }

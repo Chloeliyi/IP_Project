@@ -22,7 +22,6 @@ namespace CollectionSystem
 
         public void SpawnItemOneAtStart()
         {
-
             /*int SpawnPointX = Random.Range(0, 11);
             int SpawnPointZ = Random.Range(0, 11);
             int SpawnPointY = Random.Range(0, 11);
@@ -55,7 +54,7 @@ namespace CollectionSystem
 
                 Instantiate(ItemTwo, SpawnPosition, Quaternion.identity);
 
-                //Debug.Log(i);
+                Debug.Log("Number Of Item Twos is " + i);
             }
         }
 

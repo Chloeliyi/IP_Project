@@ -38,6 +38,10 @@ namespace CollectionSystem
             {
                 CheckParts = GetComponent<PartsController>();
             }
+            else if (ItemTwo)
+            {
+                CheckParts = GetComponent<PartsController>();
+            }
             else if (Car)
             {
                 CheckCar = GetComponent<CarController>();
@@ -53,7 +57,14 @@ namespace CollectionSystem
                 Debug.Log("Number Of Items Collected : " + _keyInventory.NumberOfItemsCollected);
                 //Debug.Log(RandomCollectNum.RandomCollect);
             }
-            else if (Car)
+            if (ItemTwo)
+            {
+                _keyInventory.hasItemTwo = true;
+                CheckParts.ItemTwoCollected();
+
+                Debug.Log("Number Of Items Collected : " + _keyInventory.NumberOfItemsCollected);
+            }
+            if (Car)
             {
                 _keyInventory.hasCar = true;
                 CheckCar.CheckForCar();

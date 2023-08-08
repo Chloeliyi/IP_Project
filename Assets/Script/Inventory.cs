@@ -23,7 +23,6 @@ namespace CollectionSystem
 
         private void Awake()
         {
-            //RandomCollectNum.RandomCollectNum();
             //ToBeCollectedLabel = GetComponent<TextMeshProUGUI>();
             //ItemsCollectedLabel = GetComponent<TextMeshProUGUI>();
             RandomCollectNum();
