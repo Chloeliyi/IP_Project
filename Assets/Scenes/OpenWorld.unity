@@ -9904,7 +9904,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: de05d16d05fe8f74ea46db97c62025db, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15716,6 +15716,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -6350177252957143759, guid: 39d3028399f45654cb1c43e10a864464,
         type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6350177252957143759, guid: 39d3028399f45654cb1c43e10a864464,
+        type: 3}
       propertyPath: m_TagString
       value: Floor
       objectReference: {fileID: 0}
@@ -17423,6 +17428,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: -2015469067881086004, guid: 39d3028399f45654cb1c43e10a864464,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -2015469067881086004, guid: 39d3028399f45654cb1c43e10a864464,
         type: 3}
