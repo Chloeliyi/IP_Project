@@ -17,7 +17,7 @@ namespace CollectionSystem
         private void Start()
         {
             SpawnItemOneAtStart();
-            //SpawnItemTwoAtStart();
+            SpawnItemTwoAtStart();
         }
 
         public void SpawnItemOneAtStart()

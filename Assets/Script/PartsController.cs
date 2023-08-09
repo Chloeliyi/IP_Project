@@ -26,24 +26,16 @@ namespace CollectionSystem
         {
             if (_keyInventory.hasItemOne)
             {
-                _keyInventory.UpdateItemsCount();
+                //_keyInventory.UpdateItemsCount();
+                Inventory.instance.UpdateItemsCount();
 
                 Debug.Log("Number Of Items Collected : " + _keyInventory.NumberOfItemsCollected);
                 StartCoroutine(TurnItemOneOnAndOff());
             }
-            /*else if (_keyInventory.hasItemTwo)
+            else if (_keyInventory.hasItemTwo)
             {
-                _keyInventory.UpdateItemsCount();
-
-                Debug.Log("Number Of Items Collected : " + _keyInventory.NumberOfItemsCollected);
-                StartCoroutine(TurnItemTwoOnAndOff());
-            }*/
-        }
-        public void ItemTwoCollected()
-        {
-            if (_keyInventory.hasItemTwo)
-            {
-                _keyInventory.UpdateItemsCount();
+                //_keyInventory.UpdateItemsCount();
+                Inventory.instance.UpdateItemsCount();
 
                 Debug.Log("Number Of Items Collected : " + _keyInventory.NumberOfItemsCollected);
                 StartCoroutine(TurnItemTwoOnAndOff());

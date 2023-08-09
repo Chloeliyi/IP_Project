@@ -60,7 +60,7 @@ namespace CollectionSystem
             if (ItemTwo)
             {
                 _keyInventory.hasItemTwo = true;
-                CheckParts.ItemTwoCollected();
+                CheckParts.ItemsCollected();
 
                 Debug.Log("Number Of Items Collected : " + _keyInventory.NumberOfItemsCollected);
             }

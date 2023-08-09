@@ -22,25 +22,23 @@ namespace CollectionSystem
 
         [SerializeField] private WheelController _Car;
 
+        public GameObject FixCanvas;
+
         // Start is called before the first frame update
         void Start()
         {
-            /*if(_keyInventory.hasCar)
-            {
-                _keyInventory = GetComponent<Inventory>();
-            }*/
-            
+            FixCanvas.SetActive(false);
+
         }
 
         public void CheckForCar()
         {
             Debug.Log("Car is clicked");
-            Debug.Log(_keyInventory.NumberOfItemsCollected);
-            Debug.Log(_keyInventory.RandomCollect);
-            //_keyInventory.hasCar = true;
+            Debug.Log("Car has items : " + _keyInventory.NumberOfItemsCollected);
+            Debug.Log("Car number of items to be collected : " + _keyInventory.RandomCollect);
 
-            //CheckForCarParts();
-            StartCoroutine(TurnCarOnAndOff());
+            CheckForCarParts();
+            //StartCoroutine(TurnCarOnAndOff());
 
             /*Player.SetActive(false);
 
@@ -54,25 +52,29 @@ namespace CollectionSystem
 
         public void CheckForCarParts()
         {
-            /*if (_keyInventory.NumberOfItemsCollected == RandomCollectNum.RandomCollect)
+            if (_keyInventory.NumberOfItemsCollected == _keyInventory.RandomCollect)
             {
                 Debug.Log("Car can be fixed");
                 Debug.Log(_keyInventory.NumberOfItemsCollected);
-                Debug.Log(RandomCollectNum.RandomCollect);
+                Debug.Log(_keyInventory.RandomCollect);
+
+                FixCanvas.SetActive(true);
             }
-            else if (_keyInventory.NumberOfItemsCollected <= RandomCollectNum.RandomCollect)
+            else if (_keyInventory.NumberOfItemsCollected <= _keyInventory.RandomCollect)
             {
                 Debug.Log("Get more objects to fix car");
                 Debug.Log(_keyInventory.NumberOfItemsCollected);
-                Debug.Log(RandomCollectNum.RandomCollect);
+                Debug.Log(_keyInventory.RandomCollect);
+
+                _keyInventory.hasCar = false;
             }
-            else if (_keyInventory.NumberOfItemsCollected >= RandomCollectNum.RandomCollect)
+            else if (_keyInventory.NumberOfItemsCollected >= _keyInventory.RandomCollect)
             {
                 Debug.Log("More than needed parts");
                 Debug.Log(_keyInventory.NumberOfItemsCollected);
-                _keyInventory.NumberOfItemsCollected -= RandomCollectNum.RandomCollect;
+                _keyInventory.NumberOfItemsCollected -= _keyInventory.RandomCollect;
                 Debug.Log(_keyInventory.NumberOfItemsCollected);
-            }*/
+            }
         }
 
         IEnumerator TurnCarOnAndOff()

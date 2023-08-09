@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Events;
+
 
 namespace CollectionSystem
 {
     public class Inventory : MonoBehaviour
     {
+        public static Inventory instance;
         public bool hasItemOne = false;
         public bool hasItemTwo = false;
         public bool hasCar = false;
@@ -26,10 +29,8 @@ namespace CollectionSystem
             //ToBeCollectedLabel = GetComponent<TextMeshProUGUI>();
             //ItemsCollectedLabel = GetComponent<TextMeshProUGUI>();
             RandomCollectNum();
-        }
 
-        private void Update()
-        {
+            instance = this;
         }
 
         public void UpdateItemsCount()
