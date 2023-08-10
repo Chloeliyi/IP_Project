@@ -28,7 +28,6 @@ namespace CollectionSystem
         void Start()
         {
             FixCanvas.SetActive(false);
-
         }
 
         public void CheckForCar()
@@ -74,6 +73,7 @@ namespace CollectionSystem
                 Debug.Log(_keyInventory.NumberOfItemsCollected);
                 _keyInventory.NumberOfItemsCollected -= _keyInventory.RandomCollect;
                 Debug.Log(_keyInventory.NumberOfItemsCollected);
+                FixCanvas.SetActive(true);
             }
         }
 

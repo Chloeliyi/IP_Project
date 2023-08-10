@@ -17,6 +17,12 @@ public class LongClickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
     [SerializeField] private Image fillImage;
 
+
+    private void Start()
+    {
+        Debug.Log("Fix is open");
+        Debug.Log(pointerDown);
+    }
     public void OnPointerDown(PointerEventData eventData)
     {
         pointerDown = true;
