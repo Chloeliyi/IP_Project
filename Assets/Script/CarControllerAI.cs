@@ -9,6 +9,7 @@ public class CarControllerAI : MonoBehaviour
     public Transform[] waypoints;   // Array of waypoints for city roaming
     public Transform garageEntrance;   // Reference to the garage entrance
     public List<ServicePoint> servicePoints;      // Reference to the service area inside the garage
+    public GameObject car;
 
     public float maxSpeed = 30f; // Maximum speed of the car
     public float acceleration = 20f; // Acceleration of the car
@@ -18,6 +19,7 @@ public class CarControllerAI : MonoBehaviour
     public float avoidanceDistance = 50f; // Radius to detect nearby cars for avoidance
     public float avoidanceSpeed = 5f;  // Speed when avoiding obstacles (lower than regular speed)
     public float stopDistance = 4f; // Distance at which the car should stop when there's an obstacle
+    public bool CarFixed; 
 
 
     private NavMeshAgent navAgent;    // Reference to the NavMeshAgent component
@@ -55,6 +57,7 @@ public class CarControllerAI : MonoBehaviour
 
         // Avoid other cars
         AvoidOtherCars();
+
 
         // Check if the car is near the garage entrance
         float distanceToEntrance = Vector3.Distance(transform.position, garageEntrance.position);
@@ -116,6 +119,7 @@ public class CarControllerAI : MonoBehaviour
         }
     }
 
+
     void GoToNextWaypoint()
     {
         // Move the car to the next waypoint
@@ -137,14 +141,15 @@ public class CarControllerAI : MonoBehaviour
 
     void SlowdownCar()
     {
-        // Calculate the deceleration factor based on distance to the garage entrance
-        float decelerationFactor = Mathf.Clamp01(Vector3.Distance(transform.position, garageEntrance.position) / slowdownDistance);
+        //// Calculate the deceleration factor based on distance to the garage entrance
+        //float decelerationFactor = Mathf.Clamp01(Vector3.Distance(transform.position, garageEntrance.position) / slowdownDistance);
 
-        // Calculate the desired speed by reducing the max speed based on the deceleration factor
-        float desiredSpeed = maxSpeed * decelerationFactor;
+        //// Calculate the desired speed by reducing the max speed based on the deceleration factor
+        //float desiredSpeed = maxSpeed * decelerationFactor;
 
-        // Smoothly adjust the car's speed based on the desired speed
-        navAgent.speed = Mathf.Lerp(navAgent.speed, desiredSpeed, Time.deltaTime * deceleration);
+        //// Smoothly adjust the car's speed based on the desired speed
+        //navAgent.speed = Mathf.Lerp(navAgent.speed, desiredSpeed, Time.deltaTime * deceleration);
+        navAgent.speed = 5f;
     }
 
     void AvoidOtherCars()
@@ -221,16 +226,41 @@ public class CarControllerAI : MonoBehaviour
         // Replace this with your own service/repair logic
         // For demonstration purposes, let's simulate a service delay of 3 seconds
         // and then move the car back to the city
-        StartCoroutine(ServiceDelay());
+        CarFixed = false;
+        StartCoroutine(InForService());
+    }
+
+    void CarIsRepaired()
+    {
+        if (CarFixed)
+        {
+            ServiceEnd();
+        }
     }
   
 
-    IEnumerator ServiceDelay()
+    IEnumerator InForService()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(5f);
+        navAgent = GetComponent<NavMeshAgent>();
+        if (navAgent != null)
+        {
+            navAgent.enabled = false; // Disable NavMeshAgent movement
+        }
+    }
+
+    IEnumerator ServiceEnd()
+    {
+        yield return new WaitForSeconds(5f);
+        navAgent = GetComponent<NavMeshAgent>();
+        if (navAgent != null)
+        {
+            navAgent.enabled = true; // Enable NavMeshAgent movement
+        }
         isInsideGarage = false;
         currentServicePoint.Release();
         yield return new WaitForEndOfFrame();
         Debug.Log("bye bye car");
     }
+
 }
