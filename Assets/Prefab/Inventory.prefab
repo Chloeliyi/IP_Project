@@ -47,5 +47,6 @@ MonoBehaviour:
   hasItemOne: 0
   hasItemTwo: 0
   hasCar: 0
+  IsSlider: 0
   NumberOfItemsCollected: 0
   RandomCollect: 0
