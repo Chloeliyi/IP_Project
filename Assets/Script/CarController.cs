@@ -22,62 +22,67 @@ namespace CollectionSystem
 
         [SerializeField] private WheelController _Car;
 
-        public GameObject FixCanvas;
+        //private TestSlider FixSlider;
 
-        // Start is called before the first frame update
+        [SerializeField] private GameObject _fixSlider;
+
         void Start()
         {
-            FixCanvas.SetActive(false);
+            //FixSlider = GetComponent<TestSlider>();
         }
 
-        public void CheckForCar()
+        /*public void CheckForCar()
         {
-            Debug.Log("Car is clicked");
-            Debug.Log("Car has items : " + _keyInventory.NumberOfItemsCollected);
-            Debug.Log("Car number of items to be collected : " + _keyInventory.RandomCollect);
-
-            CheckForCarParts();
             //StartCoroutine(TurnCarOnAndOff());
 
-            /*Player.SetActive(false);
+        Player.SetActive(false);
 
-            Crosshair.gameObject.SetActive(false);
-            CarCamera.gameObject.SetActive(true);
-            GetComponent<WheelController>().enabled = true;
+                Crosshair.gameObject.SetActive(false);
+                CarCamera.gameObject.SetActive(true);
+                GetComponent<WheelController>().enabled = true;
 
-            Player.transform.parent = CarModel.transform;
-            Player.transform.Rotate(0.0f, 270.0f, 0.0f, Space.Self);*/
-        }
+                Player.transform.parent = CarModel.transform;
+                Player.transform.Rotate(0.0f, 270.0f, 0.0f, Space.Self);
+                Debug.Log("Has Car");
+
+        }*/
 
         public void CheckForCarParts()
         {
-            if (_keyInventory.NumberOfItemsCollected == _keyInventory.RandomCollect)
+            if(_keyInventory.hasCar == false)
             {
-                Debug.Log("Car can be fixed");
-                Debug.Log(_keyInventory.NumberOfItemsCollected);
-                Debug.Log(_keyInventory.RandomCollect);
+                if (_keyInventory.NumberOfItemsCollected == _keyInventory.RandomCollect)
+                {
+                    Debug.Log("Car can be fixed");
+                    Debug.Log(_keyInventory.NumberOfItemsCollected);
+                    Debug.Log(_keyInventory.RandomCollect);
+                    _fixSlider.SetActive(true);
+                    //GetComponent<TestSlider>().enabled = true;
+                }
+                else if (_keyInventory.NumberOfItemsCollected <= _keyInventory.RandomCollect)
+                {
+                    Debug.Log("Get more objects to fix car");
+                    Debug.Log(_keyInventory.NumberOfItemsCollected);
+                    Debug.Log(_keyInventory.RandomCollect);
+                }
+                else if (_keyInventory.NumberOfItemsCollected >= _keyInventory.RandomCollect)
+                {
+                    Debug.Log("More than needed parts");
+                    Debug.Log(_keyInventory.NumberOfItemsCollected);
+                    _keyInventory.NumberOfItemsCollected -= _keyInventory.RandomCollect;
+                    Debug.Log(_keyInventory.NumberOfItemsCollected);
 
-                FixCanvas.SetActive(true);
+                    _fixSlider.SetActive(true);
+                    //GetComponent<TestSlider>().enabled = true;
+                }
             }
-            else if (_keyInventory.NumberOfItemsCollected <= _keyInventory.RandomCollect)
+            else if (_keyInventory.hasCar == true)
             {
-                Debug.Log("Get more objects to fix car");
-                Debug.Log(_keyInventory.NumberOfItemsCollected);
-                Debug.Log(_keyInventory.RandomCollect);
-
-                _keyInventory.hasCar = false;
-            }
-            else if (_keyInventory.NumberOfItemsCollected >= _keyInventory.RandomCollect)
-            {
-                Debug.Log("More than needed parts");
-                Debug.Log(_keyInventory.NumberOfItemsCollected);
-                _keyInventory.NumberOfItemsCollected -= _keyInventory.RandomCollect;
-                Debug.Log(_keyInventory.NumberOfItemsCollected);
-                FixCanvas.SetActive(true);
+                GetInCar();
             }
         }
 
-        IEnumerator TurnCarOnAndOff()
+        /*IEnumerator TurnCarOnAndOff()
         {
             Debug.Log("Coroutine Start");
             Debug.Log("Car Is clicked");
@@ -90,24 +95,16 @@ namespace CollectionSystem
             //Car = true;
             Debug.Log("Has Car is " + _keyInventory.hasCar);
             Debug.Log("Coroutine ended");
-        }
+        }*/
 
-        // Update is called once per frame
         void Update()
         {
-            //BackToPlayer();
-        }
-
-        public void BackToPlayer()
-        {
+            //Get Off Car
             if (_keyInventory.hasCar == true)
             {
-
-                Debug.Log("Has Car");
                 if (Input.GetKeyDown(KeyCode.Backspace))
                 {
                     Debug.Log("Backspace is pressed");
-                    _keyInventory.hasCar = false;
                     GetComponent<WheelController>().enabled = false;
                     Player.transform.parent = null;
                     CarCamera.gameObject.SetActive(false);
@@ -119,10 +116,48 @@ namespace CollectionSystem
                     Debug.Log("Backspace is not pressed");
                 }
             }
-            else
+        }
+
+        public void GetInCar()
+        {
+            Debug.Log("In Car");
+
+            Player.SetActive(false);
+
+            Crosshair.gameObject.SetActive(false);
+            CarCamera.gameObject.SetActive(true);
+            GetComponent<WheelController>().enabled = true;
+
+            Player.transform.parent = CarModel.transform;
+            Player.transform.Rotate(0.0f, 270.0f, 0.0f, Space.Self);
+
+            /*if (_keyInventory.hasCar == true)
             {
-                Debug.Log("Not In Car");
-            }
+                Debug.Log("In Car");
+
+                Player.SetActive(false);
+
+                Crosshair.gameObject.SetActive(false);
+                CarCamera.gameObject.SetActive(true);
+                GetComponent<WheelController>().enabled = true;
+
+                Player.transform.parent = CarModel.transform;
+                Player.transform.Rotate(0.0f, 270.0f, 0.0f, Space.Self);
+
+                if (Input.GetKeyDown(KeyCode.Backspace))
+                {
+                    Debug.Log("Backspace is pressed");
+                    GetComponent<WheelController>().enabled = false;
+                    Player.transform.parent = null;
+                    CarCamera.gameObject.SetActive(false);
+                    Player.SetActive(true);
+                    Crosshair.gameObject.SetActive(true);
+                }
+                else
+                {
+                    Debug.Log("Backspace is not pressed");
+                }
+            }*/
         }
     }
 }
