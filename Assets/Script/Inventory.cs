@@ -14,6 +14,7 @@ namespace CollectionSystem
         public bool hasItemOne = false;
         public bool hasItemTwo = false;
         public bool hasCar = false;
+        public bool IsSlider = false;
 
         public int NumberOfItemsCollected;
         public int RandomCollect;
@@ -21,7 +22,6 @@ namespace CollectionSystem
         //public TextMeshProUGUI ItemsCollectedLabel;
         //public TextMeshProUGUI ToBeCollectedLabel;
 
-        //[SerializeField] private RandomNumber RandomCollectNum;
         //public UnityEvent<Inventory> OnItemsCollected;
 
         private void Awake()
