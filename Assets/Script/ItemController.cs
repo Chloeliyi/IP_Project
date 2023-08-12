@@ -70,7 +70,6 @@ namespace CollectionSystem
             }
             if (Car)
             {
-                //_keyInventory.hasCar = true;
                 CheckCar.CheckForCarParts();
 
             }

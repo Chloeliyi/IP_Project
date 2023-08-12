@@ -19,16 +19,15 @@ namespace CollectionSystem
         public int NumberOfItemsCollected;
         public int RandomCollect;
 
-        //public TextMeshProUGUI ItemsCollectedLabel;
-        //public TextMeshProUGUI ToBeCollectedLabel;
+        //private InventoryUI ItemUI;
+
+        public TextMeshProUGUI ItemsCollectedLabel;
 
         //public UnityEvent<Inventory> OnItemsCollected;
 
         private void Awake()
         {
-            //ToBeCollectedLabel = GetComponent<TextMeshProUGUI>();
             //ItemsCollectedLabel = GetComponent<TextMeshProUGUI>();
-            RandomCollectNum();
 
             instance = this;
         }
@@ -37,15 +36,15 @@ namespace CollectionSystem
         {
             NumberOfItemsCollected++;
 
-            //ItemsCollectedLabel.text = NumberOfItemsCollected.ToString();
             Debug.Log("Number of items collected is " + NumberOfItemsCollected);
+            ItemsCollectedLabel.text = NumberOfItemsCollected.ToString();
         }
 
         public void RandomCollectNum()
         {
             RandomCollect = Random.Range(1, 6);
-            //ToBeCollectedLabel.text = "/" + RandomCollect.ToString();
             Debug.Log("Random Number To Be Collected :  " + RandomCollect);
+
         }
     }
 }

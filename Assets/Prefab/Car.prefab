@@ -137,6 +137,8 @@ MonoBehaviour:
     type: 3}
   _Car: {fileID: 661231441248453940}
   _fixSlider: {fileID: 55946878114441884}
+  ItemsLabel: {fileID: 6158776964600039928, guid: f66dc02437c32bd4b8aaaf9ca16d8aa6,
+    type: 3}
 --- !u!1 &1411626936155315676
 GameObject:
   m_ObjectHideFlags: 0

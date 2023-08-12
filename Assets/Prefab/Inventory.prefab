@@ -50,3 +50,5 @@ MonoBehaviour:
   IsSlider: 0
   NumberOfItemsCollected: 0
   RandomCollect: 0
+  ItemsCollectedLabel: {fileID: 4498736349647746651, guid: 896b1adc399b18b41a38dbe829cf8e24,
+    type: 3}

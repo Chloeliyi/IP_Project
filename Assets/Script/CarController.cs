@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace CollectionSystem
 {
@@ -26,9 +27,15 @@ namespace CollectionSystem
 
         [SerializeField] private GameObject _fixSlider;
 
+        [SerializeField] private GameObject ItemsLabel;
+
+        public TextMeshProUGUI ToBeCollectedLabel;
+
         void Start()
         {
             //FixSlider = GetComponent<TestSlider>();
+
+            ItemsLabel.SetActive(false);
         }
 
         /*public void CheckForCar()
@@ -49,14 +56,22 @@ namespace CollectionSystem
 
         public void CheckForCarParts()
         {
-            if(_keyInventory.hasCar == false)
+            _keyInventory.RandomCollectNum();
+            ToBeCollectedLabel.text = "/" + _keyInventory.RandomCollect.ToString();
+
+            ItemsLabel.SetActive(true);
+
+            if (_keyInventory.hasCar == false)
             {
                 if (_keyInventory.NumberOfItemsCollected == _keyInventory.RandomCollect)
                 {
                     Debug.Log("Car can be fixed");
                     Debug.Log(_keyInventory.NumberOfItemsCollected);
                     Debug.Log(_keyInventory.RandomCollect);
+
+                    ItemsLabel.SetActive(false);
                     _fixSlider.SetActive(true);
+
                     //GetComponent<TestSlider>().enabled = true;
                 }
                 else if (_keyInventory.NumberOfItemsCollected <= _keyInventory.RandomCollect)
@@ -72,6 +87,7 @@ namespace CollectionSystem
                     _keyInventory.NumberOfItemsCollected -= _keyInventory.RandomCollect;
                     Debug.Log(_keyInventory.NumberOfItemsCollected);
 
+                    ItemsLabel.SetActive(false);
                     _fixSlider.SetActive(true);
                     //GetComponent<TestSlider>().enabled = true;
                 }
@@ -81,21 +97,6 @@ namespace CollectionSystem
                 GetInCar();
             }
         }
-
-        /*IEnumerator TurnCarOnAndOff()
-        {
-            Debug.Log("Coroutine Start");
-            Debug.Log("Car Is clicked");
-            Debug.Log("Has Car is " + _keyInventory.hasCar);
-
-            //Car = false;
-            yield return new WaitForSeconds(1.0f);
-
-            _keyInventory.hasCar = false;
-            //Car = true;
-            Debug.Log("Has Car is " + _keyInventory.hasCar);
-            Debug.Log("Coroutine ended");
-        }*/
 
         void Update()
         {
@@ -131,20 +132,7 @@ namespace CollectionSystem
             Player.transform.parent = CarModel.transform;
             Player.transform.Rotate(0.0f, 270.0f, 0.0f, Space.Self);
 
-            /*if (_keyInventory.hasCar == true)
-            {
-                Debug.Log("In Car");
-
-                Player.SetActive(false);
-
-                Crosshair.gameObject.SetActive(false);
-                CarCamera.gameObject.SetActive(true);
-                GetComponent<WheelController>().enabled = true;
-
-                Player.transform.parent = CarModel.transform;
-                Player.transform.Rotate(0.0f, 270.0f, 0.0f, Space.Self);
-
-                if (Input.GetKeyDown(KeyCode.Backspace))
+            /*if (Input.GetKeyDown(KeyCode.Backspace))
                 {
                     Debug.Log("Backspace is pressed");
                     GetComponent<WheelController>().enabled = false;
