@@ -10,22 +10,19 @@ namespace CollectionSystem
     public class InventoryUI : MonoBehaviour
     {
 
-        //public TextMeshProUGUI ItemsCollectedLabel;
-        public TextMeshProUGUI ToBeCollectedLabel;
-
-        [SerializeField] private Inventory _keyInventory;
+        private TextMeshProUGUI ItemsCollectedLabel;
 
         void Start()
         {
-            //ItemsCollectedLabel = GetComponent<TextMeshProUGUI>();
+            ItemsCollectedLabel = GetComponent<TextMeshProUGUI>();
         }
         void Update()
         {
             //UpdateItemLabel();
         }
-        public void UpdateItemLabel()
+        public void UpdateItemLabel(Inventory Inventory)
         {
-            //ItemsCollectedLabel.text = Inventory.NumberOfItemsCollected.ToString();
+            ItemsCollectedLabel.text = Inventory.NumberOfItemsCollected.ToString();
             //Debug.Log("Label of items collected is " + ItemsCollectedLabel.text);
         }
     }
