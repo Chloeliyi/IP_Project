@@ -16,14 +16,14 @@ namespace CollectionSystem
         public bool hasCar = false;
         public bool IsSlider = false;
 
-        public int NumberOfItemsCollected;
+        public int NumberOfItemsCollected { get; set; }
         public int RandomCollect;
 
         //private InventoryUI ItemUI;
 
-        public TextMeshProUGUI ItemsCollectedLabel;
+        //public TextMeshProUGUI ItemsCollectedLabel;
 
-        //public UnityEvent<Inventory> OnItemsCollected;
+        public UnityEvent<Inventory> OnItemsCollected;
 
         private void Awake()
         {
@@ -32,12 +32,13 @@ namespace CollectionSystem
             instance = this;
         }
 
-        public void UpdateItemsCount()
+        public void ItemCollected()
         {
             NumberOfItemsCollected++;
 
+            OnItemsCollected.Invoke(this);
             Debug.Log("Number of items collected is " + NumberOfItemsCollected);
-            ItemsCollectedLabel.text = NumberOfItemsCollected.ToString();
+            //ItemsCollectedLabel.text = NumberOfItemsCollected.ToString();
         }
 
         public void RandomCollectNum()
