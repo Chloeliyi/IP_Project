@@ -31,6 +31,8 @@ namespace CollectionSystem
 
         public TextMeshProUGUI ToBeCollectedLabel;
 
+        [SerializeField] private float RandomColNum = 0;
+
         void Start()
         {
             //FixSlider = GetComponent<TestSlider>();
@@ -56,8 +58,12 @@ namespace CollectionSystem
 
         public void CheckForCarParts()
         {
-            _keyInventory.RandomCollectNum();
-            ToBeCollectedLabel.text = "/" + _keyInventory.RandomCollect.ToString();
+            if (RandomColNum <= 1)
+            {
+                _keyInventory.RandomCollectNum();
+                ToBeCollectedLabel.text = "/" + _keyInventory.RandomCollect.ToString();
+                RandomColNum++;
+            }
 
             ItemsLabel.SetActive(true);
 
@@ -124,7 +130,7 @@ namespace CollectionSystem
             Debug.Log("In Car");
 
             Player.SetActive(false);
-
+            ItemsLabel.SetActive(false);
             Crosshair.gameObject.SetActive(false);
             CarCamera.gameObject.SetActive(true);
             GetComponent<WheelController>().enabled = true;
