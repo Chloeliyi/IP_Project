@@ -19,23 +19,20 @@ namespace CollectionSystem
         {
             Debug.Log("Number Of Items Collected At Start : " + _keyInventory.NumberOfItemsCollected);
 
-            //_Spawner = GetComponent<RandomSpawner>();
         }
 
         public void ItemsCollected()
         {
             if (_keyInventory.hasItemOne)
             {
-                //_keyInventory.UpdateItemsCount();
-                Inventory.instance.UpdateItemsCount();
+                Inventory.instance.ItemCollected();
 
                 Debug.Log("Number Of Items Collected : " + _keyInventory.NumberOfItemsCollected);
                 StartCoroutine(TurnItemOneOnAndOff());
             }
             else if (_keyInventory.hasItemTwo)
             {
-                //_keyInventory.UpdateItemsCount();
-                Inventory.instance.UpdateItemsCount();
+                Inventory.instance.ItemCollected();
 
                 Debug.Log("Number Of Items Collected : " + _keyInventory.NumberOfItemsCollected);
                 StartCoroutine(TurnItemTwoOnAndOff());
