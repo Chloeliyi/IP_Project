@@ -12,6 +12,7 @@ namespace CollectionSystem
         [SerializeField] private bool ItemOne = false;
         [SerializeField] private bool ItemTwo = false;
         [SerializeField] private bool Car = false;
+        [SerializeField] private bool FixSlider = false;
 
         /*[SerializeField] private GameObject Player;
 
@@ -25,13 +26,13 @@ namespace CollectionSystem
 
         [SerializeField] private Inventory _keyInventory;
 
-        [SerializeField] private WheelController _Car;
-
         //[SerializeField] private RandomNumber RandomCollectNum;
 
         private PartsController CheckParts;
 
         private CarController CheckCar;
+
+        private TestSlider CheckSlider;
         private void Start()
         {
             if (ItemOne)
@@ -46,6 +47,10 @@ namespace CollectionSystem
             {
                 CheckCar = GetComponent<CarController>();
             }
+            else if (FixSlider)
+            {
+                CheckSlider = GetComponent<TestSlider>();
+            }
         }
         public void ObjectInteraction()
         {
@@ -55,7 +60,6 @@ namespace CollectionSystem
                 CheckParts.ItemsCollected();
 
                 Debug.Log("Number Of Items Collected : " + _keyInventory.NumberOfItemsCollected);
-                //Debug.Log(RandomCollectNum.RandomCollect);
             }
             if (ItemTwo)
             {
@@ -66,9 +70,14 @@ namespace CollectionSystem
             }
             if (Car)
             {
-                _keyInventory.hasCar = true;
-                CheckCar.CheckForCar();
+                //_keyInventory.hasCar = true;
+                CheckCar.CheckForCarParts();
 
+            }
+            if (FixSlider)
+            {
+                _keyInventory.IsSlider = true;
+                GetComponent<TestSlider>().enabled = true;
             }
         }
         private void Update()
