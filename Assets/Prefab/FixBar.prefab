@@ -650,7 +650,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8116790991688038321
 Transform:
   m_ObjectHideFlags: 0
@@ -692,9 +692,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10b1a73b5d173af4e8a1a1384d4524cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _keyInventory: {fileID: 0}
   pointerDownTimer: 0
   requiredHoldTime: 2
   FixSlider: {fileID: 8116790990829470678}
+  _fixSlider: {fileID: 0}
 --- !u!114 &8355502447748912437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -715,7 +717,6 @@ MonoBehaviour:
     type: 3}
   _keyInventory: {fileID: 8286454713287983775, guid: 84abbd6103b5ba04faeac34f3851d5aa,
     type: 3}
-  _Car: {fileID: 661231441248453940, guid: ba530ca962697b14988653dcd256168e, type: 3}
 --- !u!114 &4665581849735620762
 MonoBehaviour:
   m_ObjectHideFlags: 0
