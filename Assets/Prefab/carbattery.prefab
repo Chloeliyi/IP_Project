@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 4340885039393024416}
   - component: {fileID: 257618107030010166}
   - component: {fileID: 3248224227187352802}
+  - component: {fileID: -4804771745302073077}
+  - component: {fileID: 8692667452377812613}
   m_Layer: 6
   m_Name: carbattery
   m_TagString: InteractiveObject
@@ -114,3 +116,41 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.39374998, y: 0.26174968, z: 0.32399994}
   m_Center: {x: -0.0000003427267, y: 0.009374876, z: 0}
+--- !u!114 &-4804771745302073077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2827441986183334005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d12587dbad93e4418892cda0d595d37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemOne: 0
+  ItemTwo: 0
+  ItemThree: 1
+  ItemFour: 0
+  Car: 0
+  FixSlider: 0
+  Crosshair: {fileID: 6228751413266505920, guid: 07edf8807a2bd034b815c8063d99d687,
+    type: 3}
+  _keyInventory: {fileID: 8286454713287983775, guid: 84abbd6103b5ba04faeac34f3851d5aa,
+    type: 3}
+--- !u!114 &8692667452377812613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2827441986183334005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfd4543ee393cb2478f5188992109f9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _keyInventory: {fileID: 8286454713287983775, guid: 84abbd6103b5ba04faeac34f3851d5aa,
+    type: 3}
+  _Spawner: {fileID: 701334963737298234, guid: da3f7abf077342f4abf41b661892a1e7, type: 3}
+  WaitTime: 1
