@@ -9,8 +9,8 @@ namespace CollectionSystem
     {
         public GameObject ItemOne;
         public GameObject ItemTwo;
-        //public GameObject ItemThree;
-        //public GameObject ItemFour;
+        public GameObject ItemThree;
+        public GameObject ItemFour;
 
         int ItemsAtSpawn = 2;
 
@@ -18,15 +18,12 @@ namespace CollectionSystem
         {
             SpawnItemOneAtStart();
             SpawnItemTwoAtStart();
+            SpawnItemThreeAtStart();
+            SpawnItemFourAtStart();
         }
 
         public void SpawnItemOneAtStart()
         {
-            /*int SpawnPointX = Random.Range(0, 11);
-            int SpawnPointZ = Random.Range(0, 11);
-            int SpawnPointY = Random.Range(0, 11);
-
-            Vector3 SpawnPosition = new Vector3(SpawnPointX, SpawnPointY, SpawnPointZ);*/
 
             for (var i = 0; i <= ItemsAtSpawn; i++)
             {
@@ -65,7 +62,7 @@ namespace CollectionSystem
             Instantiate(ItemTwo, SpawnPosition, Quaternion.identity);
         }
 
-        /*public void SpawnItemThreeAtStart()
+        public void SpawnItemThreeAtStart()
         {
 
             for (var i = 0; i <= ItemsAtSpawn; i++)
@@ -99,6 +96,6 @@ namespace CollectionSystem
             Vector3 SpawnPosition = new Vector3(Random.Range(-10, 11), 1, Random.Range(-10, 11));
 
             Instantiate(ItemFour, SpawnPosition, Quaternion.identity);
-        }*/
+        }
     }
 }
