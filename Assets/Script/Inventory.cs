@@ -13,6 +13,8 @@ namespace CollectionSystem
         public static Inventory instance;
         public bool hasItemOne = false;
         public bool hasItemTwo = false;
+        public bool hasItemThree = false;
+        public bool hasItemFour = false;
         public bool hasCar = false;
         public bool IsSlider = false;
 
@@ -43,7 +45,7 @@ namespace CollectionSystem
 
         public void RandomCollectNum()
         {
-            RandomCollect = Random.Range(1, 6);
+            RandomCollect = Random.Range(5, 11);
             Debug.Log("Random Number To Be Collected :  " + RandomCollect);
 
         }
