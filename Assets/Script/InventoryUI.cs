@@ -18,7 +18,6 @@ namespace CollectionSystem
         }
         void Update()
         {
-            //UpdateItemLabel();
         }
         public void UpdateItemLabel(Inventory Inventory)
         {
