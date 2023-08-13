@@ -14,7 +14,6 @@ namespace CollectionSystem
 
         [SerializeField] private int WaitTime = 1;
 
-        // Start is called before the first frame update
         void Start()
         {
             Debug.Log("Number Of Items Collected At Start : " + _keyInventory.NumberOfItemsCollected);
@@ -36,6 +35,20 @@ namespace CollectionSystem
 
                 Debug.Log("Number Of Items Collected : " + _keyInventory.NumberOfItemsCollected);
                 StartCoroutine(TurnItemTwoOnAndOff());
+            }
+            else if (_keyInventory.hasItemThree)
+            {
+                Inventory.instance.ItemCollected();
+
+                Debug.Log("Number Of Items Collected : " + _keyInventory.NumberOfItemsCollected);
+                StartCoroutine(TurnItemThreeOnAndOff());
+            }
+            else if (_keyInventory.hasItemFour)
+            {
+                Inventory.instance.ItemCollected();
+
+                Debug.Log("Number Of Items Collected : " + _keyInventory.NumberOfItemsCollected);
+                StartCoroutine(TurnItemFourOnAndOff());
             }
         }
 
@@ -70,6 +83,38 @@ namespace CollectionSystem
             Debug.Log("Has Item Two Is " + _keyInventory.hasItemTwo);
 
             _Spawner.SpawnItemTwo();
+        }
+        IEnumerator TurnItemThreeOnAndOff()
+        {
+            Debug.Log("Coroutine Start");
+            Debug.Log("Has Item Three Is " + _keyInventory.hasItemThree);
+            Debug.Log(gameObject.name);
+
+            yield return new WaitForSeconds(WaitTime);
+
+            _keyInventory.hasItemThree = false;
+            gameObject.SetActive(false);
+
+            Debug.Log("Coroutine ended");
+            Debug.Log("Has Item Three Is " + _keyInventory.hasItemThree);
+
+            _Spawner.SpawnItemThree();
+        }
+        IEnumerator TurnItemFourOnAndOff()
+        {
+            Debug.Log("Coroutine Start");
+            Debug.Log("Has Item Four Is " + _keyInventory.hasItemFour);
+            Debug.Log(gameObject.name);
+
+            yield return new WaitForSeconds(WaitTime);
+
+            _keyInventory.hasItemFour = false;
+            gameObject.SetActive(false);
+
+            Debug.Log("Coroutine ended");
+            Debug.Log("Has Item Four Is " + _keyInventory.hasItemFour);
+
+            _Spawner.SpawnItemFour();
         }
     }
 }
