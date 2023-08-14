@@ -1,41 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public GameObject MainMenu;
 
-    public GameObject MusicMenu;
+    public GameObject OptionsMenu;
 
-    public GameObject InstructionsMenu;
+    public GameObject HowToPlayMenu;
 
     public GameObject QuitMenu;
 
     public GameObject PauseMenu;
 
+    public GameObject CreditsMenu;
+
     private void Start()
     {
         QuitMenu.SetActive(false);
-        MusicMenu.SetActive(false);
-        InstructionsMenu.SetActive(false);
+        OptionsMenu.SetActive(false);
+        HowToPlayMenu.SetActive(false);
+        CreditsMenu.SetActive(false);
         MainMenu.SetActive(true);
     }
     public void OnStartButton()
     {
-
+        SceneManager.LoadScene(1);
     }
 
-    public void OnMusicButton()
+    public void OnOptionButton()
     {
-        MainMenu.SetActive(false);
-        MusicMenu.SetActive(true);
+        //MainMenu.SetActive(false);
+        OptionsMenu.SetActive(true);
     }
 
-    public void OnInstructionsButton()
+    public void OnHowToPlayButton()
     {
-        MainMenu.SetActive(false);
-        InstructionsMenu.SetActive(true);
+        //MainMenu.SetActive(false);
+        HowToPlayMenu.SetActive(true);
+    }
+
+    public void OnCreditsButton()
+    {
+        //MainMenu.SetActive(false);
+        CreditsMenu.SetActive(true);
     }
 
     public void OnQuitButton()
@@ -55,8 +65,9 @@ public class GameManager : MonoBehaviour
 
     public void OnBackButton()
     {
-        InstructionsMenu.SetActive(false);
-        MusicMenu.SetActive(false);
-        MainMenu.SetActive(true);
+        HowToPlayMenu.SetActive(false);
+        OptionsMenu.SetActive(false);
+        CreditsMenu.SetActive(false);
+        //MainMenu.SetActive(true);
     }
 }
