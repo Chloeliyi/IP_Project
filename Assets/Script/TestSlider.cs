@@ -18,6 +18,8 @@ namespace CollectionSystem
 
         [SerializeField] private GameObject _fixSlider;
 
+        private CarControllerAI Carfixed;
+
         //private WheelController _Car;
 
         void Awake()
@@ -26,6 +28,8 @@ namespace CollectionSystem
             //_Car = GetComponent<WheelController>();
 
             _fixSlider.SetActive(false);
+
+            Carfixed = GetComponent<CarControllerAI>();
         }
         private void Update()
         {
@@ -43,9 +47,11 @@ namespace CollectionSystem
 
                     Debug.Log("Car is fixed");
 
-                    _keyInventory.hasCar = true;
+                    //_keyInventory.hasCar = true;
+                    //Debug.Log("Has Car is " + _keyInventory.hasCar);
 
-                    Debug.Log("Has Car is " + _keyInventory.hasCar);
+                    GetComponent<CarControllerAI>().enabled = true;
+                    Carfixed.CarIsRepaired();
 
                     //GetComponent<WheelController>().enabled = true;
                 }
