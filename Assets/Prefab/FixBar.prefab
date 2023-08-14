@@ -692,7 +692,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10b1a73b5d173af4e8a1a1384d4524cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _keyInventory: {fileID: 0}
+  _keyInventory: {fileID: 8286454713287983775, guid: 84abbd6103b5ba04faeac34f3851d5aa,
+    type: 3}
   pointerDownTimer: 0
   requiredHoldTime: 2
   FixSlider: {fileID: 8116790990829470678}
@@ -711,7 +712,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemOne: 0
   ItemTwo: 0
+  ItemThree: 0
+  ItemFour: 0
   Car: 0
+  TowTruck: 0
   FixSlider: 1
   Crosshair: {fileID: 6228751413266505920, guid: 07edf8807a2bd034b815c8063d99d687,
     type: 3}
