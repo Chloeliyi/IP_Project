@@ -16,6 +16,7 @@ namespace CollectionSystem
         public bool hasItemThree = false;
         public bool hasItemFour = false;
         public bool hasCar = false;
+        public bool hasTowTruck = false;
         public bool IsSlider = false;
 
         public int NumberOfItemsCollected { get; set; }
