@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
+using TMPro;
 
 namespace CollectionSystem
 {
@@ -10,35 +11,90 @@ namespace CollectionSystem
 
         [SerializeField] private bool ItemOne = false;
         [SerializeField] private bool ItemTwo = false;
+        [SerializeField] private bool ItemThree = false;
+        [SerializeField] private bool ItemFour = false;
+        [SerializeField] private bool Car = false;
+        [SerializeField] private bool FixSlider = false;
 
-        [SerializeField] private Inventory _keyInventory = null;
+        [SerializeField] private Image Crosshair = null;
 
-        // Start is called before the first frame update
-        void Start()
+        [SerializeField] private Inventory _keyInventory;
+
+        private PartsController CheckParts;
+
+        private CarController CheckCar;
+
+        private TestSlider CheckSlider;
+        private void Start()
         {
-
-        }
-
-        public void ObjectInteraction()
-        {
-            if(ItemOne)
+            if (ItemOne)
             {
-                _keyInventory.hasItemOne = true;
-                Debug.Log(gameObject.name);
-                gameObject.SetActive(false);
+                CheckParts = GetComponent<PartsController>();
             }
             else if (ItemTwo)
             {
-                _keyInventory.hasItemTwo = true;
-                Debug.Log(gameObject.name);
-                gameObject.SetActive(false);
+                CheckParts = GetComponent<PartsController>();
+            }
+            else if (ItemThree)
+            {
+                CheckParts = GetComponent<PartsController>();
+            }
+            else if (ItemFour)
+            {
+                CheckParts = GetComponent<PartsController>();
+            }
+            else if (Car)
+            {
+                CheckCar = GetComponent<CarController>();
+            }
+            else if (FixSlider)
+            {
+                CheckSlider = GetComponent<TestSlider>();
             }
         }
-
-        // Update is called once per frame
-        void Update()
+        public void ObjectInteraction()
         {
+            if (ItemOne)
+            {
+                _keyInventory.hasItemOne = true;
+                CheckParts.ItemsCollected();
 
+                Debug.Log("Number Of Items Collected : " + _keyInventory.NumberOfItemsCollected);
+            }
+            if (ItemTwo)
+            {
+                _keyInventory.hasItemTwo = true;
+                CheckParts.ItemsCollected();
+
+                Debug.Log("Number Of Items Collected : " + _keyInventory.NumberOfItemsCollected);
+            }
+            if (ItemThree)
+            {
+                _keyInventory.hasItemThree = true;
+                CheckParts.ItemsCollected();
+
+                Debug.Log("Number Of Items Collected : " + _keyInventory.NumberOfItemsCollected);
+            }
+            if (ItemFour)
+            {
+                _keyInventory.hasItemFour = true;
+                CheckParts.ItemsCollected();
+
+                Debug.Log("Number Of Items Collected : " + _keyInventory.NumberOfItemsCollected);
+            }
+            if (Car)
+            {
+                CheckCar.CheckForCarParts();
+
+            }
+            if (FixSlider)
+            {
+                _keyInventory.IsSlider = true;
+                GetComponent<TestSlider>().enabled = true;
+            }
+        }
+        private void Update()
+        {
         }
     }
 }

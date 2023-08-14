@@ -2,71 +2,100 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RandomSpawner : MonoBehaviour
+
+namespace CollectionSystem
 {
-    public GameObject ItemOne;
-
-    public GameObject ItemTwo;
-    //public float Radius = 1;
-    int ItemsAtSpawn = 1;
-
-
-    private void Start()
+    public class RandomSpawner : MonoBehaviour
     {
-        SpawnItemOne();
-        SpawnItemTwo();
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        /*if(Input.GetKeyDown(KeyCode.Space))
+        public GameObject ItemOne;
+        public GameObject ItemTwo;
+        public GameObject ItemThree;
+        public GameObject ItemFour;
+
+        int ItemsAtSpawn = 2;
+
+        private void Start()
+        {
+            SpawnItemOneAtStart();
+            SpawnItemTwoAtStart();
+            SpawnItemThreeAtStart();
+            SpawnItemFourAtStart();
+        }
+
+        public void SpawnItemOneAtStart()
         {
 
-            SpawnItemOne();
-            SpawnItemTwo();
-        }*/
-    }
+            for (var i = 0; i <= ItemsAtSpawn; i++)
+            {
+                Vector3 SpawnPosition = new Vector3(Random.Range(-10, 11), 1, Random.Range(-10, 11));
 
-    public void SpawnItemOne()
-    {
-        /*int SpawnPointX = Random.Range(0, 11);
-        int SpawnPointZ = Random.Range(0, 11);
-        int SpawnPointY = Random.Range(0, 11);
+                Instantiate(ItemOne, SpawnPosition, Quaternion.identity);
 
-        Vector3 SpawnPosition = new Vector3(SpawnPointX, SpawnPointY, SpawnPointZ);*/
+                Debug.Log("Number Of Item Ones is " + i);
+            }
+        }
 
-        for (var i = 0; i <= ItemsAtSpawn; i++)
+        public void SpawnItemOne()
         {
             Vector3 SpawnPosition = new Vector3(Random.Range(-10, 11), 1, Random.Range(-10, 11));
 
             Instantiate(ItemOne, SpawnPosition, Quaternion.identity);
-
-            Debug.Log(i);
         }
-    }
 
-    public void SpawnItemTwo()
-    {
-        /*int SpawnPointX = Random.Range(0, 11);
-        int SpawnPointZ = Random.Range(0, 11);
-        int SpawnPointY = Random.Range(0, 11);
+        public void SpawnItemTwoAtStart()
+        {
 
-        Vector3 SpawnPosition = new Vector3(SpawnPointX, SpawnPointY, SpawnPointZ);*/
+            for (var i = 0; i <= ItemsAtSpawn; i++)
+            {
+                Vector3 SpawnPosition = new Vector3(Random.Range(-10, 11), 1, Random.Range(-10, 11));
 
-        for (var i = 0; i <= ItemsAtSpawn; i++)
+                Instantiate(ItemTwo, SpawnPosition, Quaternion.identity);
+
+                Debug.Log("Number Of Item Twos is " + i);
+            }
+        }
+
+        public void SpawnItemTwo()
         {
             Vector3 SpawnPosition = new Vector3(Random.Range(-10, 11), 1, Random.Range(-10, 11));
 
             Instantiate(ItemTwo, SpawnPosition, Quaternion.identity);
+        }
 
-            Debug.Log(i);
+        public void SpawnItemThreeAtStart()
+        {
+
+            for (var i = 0; i <= ItemsAtSpawn; i++)
+            {
+                Vector3 SpawnPosition = new Vector3(Random.Range(-10, 11), 1, Random.Range(-10, 11));
+
+                Instantiate(ItemThree, SpawnPosition, Quaternion.identity);
+            }
+        }
+
+        public void SpawnItemThree()
+        {
+            Vector3 SpawnPosition = new Vector3(Random.Range(-10, 11), 1, Random.Range(-10, 11));
+
+            Instantiate(ItemThree, SpawnPosition, Quaternion.identity);
+        }
+
+        public void SpawnItemFourAtStart()
+        {
+
+            for (var i = 0; i <= ItemsAtSpawn; i++)
+            {
+                Vector3 SpawnPosition = new Vector3(Random.Range(-10, 11), 1, Random.Range(-10, 11));
+
+                Instantiate(ItemFour, SpawnPosition, Quaternion.identity);
+            }
+        }
+        
+         public void SpawnItemFour()
+        {
+            Vector3 SpawnPosition = new Vector3(Random.Range(-10, 11), 1, Random.Range(-10, 11));
+
+            Instantiate(ItemFour, SpawnPosition, Quaternion.identity);
         }
     }
-
-    /*private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-
-        Gizmos.DrawWireSphere(this.transform.position, Radius);
-    }*/
 }

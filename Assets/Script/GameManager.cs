@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,6 +21,15 @@ public class GameManager : MonoBehaviour
         MusicMenu.SetActive(false);
         InstructionsMenu.SetActive(false);
         MainMenu.SetActive(true);
+        //PauseMenu.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            PauseMenu.SetActive(true);
+        }
     }
     public void OnStartButton()
     {
