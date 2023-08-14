@@ -19,6 +19,7 @@ namespace CollectionSystem
         private bool doOnce;
 
         private string interactableTag = "InteractiveObject";
+        private string CarTag = "Car";
 
         private void Update()
         {
@@ -29,7 +30,7 @@ namespace CollectionSystem
 
             if (Physics.Raycast(transform.position, fwd, out hitInfo, rayLength, mask))
             {
-                if (hitInfo.collider.CompareTag(interactableTag))
+                if (hitInfo.collider.CompareTag(interactableTag)  || hitInfo.collider.CompareTag(CarTag))
                 {
                     if (!doOnce)
                     {
