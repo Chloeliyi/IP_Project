@@ -35,50 +35,39 @@ namespace CollectionSystem
 
         void Start()
         {
-            //FixSlider = GetComponent<TestSlider>();
 
             ItemsLabel.SetActive(false);
         }
 
-        /*public void CheckForCar()
-        {
-            //StartCoroutine(TurnCarOnAndOff());
-
-        Player.SetActive(false);
-
-                Crosshair.gameObject.SetActive(false);
-                CarCamera.gameObject.SetActive(true);
-                GetComponent<WheelController>().enabled = true;
-
-                Player.transform.parent = CarModel.transform;
-                Player.transform.Rotate(0.0f, 270.0f, 0.0f, Space.Self);
-                Debug.Log("Has Car");
-
-        }*/
-
         public void CheckForCarParts()
         {
-            if (RandomColNum <= 1)
-            {
-                _keyInventory.RandomCollectNum();
-                ToBeCollectedLabel.text = "/" + _keyInventory.RandomCollect.ToString();
-                RandomColNum++;
-            }
-
-            ItemsLabel.SetActive(true);
-
             if (_keyInventory.hasCar == false)
             {
+                if (RandomColNum < 1)
+                {
+                    _keyInventory.RandomCollectNum();
+                    ToBeCollectedLabel.text = "/" + _keyInventory.RandomCollect.ToString();
+                    RandomColNum++;
+                }
+
+                ItemsLabel.SetActive(true);
+
                 if (_keyInventory.NumberOfItemsCollected == _keyInventory.RandomCollect)
                 {
                     Debug.Log("Car can be fixed");
                     Debug.Log(_keyInventory.NumberOfItemsCollected);
                     Debug.Log(_keyInventory.RandomCollect);
 
+                    _keyInventory.NumberOfItemsCollected -= _keyInventory.RandomCollect;
+
+                    Debug.Log(_keyInventory.NumberOfItemsCollected);
+
+                    //RandomColNum = 0;
+
                     ItemsLabel.SetActive(false);
                     _fixSlider.SetActive(true);
 
-                    //GetComponent<TestSlider>().enabled = true;
+                    Debug.Log("Fix slider is" + _fixSlider);
                 }
                 else if (_keyInventory.NumberOfItemsCollected <= _keyInventory.RandomCollect)
                 {
@@ -93,21 +82,22 @@ namespace CollectionSystem
                     _keyInventory.NumberOfItemsCollected -= _keyInventory.RandomCollect;
                     Debug.Log(_keyInventory.NumberOfItemsCollected);
 
+                    //RandomColNum = 0;
+
                     ItemsLabel.SetActive(false);
                     _fixSlider.SetActive(true);
-                    //GetComponent<TestSlider>().enabled = true;
                 }
             }
             else if (_keyInventory.hasCar == true)
             {
-                GetInCar();
+                GetInVehicle();
             }
         }
 
         void Update()
         {
             //Get Off Car
-            if (_keyInventory.hasCar == true)
+            if (_keyInventory.hasCar == true || _keyInventory.hasTowTruck == true)
             {
                 if (Input.GetKeyDown(KeyCode.Backspace))
                 {
@@ -125,7 +115,7 @@ namespace CollectionSystem
             }
         }
 
-        public void GetInCar()
+        public void GetInVehicle()
         {
             Debug.Log("In Car");
 
@@ -137,21 +127,6 @@ namespace CollectionSystem
 
             Player.transform.parent = CarModel.transform;
             Player.transform.Rotate(0.0f, 270.0f, 0.0f, Space.Self);
-
-            /*if (Input.GetKeyDown(KeyCode.Backspace))
-                {
-                    Debug.Log("Backspace is pressed");
-                    GetComponent<WheelController>().enabled = false;
-                    Player.transform.parent = null;
-                    CarCamera.gameObject.SetActive(false);
-                    Player.SetActive(true);
-                    Crosshair.gameObject.SetActive(true);
-                }
-                else
-                {
-                    Debug.Log("Backspace is not pressed");
-                }
-            }*/
         }
     }
 }
