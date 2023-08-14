@@ -14,6 +14,7 @@ namespace CollectionSystem
         [SerializeField] private bool ItemThree = false;
         [SerializeField] private bool ItemFour = false;
         [SerializeField] private bool Car = false;
+        [SerializeField] private bool TowTruck = false;
         [SerializeField] private bool FixSlider = false;
 
         [SerializeField] private Image Crosshair = null;
@@ -22,7 +23,7 @@ namespace CollectionSystem
 
         private PartsController CheckParts;
 
-        private CarController CheckCar;
+        private CarController CheckVehicle;
 
         private TestSlider CheckSlider;
         private void Start()
@@ -45,7 +46,11 @@ namespace CollectionSystem
             }
             else if (Car)
             {
-                CheckCar = GetComponent<CarController>();
+                CheckVehicle = GetComponent<CarController>();
+            }
+            else if (TowTruck)
+            {
+                CheckVehicle = GetComponent<CarController>();
             }
             else if (FixSlider)
             {
@@ -84,8 +89,13 @@ namespace CollectionSystem
             }
             if (Car)
             {
-                CheckCar.CheckForCarParts();
+                CheckVehicle.CheckForCarParts();
 
+            }
+            if (TowTruck)
+            {
+                _keyInventory.hasTowTruck = true;
+                CheckVehicle.GetInVehicle();
             }
             if (FixSlider)
             {
