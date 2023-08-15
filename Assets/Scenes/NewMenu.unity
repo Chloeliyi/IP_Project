@@ -1472,7 +1472,6 @@ GameObject:
   - component: {fileID: 500814141}
   - component: {fileID: 500814143}
   - component: {fileID: 500814142}
-  - component: {fileID: 500814144}
   m_Layer: 5
   m_Name: OptionsMenu
   m_TagString: Untagged
@@ -1545,22 +1544,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 500814140}
   m_CullTransparentMesh: 1
---- !u!114 &500814144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 500814140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fddff118c76af84fbbf0a31c7d84636, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mixer: {fileID: 24100000, guid: 1e8dfa99f119efc4383dc1bda7976118, type: 2}
-  MasterSlider: {fileID: 0}
-  SFXSlider: {fileID: 0}
-  BGMSlider: {fileID: 0}
 --- !u!1 &508494051
 GameObject:
   m_ObjectHideFlags: 0
@@ -3815,7 +3798,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.2}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4457,7 +4440,7 @@ RectTransform:
   m_GameObject: {fileID: 1290838513}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.6099999, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1963239107}
@@ -4835,7 +4818,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1146468125}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.2
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5145,7 +5128,7 @@ GameObject:
   - component: {fileID: 1654552988}
   - component: {fileID: 1654552987}
   m_Layer: 5
-  m_Name: Dropdown
+  m_Name: GraphicsDropdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5753,7 +5736,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4281479730
   m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -5766,7 +5749,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -6236,7 +6219,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -18, y: 0}
+  m_SizeDelta: {x: -17, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1963239108
 MonoBehaviour:
