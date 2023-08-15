@@ -26,33 +26,13 @@ public class GameManager : MonoBehaviour
         HowToPlayMenu.SetActive(false);
         CreditsMenu.SetActive(false);
         MainMenu.SetActive(true);
+        FindObjectOfType<AudioManager>().Play("Theme");
     }
     public void OnStartButton()
     {
         SceneManager.LoadScene(1);
-    }
+        FindObjectOfType<AudioManager>().StopPlaying("Theme");
 
-    public void OnOptionButton()
-    {
-        //MainMenu.SetActive(false);
-        OptionsMenu.SetActive(true);
-    }
-
-    public void OnHowToPlayButton()
-    {
-        //MainMenu.SetActive(false);
-        HowToPlayMenu.SetActive(true);
-    }
-
-    public void OnCreditsButton()
-    {
-        //MainMenu.SetActive(false);
-        CreditsMenu.SetActive(true);
-    }
-
-    public void OnQuitButton()
-    {
-        QuitMenu.SetActive(true);
     }
 
     public void OnYesButton()
@@ -60,21 +40,13 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void OnNoButton()
-    {
-        QuitMenu.SetActive(false);
-    }
-
-    public void OnBackButton()
-    {
-        HowToPlayMenu.SetActive(false);
-        OptionsMenu.SetActive(false);
-        CreditsMenu.SetActive(false);
-        //MainMenu.SetActive(true);
-    }
-
     public void SetQuality (int qualityIndex)
     {
         QualitySettings.SetQualityLevel(qualityIndex);
+    }
+
+    public void OnButton()
+    {
+        FindObjectOfType<AudioManager>().Play("button Sound");
     }
 }

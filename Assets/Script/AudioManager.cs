@@ -6,6 +6,7 @@
 
 using UnityEngine;
 using UnityEngine.Audio;
+using System;
 
 public class AudioManager : MonoBehaviour
 {
@@ -32,6 +33,8 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public const string BGM_KEY = "bgmVolume";
 
+    public Sound[] sounds;
+
     /// <summary>
     /// Awake function
     /// </summary>
@@ -45,9 +48,46 @@ public class AudioManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+            return;
         }
 
         LoadVolume();
+
+        foreach (Sound s in sounds)
+        {
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.Clip;
+
+            s.source.volume = s.volume;
+            s.source.pitch = s.pitch;
+            s.source.loop = s.loop;
+            s.source.outputAudioMixerGroup = s.audioMixerGroup;
+        }
+    }
+
+    
+    public void Play (string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if(s == null)
+        {
+            Debug.LogWarning("Sound:" + name + " not found! ");
+            return;
+        }
+        Debug.Log(name + " started playing.");
+        s.source.Play();
+    }
+
+    public void StopPlaying(string sound)
+    {
+        Sound s = Array.Find(sounds, item => item.name == sound);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return;
+        }
+        Debug.Log(name + " stoped playing.");
+        s.source.Stop();
     }
 
     /// <summary>
