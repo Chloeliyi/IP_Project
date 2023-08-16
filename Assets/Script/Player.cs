@@ -25,6 +25,8 @@ namespace CollectionSystem
 
         public bool PlayerMovement = true;
 
+        public GameObject PauseMenu;
+
         CharacterController characterController;
         // Start is called before the first frame update
         void Start()
@@ -75,10 +77,10 @@ namespace CollectionSystem
                     transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
                 }
 
-                /*if (Input.GetKey(KeyCode.Escape))
+              /*if (Input.GetKey(KeyCode.Backspace))
                 {
-                    Debug.Log("Quit");
-                    Application.Quit();
+                    PlayerMovement = false;
+                    PauseMenu.SetActive(true);
                 }*/
             }
         }
