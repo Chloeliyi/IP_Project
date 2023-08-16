@@ -7044,8 +7044,8 @@ MonoBehaviour:
   gravity: 10
   lookSpeed: 2
   lookXLimit: 45
-  PlayerMovement: 1
   canMove: 1
+  PlayerMovement: 1
 --- !u!143 &5813768727651515007
 CharacterController:
   m_ObjectHideFlags: 0
