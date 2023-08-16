@@ -9,7 +9,6 @@ namespace CollectionSystem
     {
         [SerializeField] private Inventory _keyInventory;
 
-
         [SerializeField] private float pointerDownTimer;
 
         [SerializeField] private float requiredHoldTime = 2;
@@ -20,6 +19,7 @@ namespace CollectionSystem
 
         private CarControllerAI Carfixed;
 
+        private CarController _CarController;
         //private WheelController _Car;
 
         void Awake()
@@ -30,6 +30,7 @@ namespace CollectionSystem
             _fixSlider.SetActive(false);
 
             Carfixed = GetComponent<CarControllerAI>();
+            _CarController = GetComponent<CarController>();
         }
         private void Update()
         {
@@ -47,13 +48,13 @@ namespace CollectionSystem
 
                     Debug.Log("Car is fixed");
 
+                    //_CarController.RandomColNum = 0;
                     //_keyInventory.hasCar = true;
                     //Debug.Log("Has Car is " + _keyInventory.hasCar);
-
-                    GetComponent<CarControllerAI>().enabled = true;
-                    Carfixed.CarIsRepaired();
-
                     //GetComponent<WheelController>().enabled = true;
+
+                    //GetComponent<CarControllerAI>().enabled = true;
+                    //Carfixed.CarIsRepaired();
                 }
             }
             else if (Input.GetKeyUp(KeyCode.Mouse0))
