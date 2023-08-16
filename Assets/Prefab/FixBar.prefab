@@ -697,7 +697,11 @@ MonoBehaviour:
   pointerDownTimer: 0
   requiredHoldTime: 2
   FixSlider: {fileID: 8116790990829470678}
-  _fixSlider: {fileID: 0}
+  _fixSlider: {fileID: 8116790991688038323}
+  Carfixed: {fileID: 6999595420862478811, guid: df9b88c8e695d184a90a279eee45a272,
+    type: 3}
+  _CarController: {fileID: 6999595420862478787, guid: df9b88c8e695d184a90a279eee45a272,
+    type: 3}
 --- !u!114 &8355502447748912437
 MonoBehaviour:
   m_ObjectHideFlags: 0
