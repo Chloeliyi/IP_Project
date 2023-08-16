@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - InteractiveObject
+  - Ground
+  - Obstacle
+  - Floor
+  - BossNPC
+  - Car
+  - GarageEntrance
   layers:
   - Default
   - TransparentFX
@@ -13,9 +19,9 @@ TagManager:
   - Water
   - UI
   - Interact
-  - 
-  - 
-  - 
+  - Ground
+  - Obstacle
+  - Junkyard
   - 
   - 
   - 
