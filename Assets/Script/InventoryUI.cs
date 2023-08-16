@@ -16,9 +16,7 @@ namespace CollectionSystem
         {
             ItemsCollectedLabel = GetComponent<TextMeshProUGUI>();
         }
-        void Update()
-        {
-        }
+
         public void UpdateItemLabel(Inventory Inventory)
         {
             ItemsCollectedLabel.text = Inventory.NumberOfItemsCollected.ToString();
