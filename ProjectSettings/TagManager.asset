@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Car
   - GarageEntrance
+  - InteractiveObject
   layers:
   - Default
   - TransparentFX
@@ -13,7 +14,7 @@ TagManager:
   - road
   - Water
   - UI
-  - 
+  - wall
   - 
   - 
   - 

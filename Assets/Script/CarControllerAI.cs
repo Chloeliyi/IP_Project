@@ -35,7 +35,7 @@ namespace CollectionSystem
 
         //private WheelController _WheelController;
         //private ItemController _ItemController;
-        //private CarController _CarController;
+        private CarController _CarController;
         void Start()
         {
             navAgent = GetComponent<NavMeshAgent>();
@@ -50,12 +50,12 @@ namespace CollectionSystem
             // Start car movement
             GoToNextWaypoint();
 
-            //if (isInsideGarage)
-            //{
-            //    _WheelController = GetComponent<WheelController>();
-            //    _ItemController = GetComponent<ItemController>();
-            //    _CarController = GetComponent<CarController>();
-            //}
+            if (isInsideGarage)
+            {
+               // _WheelController = GetComponent<WheelController>();
+               // _ItemController = GetComponent<ItemController>();
+                _CarController = GetComponent<CarController>();
+            }
         }
 
         void Update()
@@ -241,7 +241,7 @@ namespace CollectionSystem
 
             //GetComponent<CarControllerAI>().enabled = false;
             //GetComponent<ItemController>().enabled = true;
-            //GetComponent<CarController>().enabled = true;
+            GetComponent<CarController>().enabled = true;
 
             //_CarController.RandomColNum = 0;
             //CarFixed = false;
