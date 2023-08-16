@@ -20,6 +20,7 @@ namespace CollectionSystem
 
         private string interactableTag = "InteractiveObject";
         private string CarTag = "Car";
+        private string BossNPC = "BossNPC";
 
         private void Update()
         {
@@ -30,7 +31,7 @@ namespace CollectionSystem
 
             if (Physics.Raycast(transform.position, fwd, out hitInfo, rayLength, mask))
             {
-                if (hitInfo.collider.CompareTag(interactableTag)  || hitInfo.collider.CompareTag(CarTag))
+                if (hitInfo.collider.CompareTag(interactableTag)  || hitInfo.collider.CompareTag(CarTag) || hitInfo.collider.CompareTag(BossNPC))
                 {
                     if (!doOnce)
                     {
