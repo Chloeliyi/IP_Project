@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Boss
   dialogue:
-  - You're hired!
+  - Your looking for a job? We're in need of a mechanic so you're hired!
   - Our first customer should be here soon.
   - Let's get to work.
   playerDialogue:
