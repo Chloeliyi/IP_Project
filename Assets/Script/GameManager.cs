@@ -20,12 +20,12 @@ public class GameManager : MonoBehaviour
         MusicMenu.SetActive(false);
         InstructionsMenu.SetActive(false);
         MainMenu.SetActive(true);
+        PauseMenu.SetActive(false);
     }
     public void OnStartButton()
     {
 
     }
-
     public void OnMusicButton()
     {
         MainMenu.SetActive(false);
