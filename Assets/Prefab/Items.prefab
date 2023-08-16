@@ -149,3 +149,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 786645eb65c710c4cb888d5e6a002718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ItemsCollectedLabel: {fileID: 4498736349647746651}
+  PartsLabel: {fileID: 8094292595056786832, guid: a4481f49a2e5973499d93065f82a1957,
+    type: 3}
