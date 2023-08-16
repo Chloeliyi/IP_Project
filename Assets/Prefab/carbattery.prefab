@@ -133,6 +133,7 @@ MonoBehaviour:
   ItemThree: 1
   ItemFour: 0
   Car: 0
+  TowTruck: 0
   FixSlider: 0
   Crosshair: {fileID: 6228751413266505920, guid: 07edf8807a2bd034b815c8063d99d687,
     type: 3}
@@ -152,5 +153,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _keyInventory: {fileID: 8286454713287983775, guid: 84abbd6103b5ba04faeac34f3851d5aa,
     type: 3}
-  _Spawner: {fileID: 701334963737298234, guid: da3f7abf077342f4abf41b661892a1e7, type: 3}
+  _Spawner: {fileID: 6882887938737853666, guid: da3f7abf077342f4abf41b661892a1e7,
+    type: 3}
   WaitTime: 1
