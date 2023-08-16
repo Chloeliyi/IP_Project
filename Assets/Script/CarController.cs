@@ -66,12 +66,12 @@ namespace CollectionSystem
                     Debug.Log(_keyInventory.NumberOfItemsCollected);
                     Debug.Log(_keyInventory.RandomCollect);
 
+                    ItemsLabel.SetActive(false);
+                    _fixSlider.SetActive(true);
+
                     _keyInventory.NumberOfItemsCollected -= _keyInventory.RandomCollect;
 
                     Debug.Log(_keyInventory.NumberOfItemsCollected);
-
-                    ItemsLabel.SetActive(false);
-                    _fixSlider.SetActive(true);
 
                     //RandomColNum = 0;
                     //GetComponent<CarControllerAI>().enabled = true;
@@ -90,11 +90,12 @@ namespace CollectionSystem
                 {
                     Debug.Log("More than needed parts");
                     Debug.Log(_keyInventory.NumberOfItemsCollected);
-                    _keyInventory.NumberOfItemsCollected -= _keyInventory.RandomCollect;
                     Debug.Log(_keyInventory.NumberOfItemsCollected);
 
                     ItemsLabel.SetActive(false);
-                    //_fixSlider.SetActive(true);
+                    _fixSlider.SetActive(true);
+
+                    _keyInventory.NumberOfItemsCollected -= _keyInventory.RandomCollect;
 
                     //RandomColNum = 0;
 
