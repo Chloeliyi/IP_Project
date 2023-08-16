@@ -31,14 +31,22 @@ namespace CollectionSystem
 
         public TextMeshProUGUI ToBeCollectedLabel;
 
-        [SerializeField] private float RandomColNum = 0;
+        public float RandomColNum = 0;
+
+        private CarControllerAI Carfixed;
+
+        private ItemController _ItemController;
 
         void Start()
         {
 
             ItemsLabel.SetActive(false);
         }
-
+        void Awake()
+        {
+            Carfixed = GetComponent<CarControllerAI>();
+            _ItemController = GetComponent<ItemController>();
+        }
         public void CheckForCarParts()
         {
             if (_keyInventory.hasCar == false)
@@ -62,12 +70,15 @@ namespace CollectionSystem
 
                     Debug.Log(_keyInventory.NumberOfItemsCollected);
 
-                    //RandomColNum = 0;
-
                     ItemsLabel.SetActive(false);
                     _fixSlider.SetActive(true);
 
-                    Debug.Log("Fix slider is" + _fixSlider);
+                    //RandomColNum = 0;
+                    //GetComponent<CarControllerAI>().enabled = true;
+                    //GetComponent<ItemController>().enabled = false;
+                    //GetComponent<CarController>().enabled = false;
+                    //Carfixed.CarIsRepaired();
+
                 }
                 else if (_keyInventory.NumberOfItemsCollected <= _keyInventory.RandomCollect)
                 {
@@ -82,10 +93,15 @@ namespace CollectionSystem
                     _keyInventory.NumberOfItemsCollected -= _keyInventory.RandomCollect;
                     Debug.Log(_keyInventory.NumberOfItemsCollected);
 
+                    ItemsLabel.SetActive(false);
+                    //_fixSlider.SetActive(true);
+
                     //RandomColNum = 0;
 
-                    ItemsLabel.SetActive(false);
-                    _fixSlider.SetActive(true);
+                    //GetComponent<CarControllerAI>().enabled = true;
+                    //GetComponent<ItemController>().enabled = false;
+                    //GetComponent<CarController>().enabled = false;
+                    //Carfixed.CarIsRepaired();
                 }
             }
             else if (_keyInventory.hasCar == true)

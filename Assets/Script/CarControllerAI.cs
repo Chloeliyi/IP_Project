@@ -33,9 +33,9 @@ namespace CollectionSystem
         public float playerDetectDistance = 5f; // Distance to detect players
         public GameObject[] players; // Array to store all player GameObjects in the scene
 
-        private WheelController _WheelController;
-        private ItemController _ItemController;
-        private CarController _CarController;
+        //private WheelController _WheelController;
+        //private ItemController _ItemController;
+        //private CarController _CarController;
         void Start()
         {
             navAgent = GetComponent<NavMeshAgent>();
@@ -50,12 +50,12 @@ namespace CollectionSystem
             // Start car movement
             GoToNextWaypoint();
 
-            if (isInsideGarage)
-            {
-                _WheelController = GetComponent<WheelController>();
-                _ItemController = GetComponent<ItemController>();
-                _CarController = GetComponent<CarController>();
-            }
+            //if (isInsideGarage)
+            //{
+            //    _WheelController = GetComponent<WheelController>();
+            //    _ItemController = GetComponent<ItemController>();
+            //    _CarController = GetComponent<CarController>();
+            //}
         }
 
         void Update()
@@ -239,10 +239,11 @@ namespace CollectionSystem
             // For demonstration purposes, let's simulate a service delay of 3 seconds
             // and then move the car back to the city
 
-            GetComponent<CarControllerAI>().enabled = false;
-            GetComponent<ItemController>().enabled = true;
-            GetComponent<CarController>().enabled = true;
+            //GetComponent<CarControllerAI>().enabled = false;
+            //GetComponent<ItemController>().enabled = true;
+            //GetComponent<CarController>().enabled = true;
 
+            //_CarController.RandomColNum = 0;
             //CarFixed = false;
             //StartCoroutine(InForService());
         }
@@ -250,6 +251,8 @@ namespace CollectionSystem
         public void CarIsRepaired()
         {
             Debug.Log("Car is fixed");
+
+            ServiceEnd();
             /*if (CarFixed)
             {
                 ServiceEnd();
