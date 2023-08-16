@@ -11,16 +11,18 @@ namespace CollectionSystem
     {
 
         private TextMeshProUGUI ItemsCollectedLabel;
+        //public TextMeshProUGUI PartsLabel;
 
         void Start()
         {
             ItemsCollectedLabel = GetComponent<TextMeshProUGUI>();
+          //PartsLabel = GetComponent<TextMeshProUGUI>();
         }
 
         public void UpdateItemLabel(Inventory Inventory)
         {
             ItemsCollectedLabel.text = Inventory.NumberOfItemsCollected.ToString();
-            //Debug.Log("Label of items collected is " + ItemsCollectedLabel.text);
+          //PartsLabel.text = "Parts: " + Inventory.NumberOfItemsCollected.ToString();
         }
     }
 }
