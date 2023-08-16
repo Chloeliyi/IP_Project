@@ -22,6 +22,8 @@ namespace CollectionSystem
         public int NumberOfItemsCollected { get; set; }
         public int RandomCollect;
 
+        public int NumOfCarFixed;
+
         //private InventoryUI ItemUI;
 
         //public TextMeshProUGUI ItemsCollectedLabel;
@@ -44,6 +46,10 @@ namespace CollectionSystem
             //ItemsCollectedLabel.text = NumberOfItemsCollected.ToString();
         }
 
+        public void NumberOfCarsFixed()
+        {
+            NumOfCarFixed++;
+        }
         public void RandomCollectNum()
         {
             RandomCollect = Random.Range(5, 11);
