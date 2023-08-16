@@ -15,6 +15,8 @@ namespace CollectionSystem
 
         //[SerializeField] private bool QuestComplete = false;
 
+        [SerializeField] private Inventory _keyInventory;
+
         public UnityEvent<QuestController> OnQuestUpdate;
 
         private void Awake()
