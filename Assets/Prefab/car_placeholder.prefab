@@ -173,10 +173,9 @@ MonoBehaviour:
   avoidanceDistance: 30
   avoidanceSpeed: 5
   stopDistance: 15
-  CarFixed: 0
   playerDetectDistance: 5
   players:
-  - {fileID: 7063111895633759723, guid: a38ccbd24f2380c489f45f923572ae3b, type: 3}
+  - {fileID: 2922105367182626839, guid: 1e693ebc95f33ad4c81599a29be43fcf, type: 3}
 --- !u!195 &6146372845469588614
 NavMeshAgent:
   m_ObjectHideFlags: 0
