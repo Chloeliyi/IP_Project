@@ -52,6 +52,7 @@ MonoBehaviour:
   hasTowTruck: 0
   IsSlider: 0
   RandomCollect: 0
+  NumOfCarFixed: 0
   OnItemsCollected:
     m_PersistentCalls:
       m_Calls: []
