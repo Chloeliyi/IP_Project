@@ -7,6 +7,7 @@ TagManager:
   - Car
   - GarageEntrance
   - InteractiveObject
+  - Finish LIne
   layers:
   - Default
   - TransparentFX

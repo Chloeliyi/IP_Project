@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class RacerAI : MonoBehaviour
+public class RacerControllerAi : MonoBehaviour
 {
     public LayerMask obstacleLayer; // Layer mask for obstacles
     public float brakingDistance = 3f; // Distance at which the AI car should start braking
@@ -22,10 +22,17 @@ public class RacerAI : MonoBehaviour
     public Transform[] waypoints; // Array of waypoint transforms
     private int currentWaypointIndex = 0;
 
-    void Update()
+    private void Start()
     {
-        if(!playerInCar)
-        { 
+        agent = GetComponent<NavMeshAgent>();
+        currentWaypointIndex = 0;
+        raceEnds = false;
+        playerInCar = false;
+    }
+    private void Update()
+    {
+        if (!playerInCar)
+        {
             if (agent != null)
             {
                 agent.enabled = false; // Disable NavMeshAgent movement
@@ -33,32 +40,17 @@ public class RacerAI : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            Debug.Log("Player is in Car");
             if (agent != null)
             {
-                agent.enabled = true; // Enable NavMeshAgent movement
+                agent.enabled = true; // Disable NavMeshAgent movement
             }
-            Debug.Log("Player is in Car");
             playerInCar = true;
-            StartCoroutine(Racing());
+            GoToNextWaypoint();
+           
         }
-    }
-
-    void Start()
-    {
-        agent = GetComponent<NavMeshAgent>();
-        currentWaypointIndex = 0;
-        currentWaypointIndex = 0;
-        raceEnds = false;
-        playerInCar = false;  
-    }
-
-
-    IEnumerator Racing()
-    {
-        Debug.Log("Racing Start");
-        yield return new WaitForSeconds(10f); //count down
-        GoToNextWaypoint();
-        while (!raceEnds && playerInCar)
+        //Check if the car has reached its destination(waypoint)
+        if (!raceEnds && playerInCar)
         {
             CheckPlayerRange();
             AvoidCollisions();
@@ -71,15 +63,7 @@ public class RacerAI : MonoBehaviour
                 }
             }
         }
-        if (raceEnds)
-        {
-            Brake();
-            yield return new WaitForSeconds(2f);
-            playerInCar = false;
-            raceEnds = false;
-        }
-        yield return new WaitForEndOfFrame();
-        Debug.Log("Racing End");
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -157,11 +141,10 @@ public class RacerAI : MonoBehaviour
     private void SlowDown()
     {
         float speedReduction = (brakingDistance - slowDownDistance) / brakingDistance;
-        agent.speed = targetSpeed * speedReduction;
+        agent.speed =targetSpeed * speedReduction;
     }
     private void Stop()
     {
         agent.speed = 0;
     }
-
 }
