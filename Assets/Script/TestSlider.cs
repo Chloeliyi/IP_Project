@@ -22,7 +22,6 @@ namespace CollectionSystem
         [SerializeField] private CarController _CarController;
 
         private QuestController _Quest;
-
         //private WheelController _Car;
 
         void Awake()
@@ -37,39 +36,45 @@ namespace CollectionSystem
         }
         private void Update()
         {
-            if (Input.GetKey(KeyCode.Mouse0))
+            if (_keyInventory.IsSlider == true)
             {
-                Debug.Log("Key is down");
-
-                pointerDownTimer += Time.deltaTime;
-                if (pointerDownTimer > requiredHoldTime)
+                if (Input.GetKey(KeyCode.Mouse0))
                 {
+                    Debug.Log("Key is down");
 
-                    _keyInventory.IsSlider = false;
-                    GetComponent<TestSlider>().enabled = false;
-                    _fixSlider.SetActive(false);
+                    pointerDownTimer += Time.deltaTime;
+                    _CarController.PlayPauseSpark = true;
+                    if (pointerDownTimer > requiredHoldTime)
+                    {
 
-                    _CarController.RandomColNum = 0;
-                    Carfixed.CarFixed = true;
-                    Carfixed.Fixing();
-                    _keyInventory.NumberOfCarsFixed();
-                    QuestController.instance.QuestCounted();
+                        _keyInventory.IsSlider = false;
+                        GetComponent<TestSlider>().enabled = false;
+                        _fixSlider.SetActive(false);
 
-                    //_keyInventory.hasCar = true;
-                    //Debug.Log("Has Car is " + _keyInventory.hasCar);
-                    //GetComponent<WheelController>().enabled = true;
+                        _CarController.PlayPauseSpark = false;
+                        _CarController.RandomColNum = 0;
+                        Carfixed.CarFixed = true;
+                        Carfixed.Fixing();
+                        _keyInventory.NumberOfCarsFixed();
+                        QuestController.instance.QuestCounted();
 
-                    //GetComponent<CarControllerAI>().enabled = true;
-                    //Carfixed.CarIsRepaired();
+                        //_keyInventory.hasCar = true;
+                        //Debug.Log("Has Car is " + _keyInventory.hasCar);
+                        //GetComponent<WheelController>().enabled = true;
+
+                        //GetComponent<CarControllerAI>().enabled = true;
+                        //Carfixed.CarIsRepaired();
+                    }
                 }
-            }
-            else if (Input.GetKeyUp(KeyCode.Mouse0))
-            {
-                Debug.Log("Key is up");
+                else if (Input.GetKeyUp(KeyCode.Mouse0))
+                {
+                    Debug.Log("Key is up");
 
-                Reset();
+                    Reset();
+                }
+                FixSlider.value = pointerDownTimer / requiredHoldTime;
             }
-            FixSlider.value = pointerDownTimer / requiredHoldTime;
+
         }
 
         private void Reset()
