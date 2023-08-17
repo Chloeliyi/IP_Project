@@ -7,14 +7,12 @@ public class RacerControllerAi : MonoBehaviour
 {
     public LayerMask obstacleLayer; // Layer mask for obstacles
     public float brakingDistance = 3f; // Distance at which the AI car should start braking
-    public float slowDownDistance = 5f;
+    public float slowDownDistance = 5f; // distance at which the AI should slowdown
     public float maxBrakeForce = 30f; // Maximum brake force
-    private float currentDuration;
-
 
     public float maxAcceleration = 10f; // Maximum acceleration
     public float targetSpeed = 20f; // Target speed
-    public bool playerInCar;
+    private bool playerInCar;
     private bool raceEnds;
     public GameObject playerCar;
     private NavMeshAgent agent;
@@ -46,8 +44,7 @@ public class RacerControllerAi : MonoBehaviour
                 agent.enabled = true; // Disable NavMeshAgent movement
             }
             playerInCar = true;
-            GoToNextWaypoint();
-           
+            GoToNextWaypoint(); 
         }
         //Check if the car has reached its destination(waypoint)
         if (!raceEnds && playerInCar)
@@ -106,8 +103,6 @@ public class RacerControllerAi : MonoBehaviour
             {
                 Accelerate();
             }
-
-            agent.SetDestination(playerCar.transform.position);
         }
     }
 
@@ -142,9 +137,5 @@ public class RacerControllerAi : MonoBehaviour
     {
         float speedReduction = (brakingDistance - slowDownDistance) / brakingDistance;
         agent.speed =targetSpeed * speedReduction;
-    }
-    private void Stop()
-    {
-        agent.speed = 0;
     }
 }
