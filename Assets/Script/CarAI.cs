@@ -73,7 +73,8 @@ namespace CollectionSystem
         IEnumerator Roaming()
         {
             Debug.Log("Roaming State Start");
-            PlayPauseSmoke = true;
+            CarFixed = false;
+            //PlayPauseSmoke = true;
             yield return new WaitForSeconds(1f);
             GoToNextWaypoint();
             while (!nearGarage)
@@ -195,7 +196,7 @@ namespace CollectionSystem
             if (isInsideGarage)
             {
                 //Code
-              //currentDuration += Time.deltaTime;
+              currentDuration += Time.deltaTime;
 
                 if(gameObject.transform.position == currentServicePoint.transform.position)
                 {
@@ -204,8 +205,8 @@ namespace CollectionSystem
                         navAgent.enabled = false; // Disable NavMeshAgent movement
                     }
                 }
-              //if (currentDuration > 20f)
-                if (CarFixed)
+              if (currentDuration > 20f)
+                //if (CarFixed)
                 {
                     Debug.Log("Car is fixed");
                     if (navAgent != null)
@@ -213,7 +214,7 @@ namespace CollectionSystem
                         navAgent.enabled = true; // Enable NavMeshAgent movement
                     }
                     //currentDuration = 0;
-                    PlayPauseSmoke = true;
+                    //PlayPauseSmoke = true;
                     isInsideGarage = false;
                     currentServicePoint.Release();
                     nextState = "Roaming";
