@@ -56,6 +56,7 @@ namespace CollectionSystem
                         Carfixed.CarFixed = true;
                         Carfixed.Fixing();
                         _keyInventory.NumberOfCarsFixed();
+                        Debug.Log(_keyInventory.NumOfCarFixed);
                         QuestController.instance.QuestCounted();
 
                         //_keyInventory.hasCar = true;
@@ -73,6 +74,11 @@ namespace CollectionSystem
                     Reset();
                 }
                 FixSlider.value = pointerDownTimer / requiredHoldTime;
+            }
+
+            if (_keyInventory.NumOfCarFixed > 3)
+            {
+                QuestController.instance.QuestCounted();
             }
 
         }
