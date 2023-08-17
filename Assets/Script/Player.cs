@@ -80,7 +80,6 @@ namespace CollectionSystem
               /*if (Input.GetKey(KeyCode.Backspace))
                 {
                     PlayerMovement = false;
-                    PauseMenu.SetActive(true);
                 }*/
             }
         }
