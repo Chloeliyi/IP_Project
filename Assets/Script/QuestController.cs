@@ -53,6 +53,10 @@ namespace CollectionSystem
             {
                 QuestDetails.text = "Fix Three Cars";
             }
+            else if (QuestCounter == 4)
+            {
+                QuestDetails.text = "Go To The RaceTrack";
+            }
         }
     }
 }
