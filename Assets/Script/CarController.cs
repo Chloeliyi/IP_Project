@@ -37,11 +37,16 @@ namespace CollectionSystem
 
         private ItemController _ItemController;
 
+        public bool PlayPauseSpark = false;
+        //public bool PlayPauseSmoke = false;
+
         void Start()
         {
 
             ItemsLabel.SetActive(false);
-        }
+            PlayPauseSpark = false;
+            //PlayPauseSmoke = false;
+    }
         void Awake()
         {
             Carfixed = GetComponent<CarControllerAI>();
@@ -56,9 +61,10 @@ namespace CollectionSystem
                     _keyInventory.RandomCollectNum();
                     ToBeCollectedLabel.text = "/" + _keyInventory.RandomCollect.ToString();
                     RandomColNum++;
+                    ItemsLabel.SetActive(true);
                 }
 
-                ItemsLabel.SetActive(true);
+                //ItemsLabel.SetActive(true);
 
                 if (_keyInventory.NumberOfItemsCollected == _keyInventory.RandomCollect)
                 {
@@ -144,6 +150,8 @@ namespace CollectionSystem
 
             Player.transform.parent = CarModel.transform;
             Player.transform.Rotate(0.0f, 270.0f, 0.0f, Space.Self);
+
+            //PlayPauseSmoke = true;
         }
     }
 }
