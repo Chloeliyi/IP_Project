@@ -37,6 +37,7 @@ namespace CollectionSystem
         private string nextState;
 
         public bool CarFixed = false;
+        public bool PlayPauseSmoke = false;
         private void SwitchState()
         {
             StartCoroutine(currentState);
@@ -72,6 +73,7 @@ namespace CollectionSystem
         IEnumerator Roaming()
         {
             Debug.Log("Roaming State Start");
+            PlayPauseSmoke = true;
             yield return new WaitForSeconds(1f);
             GoToNextWaypoint();
             while (!nearGarage)
@@ -189,6 +191,7 @@ namespace CollectionSystem
         public IEnumerator Fixing()
         {
             Debug.Log("Fixing State Start");
+            PlayPauseSmoke = false;
             if (isInsideGarage)
             {
                 //Code
@@ -209,7 +212,8 @@ namespace CollectionSystem
                     {
                         navAgent.enabled = true; // Enable NavMeshAgent movement
                     }
-                  //currentDuration = 0;
+                    //currentDuration = 0;
+                    PlayPauseSmoke = true;
                     isInsideGarage = false;
                     currentServicePoint.Release();
                     nextState = "Roaming";
