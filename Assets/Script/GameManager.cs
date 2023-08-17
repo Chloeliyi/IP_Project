@@ -1,46 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public GameObject MainMenu;
 
-    public GameObject MusicMenu;
+    public GameObject OptionsMenu;
 
-    public GameObject InstructionsMenu;
+    public GameObject HowToPlayMenu;
 
     public GameObject QuitMenu;
 
     public GameObject PauseMenu;
 
+    public GameObject CreditsMenu;
+
+   
     private void Start()
     {
         QuitMenu.SetActive(false);
-        MusicMenu.SetActive(false);
-        InstructionsMenu.SetActive(false);
+        OptionsMenu.SetActive(false);
+        HowToPlayMenu.SetActive(false);
+        CreditsMenu.SetActive(false);
         MainMenu.SetActive(true);
-        PauseMenu.SetActive(false);
+        FindObjectOfType<AudioManager>().Play("Theme");
     }
     public void OnStartButton()
     {
+        SceneManager.LoadScene(1);
+        FindObjectOfType<AudioManager>().StopPlaying("Theme");
 
-    }
-    public void OnMusicButton()
-    {
-        MainMenu.SetActive(false);
-        MusicMenu.SetActive(true);
-    }
-
-    public void OnInstructionsButton()
-    {
-        MainMenu.SetActive(false);
-        InstructionsMenu.SetActive(true);
-    }
-
-    public void OnQuitButton()
-    {
-        QuitMenu.SetActive(true);
     }
 
     public void OnYesButton()
@@ -48,15 +40,13 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void OnNoButton()
+    public void SetQuality (int qualityIndex)
     {
-        QuitMenu.SetActive(false);
+        QualitySettings.SetQualityLevel(qualityIndex);
     }
 
-    public void OnBackButton()
+    public void OnButton()
     {
-        InstructionsMenu.SetActive(false);
-        MusicMenu.SetActive(false);
-        MainMenu.SetActive(true);
+        FindObjectOfType<AudioManager>().Play("button Sound");
     }
 }
