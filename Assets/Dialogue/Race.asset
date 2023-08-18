@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55a92e7198bf38440bb1e113e077eee2, type: 3}
   m_Name: Race
   m_EditorClassIdentifier: 
-  name: Dealer Ben
+  name: Racer Jim
   dialogue:
-  - This is the dealership where you can buy cars that suits your needs.
-  - Have a look at what we have!
-  - Have a nice day.
+  - Welcome to the track.
+  - Wanna race me?
+  - I will win.
+  - Too easy.
+  - Welp I lost.
   playerDialogue:
   - 
