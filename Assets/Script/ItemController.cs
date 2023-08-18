@@ -13,8 +13,10 @@ namespace CollectionSystem
         [SerializeField] private bool ItemTwo = false;
         [SerializeField] private bool ItemThree = false;
         [SerializeField] private bool ItemFour = false;
-        [SerializeField] private bool Car = false;
+        [SerializeField] private bool BlueCar = false;
+        [SerializeField] private bool OrangeCar = false;
         [SerializeField] private bool TowTruck = false;
+        [SerializeField] private bool Tesla = false;
         [SerializeField] private bool FixSlider = false;
 
         [SerializeField] private Image Crosshair = null;
@@ -44,11 +46,19 @@ namespace CollectionSystem
             {
                 CheckParts = GetComponent<PartsController>();
             }
-            else if (Car)
+            else if (BlueCar)
+            {
+                CheckVehicle = GetComponent<CarController>();
+            }
+            else if (OrangeCar)
             {
                 CheckVehicle = GetComponent<CarController>();
             }
             else if (TowTruck)
+            {
+                CheckVehicle = GetComponent<CarController>();
+            }
+            else if (Tesla)
             {
                 CheckVehicle = GetComponent<CarController>();
             }
@@ -87,14 +97,26 @@ namespace CollectionSystem
 
                 Debug.Log("Number Of Items Collected : " + _keyInventory.NumberOfItemsCollected);
             }
-            if (Car)
+            if (BlueCar)
             {
+                _keyInventory.hasBlueCar = true;
+                CheckVehicle.CheckForCarParts();
+
+            }
+            if (OrangeCar)
+            {
+                _keyInventory.hasOrangeCar = true;
                 CheckVehicle.CheckForCarParts();
 
             }
             if (TowTruck)
             {
                 _keyInventory.hasTowTruck = true;
+                CheckVehicle.GetInVehicle();
+            }
+            if (Tesla)
+            {
+                _keyInventory.hasTesla = true;
                 CheckVehicle.GetInVehicle();
             }
             if (FixSlider)
