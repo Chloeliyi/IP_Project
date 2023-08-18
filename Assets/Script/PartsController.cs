@@ -10,8 +10,6 @@ namespace CollectionSystem
         [SerializeField] private Inventory _keyInventory;
         [SerializeField] private RandomSpawner _Spawner;
 
-        //[SerializeField] private int NumberOfItemsCollected = 0;
-
         [SerializeField] private int WaitTime = 1;
 
         void Start()
@@ -20,11 +18,13 @@ namespace CollectionSystem
 
         }
 
+        //Check for parts collected
         public void ItemsCollected()
         {
             if (_keyInventory.hasItemOne)
             {
                 Inventory.instance.ItemCollected();
+                Inventory.instance.ItemCollectedForOrange();
 
                 Debug.Log("Number Of Items Collected : " + _keyInventory.NumberOfItemsCollected);
                 StartCoroutine(TurnItemOneOnAndOff());
@@ -32,6 +32,7 @@ namespace CollectionSystem
             else if (_keyInventory.hasItemTwo)
             {
                 Inventory.instance.ItemCollected();
+                Inventory.instance.ItemCollectedForOrange();
 
                 Debug.Log("Number Of Items Collected : " + _keyInventory.NumberOfItemsCollected);
                 StartCoroutine(TurnItemTwoOnAndOff());
@@ -39,6 +40,7 @@ namespace CollectionSystem
             else if (_keyInventory.hasItemThree)
             {
                 Inventory.instance.ItemCollected();
+                Inventory.instance.ItemCollectedForOrange();
 
                 Debug.Log("Number Of Items Collected : " + _keyInventory.NumberOfItemsCollected);
                 StartCoroutine(TurnItemThreeOnAndOff());
@@ -46,12 +48,14 @@ namespace CollectionSystem
             else if (_keyInventory.hasItemFour)
             {
                 Inventory.instance.ItemCollected();
+                Inventory.instance.ItemCollectedForOrange();
 
                 Debug.Log("Number Of Items Collected : " + _keyInventory.NumberOfItemsCollected);
                 StartCoroutine(TurnItemFourOnAndOff());
             }
         }
 
+        //Spawn new part after collection
         IEnumerator TurnItemOneOnAndOff()
         {
             Debug.Log("Coroutine Start");
