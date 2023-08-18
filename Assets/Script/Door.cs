@@ -21,10 +21,6 @@ public class Door : MonoBehaviour
             animator.SetBool("isOpen", true);
            
         }
-        else
-        {
-            Debug.Log("You cannot exit. Grab your helmet and gun.");
-        }
     }
 
     /// <summary>
