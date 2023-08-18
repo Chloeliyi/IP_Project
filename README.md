@@ -35,7 +35,7 @@ In **Road Master Mechanic**, you step into the shoes of a talented mechanic work
 
 #### Player Controls
 - WASD: Move
-- Space: Jump
+- Space: Jump/continue convo
 - Sprint: Shift
 - Mouse Click: Interact
 - E: Interact
