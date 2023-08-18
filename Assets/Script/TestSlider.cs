@@ -34,6 +34,7 @@ namespace CollectionSystem
           //Carfixed = GetComponent<CarAI>();
          // _CarController = GetComponent<CarController>();
         }
+        //Check in update if slider is pressed, hold left click for 2 seconds while playing spark effect and then turn off afterwards
         private void Update()
         {
             if (_keyInventory.IsSlider == true)
@@ -51,20 +52,19 @@ namespace CollectionSystem
                         GetComponent<TestSlider>().enabled = false;
                         _fixSlider.SetActive(false);
 
-                        _CarController.PlayPauseSpark = false;
+                        Debug.Log("Car Is Fixed");
+                        //_CarController.PlayPauseSpark = false;
                         _CarController.RandomColNum = 0;
-                        Carfixed.CarFixed = true;
-                        Carfixed.Fixing();
-                        _keyInventory.NumberOfCarsFixed();
-                        Debug.Log(_keyInventory.NumOfCarFixed);
-                        QuestController.instance.QuestCounted();
+                        //Carfixed.CarFixed = true;
+                       // Carfixed.Fixing();
+                       //_keyInventory.NumberOfCarsFixed();
+                        //Debug.Log(_keyInventory.NumOfCarFixed);
+                        //QuestController.instance.QuestCounted();
 
-                        //_keyInventory.hasCar = true;
+                        //_keyInventory.hasBlueCar = false;
                         //Debug.Log("Has Car is " + _keyInventory.hasCar);
                         //GetComponent<WheelController>().enabled = true;
-
                         //GetComponent<CarControllerAI>().enabled = true;
-                        //Carfixed.CarIsRepaired();
                     }
                 }
                 else if (Input.GetKeyUp(KeyCode.Mouse0))
@@ -82,7 +82,7 @@ namespace CollectionSystem
             }
 
         }
-
+        //If left click isn't holding for 2 seconds, reset the slider value
         private void Reset()
         {
             pointerDownTimer = 0;
