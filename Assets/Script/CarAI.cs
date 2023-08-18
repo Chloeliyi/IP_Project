@@ -170,22 +170,32 @@ namespace CollectionSystem
                     {
                         navAgent.enabled = false; // Disable NavMeshAgent movement
                     }
-                }
-                //Check if car fixed then go back to roaming
-                if (CarFixed)
-                {
-                    Debug.Log("Car is fixed");
+                    yield return new WaitForSeconds(5);
                     if (navAgent != null)
                     {
                         navAgent.enabled = true; // Enable NavMeshAgent movement
                     }
-                    //currentDuration = 0;
-                    //PlayPauseSmoke = true;
                     isInsideGarage = false;
                     currentServicePoint.Release();
                     nextState = "Roaming";
                     yield return new WaitForSeconds(1f);
                 }
+                
+                //Check if car fixed then go back to roaming
+                //if (CarFixed)
+                //{
+                //    Debug.Log("Car is fixed");
+                //    if (navAgent != null)
+                //    {
+                //        navAgent.enabled = true; // Enable NavMeshAgent movement
+                //    }
+                //    //currentDuration = 0;
+                //    //PlayPauseSmoke = true;
+                //    isInsideGarage = false;
+                //    currentServicePoint.Release();
+                //    nextState = "Roaming";
+                //    yield return new WaitForSeconds(1f);
+                //}
             }
             yield return new WaitForEndOfFrame();
             Debug.Log("Fixing State End");
