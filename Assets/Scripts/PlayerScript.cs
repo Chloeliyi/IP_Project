@@ -1,9 +1,3 @@
-/*
- * Author: Jae Ng Ky Earn
- * Date: 2/7/2023
- * Description: The PlayerScript class is used for control of the player movement in game
- */
- 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,9 +8,13 @@ using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
+    public BossDialogueManager bossDialogueManager;
+
+    int task1CollectibleCount = 0;
+
     public float movementSpeed = 0.3f;
 
-    public float sprintSpeed = 0.5f;
+    public float sprintSpeed = 0.1f;
 
     public Image staminaBar;
 
@@ -55,6 +53,28 @@ public class PlayerScript : MonoBehaviour
         // collide with floor
         if(collision.gameObject.tag == "Floor"){
             playerGrounded = true;
+        }
+
+        else if(collision.gameObject.tag == "Task1Item"){
+            Destroy(collision.gameObject);
+            task1CollectibleCount = task1CollectibleCount + 1;
+            if(task1CollectibleCount == 5){
+                bossDialogueManager.task1Ongoing = false;
+                bossDialogueManager.task1Complete = true;
+            }
+        }
+    }
+
+    void OnEKeyBoard()
+    {
+        RaycastHit hit;
+        if(Physics.Raycast(camera.position, camera.forward, out hit, 3f))
+        {
+            if(hit.transform.tag == "Task2Item" && bossDialogueManager.task1Complete == true)
+            {
+                bossDialogueManager.task2Ongoing = false;
+                bossDialogueManager.task2Complete = true;
+            }
         }
     }
 
