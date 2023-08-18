@@ -35,7 +35,7 @@ namespace CollectionSystem
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
 
-            //Debug.Log("This is Test " + Test);
+            PauseMenu.SetActive(false);
         }
 
         // Update is called once per frame
@@ -77,11 +77,21 @@ namespace CollectionSystem
                     transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
                 }
 
-              /*if (Input.GetKey(KeyCode.Backspace))
+              if (Input.GetKey(KeyCode.Backspace))
                 {
-                    PlayerMovement = false;
-                }*/
+                    canMove = false;
+                    PauseMenu.SetActive(true);
+                }
             }
+        }
+        public void OnResumeButton()
+        {
+            PauseMenu.SetActive(false);
+        }
+
+        public void OnQuitButton()
+        {
+            Application.Quit();
         }
     }
 }
