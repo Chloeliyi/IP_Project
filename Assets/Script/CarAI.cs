@@ -69,12 +69,12 @@ namespace CollectionSystem
             }
 
         }
-
+        //Make car roam the map
         IEnumerator Roaming()
         {
             Debug.Log("Roaming State Start");
             CarFixed = false;
-            //PlayPauseSmoke = true;
+            PlayPauseSmoke = true;
             yield return new WaitForSeconds(1f);
             GoToNextWaypoint();
             while (!nearGarage)
@@ -102,7 +102,7 @@ namespace CollectionSystem
             Debug.Log("Roaming State End");
             SwitchState();
         }
-
+        //Check if car needs repair near garage
         IEnumerator CheckForRepairs()
         {
             Debug.Log("CheckForRepairs State Start");
@@ -155,48 +155,14 @@ namespace CollectionSystem
             Debug.Log("CheckForRepairs State End");
             SwitchState();
         }
-
-      /*public void Fixing()
-        {
-            if (isInsideGarage)
-            {
-                if (!CarFixed)
-                {
-                    Debug.Log("Fixing State Start");
-                    if (gameObject.transform.position == currentServicePoint.transform.position)
-                    {
-                        if (navAgent != null)
-                        {
-                            navAgent.enabled = false; // Disable NavMeshAgent movement
-                        }
-                    }
-                }
-
-                else if (CarFixed) 
-                {
-                    Debug.Log("Car is fixed");
-
-                    if (navAgent != null)
-                    {
-                        navAgent.enabled = true; // Enable NavMeshAgent movement
-                    }
-                  //currentDuration = 0;
-                    isInsideGarage = false;
-                    currentServicePoint.Release();
-                    nextState = "Roaming";
-
-                    SwitchState();
-                }
-            }
-        }*/
+        //Car gets fixed
         public IEnumerator Fixing()
         {
             Debug.Log("Fixing State Start");
             PlayPauseSmoke = false;
+            //Stop car moving in the garage
             if (isInsideGarage)
             {
-                //Code
-              currentDuration += Time.deltaTime;
 
                 if(gameObject.transform.position == currentServicePoint.transform.position)
                 {
@@ -205,8 +171,8 @@ namespace CollectionSystem
                         navAgent.enabled = false; // Disable NavMeshAgent movement
                     }
                 }
-              if (currentDuration > 20f)
-                //if (CarFixed)
+                //Check if car fixed then go back to roaming
+                if (CarFixed)
                 {
                     Debug.Log("Car is fixed");
                     if (navAgent != null)
