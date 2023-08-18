@@ -34,20 +34,19 @@ In **Road Master Mechanic**, you step into the shoes of a talented mechanic work
 ### Controls
 
 #### Player Controls
-WASD: Move
-Space: Jump
-Sprint: Shift
-Mouse Click: Interact
-E: Interact
-Esc: Open pause menu
+- WASD: Move
+- Space: Jump
+- Sprint: Shift
+- Mouse Click: Interact
+- E: Interact
+- Esc: Open pause menu
 
 #### Car Controls
-W: Accelerate
-S: Brake/Reverse
-A: Steer left
-D: Steer right
-Space: Handbrake
-
+- W: Accelerate
+- S: Brake/Reverse
+- A: Steer left
+- D: Steer right
+- Space: Handbrake
 
 ### Desired Settings
 
