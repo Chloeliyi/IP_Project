@@ -54,7 +54,6 @@ namespace CollectionSystem
         //Check For Car Parts
         public void CheckForCarParts()
         {
-            //if (_keyInventory.hasBlueCar == false)
             if (_keyInventory.hasBlueCar == true)
             {
                 //Generate random number of parts to be collected
@@ -80,7 +79,8 @@ namespace CollectionSystem
 
                     _keyInventory.NumberOfItemsCollected -= _keyInventory.RandomCollect;
                     _keyInventory.hasBlueCar = false;
-                    //RandomColNum = 0;
+                    _keyInventory.NumberOfItemsForOrangeCollected = 0;
+                    RandomColNum = 0;
                     //GetComponent<CarControllerAI>().enabled = true;
                     //GetComponent<ItemController>().enabled = false;
                     //GetComponent<CarController>().enabled = false;
@@ -99,9 +99,12 @@ namespace CollectionSystem
                     Debug.Log(_keyInventory.NumberOfItemsCollected);
 
                     ItemsLabel.SetActive(false);
-                    _fixSlider.SetActive(true);
+                   //_fixSlider.SetActive(true);
 
                     _keyInventory.NumberOfItemsCollected -= _keyInventory.RandomCollect;
+                    _keyInventory.hasBlueCar = false;
+                    _keyInventory.NumberOfItemsForOrangeCollected = _keyInventory.NumberOfItemsCollected;
+                    RandomColNum = 0;
                 }
             }
 
@@ -130,10 +133,8 @@ namespace CollectionSystem
 
                     _keyInventory.NumberOfItemsForOrangeCollected -= _keyInventory.RandomCollect;
                     _keyInventory.hasOrangeCar = false;
-                    //RandomColNum = 0;
-                    //GetComponent<CarControllerAI>().enabled = true;
-                    //GetComponent<ItemController>().enabled = false;
-                    //GetComponent<CarController>().enabled = false;
+                    _keyInventory.NumberOfItemsCollected = 0;
+                    RandomColNum = 0;
 
                 }
                 else if (_keyInventory.NumberOfItemsForOrangeCollected <= _keyInventory.RandomCollect)
@@ -149,9 +150,12 @@ namespace CollectionSystem
                     Debug.Log(_keyInventory.NumberOfItemsCollected);
 
                     ItemsLabel.SetActive(false);
-                    _fixSlider.SetActive(true);
+                    //_fixSlider.SetActive(true);
 
                     _keyInventory.NumberOfItemsForOrangeCollected -= _keyInventory.RandomCollect;
+                    _keyInventory.hasOrangeCar = false;
+                    _keyInventory.NumberOfItemsCollected = _keyInventory.NumberOfItemsForOrangeCollected;
+                    RandomColNum = 0;
                 }
             }
             /*else if (_keyInventory.hasBlueCar == true)
@@ -163,7 +167,7 @@ namespace CollectionSystem
         void Update()
         {
             //Get Off Car
-            if (/*_keyInventory.hasBlueCar == true ||*/ _keyInventory.hasTowTruck == true || _keyInventory.hasTesla)
+            if (/*_keyInventory.hasBlueCar == true ||*/ _keyInventory.hasTowTruck == true || _keyInventory.hasTesla == true)
             {
                 if (Input.GetKeyDown(KeyCode.Backspace))
                 {
