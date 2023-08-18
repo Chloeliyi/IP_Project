@@ -29,7 +29,7 @@ namespace CollectionSystem
         {
             //UpdateQuestDetails();
         }
-
+        //Update current quest
         public void QuestCounted()
         {
             QuestCounter++;
@@ -38,7 +38,7 @@ namespace CollectionSystem
 
             UpdateQuestDetails();
         }
-
+        //Update current quest details
         private void UpdateQuestDetails()
         {
             if (QuestCounter == 1)
