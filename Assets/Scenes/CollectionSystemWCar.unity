@@ -972,8 +972,10 @@ MonoBehaviour:
   ItemTwo: 0
   ItemThree: 0
   ItemFour: 0
-  Car: 0
+  BlueCar: 0
+  OrangeCar: 0
   TowTruck: 1
+  Tesla: 0
   FixSlider: 0
   Crosshair: {fileID: 6228751413266505920, guid: 07edf8807a2bd034b815c8063d99d687,
     type: 3}
@@ -1229,8 +1231,10 @@ MonoBehaviour:
   ItemTwo: 0
   ItemThree: 0
   ItemFour: 0
-  Car: 1
+  BlueCar: 0
+  OrangeCar: 0
   TowTruck: 0
+  Tesla: 0
   FixSlider: 0
   Crosshair: {fileID: 6228751413266505920, guid: 07edf8807a2bd034b815c8063d99d687,
     type: 3}
@@ -3515,6 +3519,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8286454713287983775, guid: 84abbd6103b5ba04faeac34f3851d5aa,
         type: 3}
+      propertyPath: OnItemsCollectedForBlue.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8286454713287983775, guid: 84abbd6103b5ba04faeac34f3851d5aa,
+        type: 3}
       propertyPath: OnItemsCollected.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
       objectReference: {fileID: 0}
@@ -3535,12 +3544,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8286454713287983775, guid: 84abbd6103b5ba04faeac34f3851d5aa,
         type: 3}
+      propertyPath: OnItemsCollectedForBlue.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8286454713287983775, guid: 84abbd6103b5ba04faeac34f3851d5aa,
+        type: 3}
+      propertyPath: OnItemsCollectedForBlue.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6446861804748165256}
+    - target: {fileID: 8286454713287983775, guid: 84abbd6103b5ba04faeac34f3851d5aa,
+        type: 3}
+      propertyPath: OnItemsCollectedForBlue.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8286454713287983775, guid: 84abbd6103b5ba04faeac34f3851d5aa,
+        type: 3}
+      propertyPath: OnItemsCollectedForBlue.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdateItemLabel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8286454713287983775, guid: 84abbd6103b5ba04faeac34f3851d5aa,
+        type: 3}
       propertyPath: OnItemsCollected.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: CollectionSystem.InventoryUI, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8286454713287983775, guid: 84abbd6103b5ba04faeac34f3851d5aa,
         type: 3}
+      propertyPath: OnItemsCollectedForBlue.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CollectionSystem.InventoryUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8286454713287983775, guid: 84abbd6103b5ba04faeac34f3851d5aa,
+        type: 3}
       propertyPath: OnItemsCollected.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8286454713287983775, guid: 84abbd6103b5ba04faeac34f3851d5aa,
+        type: 3}
+      propertyPath: OnItemsCollectedForBlue.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4424,8 +4463,10 @@ MonoBehaviour:
   ItemTwo: 0
   ItemThree: 0
   ItemFour: 0
-  Car: 1
+  BlueCar: 0
+  OrangeCar: 0
   TowTruck: 0
+  Tesla: 0
   FixSlider: 0
   Crosshair: {fileID: 6228751413266505920, guid: 07edf8807a2bd034b815c8063d99d687,
     type: 3}
@@ -4446,8 +4487,10 @@ MonoBehaviour:
   ItemTwo: 0
   ItemThree: 0
   ItemFour: 0
-  Car: 1
+  BlueCar: 1
+  OrangeCar: 0
   TowTruck: 0
+  Tesla: 0
   FixSlider: 0
   Crosshair: {fileID: 6228751413266505920, guid: 07edf8807a2bd034b815c8063d99d687,
     type: 3}
@@ -5325,7 +5368,7 @@ PrefabInstance:
     - target: {fileID: 8116790989664504960, guid: cd155357f686b6b4986a48936739f249,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8116790991485456937, guid: cd155357f686b6b4986a48936739f249,
         type: 3}
@@ -7291,7 +7334,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6371059217267277241
 Transform:
   m_ObjectHideFlags: 0
@@ -7465,6 +7508,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6446861804748165252}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6446861804748165256 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 56008730350750794, guid: f66dc02437c32bd4b8aaaf9ca16d8aa6,
+    type: 3}
+  m_PrefabInstance: {fileID: 6446861804748165252}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 786645eb65c710c4cb888d5e6a002718, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6478359533926249658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7863,7 +7918,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6160807306033922966}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d507ea72995409c4b98c7b9f68f64623, type: 3}
   m_Name: 
@@ -8188,8 +8243,10 @@ MonoBehaviour:
   ItemTwo: 0
   ItemThree: 0
   ItemFour: 0
-  Car: 1
+  BlueCar: 0
+  OrangeCar: 0
   TowTruck: 0
+  Tesla: 0
   FixSlider: 0
   Crosshair: {fileID: 6228751413266505920, guid: 07edf8807a2bd034b815c8063d99d687,
     type: 3}

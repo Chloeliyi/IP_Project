@@ -48,8 +48,10 @@ MonoBehaviour:
   hasItemTwo: 0
   hasItemThree: 0
   hasItemFour: 0
-  hasCar: 0
+  hasBlueCar: 0
+  hasOrangeCar: 0
   hasTowTruck: 0
+  hasTesla: 0
   IsSlider: 0
   RandomCollect: 0
   NumOfCarFixed: 0
