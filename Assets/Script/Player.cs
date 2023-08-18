@@ -26,7 +26,7 @@ namespace CollectionSystem
         public bool PlayerMovement = true;
 
         public GameObject PauseMenu;
-
+        public GameObject QuitMenu;
         CharacterController characterController;
         // Start is called before the first frame update
         void Start()
@@ -80,18 +80,31 @@ namespace CollectionSystem
               if (Input.GetKey(KeyCode.Backspace))
                 {
                     canMove = false;
+                    Cursor.lockState = CursorLockMode.None;
                     PauseMenu.SetActive(true);
                 }
             }
         }
         public void OnResumeButton()
         {
+            canMove = true;
+            Cursor.lockState = CursorLockMode.Locked;
             PauseMenu.SetActive(false);
         }
 
         public void OnQuitButton()
         {
+            QuitMenu.SetActive(true);
+        }
+
+        public void OnYesButton()
+        {
             Application.Quit();
+        }
+
+        public void OnNoButton()
+        {
+            QuitMenu.SetActive(false);
         }
     }
 }
