@@ -15,11 +15,14 @@ namespace CollectionSystem
         public bool hasItemTwo = false;
         public bool hasItemThree = false;
         public bool hasItemFour = false;
-        public bool hasCar = false;
+        public bool hasBlueCar = false;
+        public bool hasOrangeCar = false;
         public bool hasTowTruck = false;
+        public bool hasTesla = false;
         public bool IsSlider = false;
 
         public int NumberOfItemsCollected { get; set; }
+        public int NumberOfItemsForOrangeCollected { get; set; }
         public int RandomCollect;
 
         public int NumOfCarFixed;
@@ -28,7 +31,8 @@ namespace CollectionSystem
 
         //public TextMeshProUGUI ItemsCollectedLabel;
 
-        public UnityEvent<Inventory> OnItemsCollected;
+        public UnityEvent<Inventory> OnItemsCollectedForBlue;
+        public UnityEvent<Inventory> OnItemsCollectedForOrange;
 
         private void Awake()
         {
@@ -41,9 +45,15 @@ namespace CollectionSystem
         {
             NumberOfItemsCollected++;
 
-            OnItemsCollected.Invoke(this);
+            OnItemsCollectedForBlue.Invoke(this);
             Debug.Log("Number of items collected is " + NumberOfItemsCollected);
             //ItemsCollectedLabel.text = NumberOfItemsCollected.ToString();
+        }
+        public void ItemCollectedForOrange()
+        {
+            NumberOfItemsForOrangeCollected++;
+
+            OnItemsCollectedForOrange.Invoke(this);
         }
 
         public void NumberOfCarsFixed()
