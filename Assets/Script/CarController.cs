@@ -38,24 +38,26 @@ namespace CollectionSystem
         private ItemController _ItemController;
 
         public bool PlayPauseSpark = false;
-        //public bool PlayPauseSmoke = false;
 
         void Start()
         {
 
             ItemsLabel.SetActive(false);
             PlayPauseSpark = false;
-            //PlayPauseSmoke = false;
     }
         void Awake()
         {
             Carfixed = GetComponent<CarControllerAI>();
             _ItemController = GetComponent<ItemController>();
         }
+
+        //Check For Car Parts
         public void CheckForCarParts()
         {
-            if (_keyInventory.hasCar == false)
+            //if (_keyInventory.hasBlueCar == false)
+            if (_keyInventory.hasBlueCar == true)
             {
+                //Generate random number of parts to be collected
                 if (RandomColNum < 1)
                 {
                     _keyInventory.RandomCollectNum();
@@ -66,6 +68,7 @@ namespace CollectionSystem
 
                 //ItemsLabel.SetActive(true);
 
+                //Check if number of parts collected is correct
                 if (_keyInventory.NumberOfItemsCollected == _keyInventory.RandomCollect)
                 {
                     Debug.Log("Car can be fixed");
@@ -73,17 +76,14 @@ namespace CollectionSystem
                     Debug.Log(_keyInventory.RandomCollect);
 
                     ItemsLabel.SetActive(false);
-                    _fixSlider.SetActive(true);
+                    //_fixSlider.SetActive(true);
 
                     _keyInventory.NumberOfItemsCollected -= _keyInventory.RandomCollect;
-
-                    Debug.Log(_keyInventory.NumberOfItemsCollected);
-
+                    _keyInventory.hasBlueCar = false;
                     //RandomColNum = 0;
                     //GetComponent<CarControllerAI>().enabled = true;
                     //GetComponent<ItemController>().enabled = false;
                     //GetComponent<CarController>().enabled = false;
-                    //Carfixed.CarIsRepaired();
 
                 }
                 else if (_keyInventory.NumberOfItemsCollected <= _keyInventory.RandomCollect)
@@ -102,25 +102,68 @@ namespace CollectionSystem
                     _fixSlider.SetActive(true);
 
                     _keyInventory.NumberOfItemsCollected -= _keyInventory.RandomCollect;
+                }
+            }
 
+            if (_keyInventory.hasOrangeCar == true)
+            {
+                //Generate random number of parts to be collected
+                if (RandomColNum < 1)
+                {
+                    _keyInventory.RandomCollectNum();
+                    ToBeCollectedLabel.text = "/" + _keyInventory.RandomCollect.ToString();
+                    RandomColNum++;
+                    ItemsLabel.SetActive(true);
+                }
+
+                //ItemsLabel.SetActive(true);
+
+                //Check if number of parts collected is correct
+                if (_keyInventory.NumberOfItemsForOrangeCollected == _keyInventory.RandomCollect)
+                {
+                    Debug.Log("Car can be fixed");
+                    //Debug.Log(_keyInventory.NumberOfItemsForOrangeCollected);
+                    Debug.Log(_keyInventory.RandomCollect);
+
+                    ItemsLabel.SetActive(false);
+                    //_fixSlider.SetActive(true);
+
+                    _keyInventory.NumberOfItemsForOrangeCollected -= _keyInventory.RandomCollect;
+                    _keyInventory.hasOrangeCar = false;
                     //RandomColNum = 0;
-
                     //GetComponent<CarControllerAI>().enabled = true;
                     //GetComponent<ItemController>().enabled = false;
                     //GetComponent<CarController>().enabled = false;
-                    //Carfixed.CarIsRepaired();
+
+                }
+                else if (_keyInventory.NumberOfItemsForOrangeCollected <= _keyInventory.RandomCollect)
+                {
+                    Debug.Log("Get more objects to fix car");
+                    Debug.Log(_keyInventory.NumberOfItemsForOrangeCollected);
+                    Debug.Log(_keyInventory.RandomCollect);
+                }
+                else if (_keyInventory.NumberOfItemsForOrangeCollected >= _keyInventory.RandomCollect)
+                {
+                    Debug.Log("More than needed parts");
+                    Debug.Log(_keyInventory.NumberOfItemsCollected);
+                    Debug.Log(_keyInventory.NumberOfItemsCollected);
+
+                    ItemsLabel.SetActive(false);
+                    _fixSlider.SetActive(true);
+
+                    _keyInventory.NumberOfItemsForOrangeCollected -= _keyInventory.RandomCollect;
                 }
             }
-            else if (_keyInventory.hasCar == true)
+            /*else if (_keyInventory.hasBlueCar == true)
             {
                 GetInVehicle();
-            }
+            }*/
         }
 
         void Update()
         {
             //Get Off Car
-            if (_keyInventory.hasCar == true || _keyInventory.hasTowTruck == true)
+            if (/*_keyInventory.hasBlueCar == true ||*/ _keyInventory.hasTowTruck == true || _keyInventory.hasTesla)
             {
                 if (Input.GetKeyDown(KeyCode.Backspace))
                 {
@@ -138,6 +181,7 @@ namespace CollectionSystem
             }
         }
 
+        //Get In Car
         public void GetInVehicle()
         {
             Debug.Log("In Car");
@@ -150,8 +194,6 @@ namespace CollectionSystem
 
             Player.transform.parent = CarModel.transform;
             Player.transform.Rotate(0.0f, 270.0f, 0.0f, Space.Self);
-
-            //PlayPauseSmoke = true;
         }
     }
 }
