@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//Chloe Chan
 namespace CollectionSystem
 {
+    //Raycast for item collection
     public class Raycast : MonoBehaviour
     {
         [SerializeField] private int rayLength = 5;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+//Chloe Chan
 namespace CollectionSystem
 {
     public class CarController : MonoBehaviour
@@ -23,8 +23,6 @@ namespace CollectionSystem
 
         [SerializeField] private WheelController _Car;
 
-        //private TestSlider FixSlider;
-
         [SerializeField] private GameObject _fixSlider;
 
         [SerializeField] private GameObject ItemsLabel;
@@ -32,8 +30,6 @@ namespace CollectionSystem
         public TextMeshProUGUI ToBeCollectedLabel;
 
         public float RandomColNum = 0;
-
-       //[SerializeField] private CarAI Carfixed;
 
 
         public bool PlayPauseSpark = false;
@@ -61,8 +57,6 @@ namespace CollectionSystem
                     RandomColNum++;
                     ItemsLabel.SetActive(true);
                 }
-
-                //ItemsLabel.SetActive(true);
 
                 //Check if number of parts collected is correct
                 if (_keyInventory.NumberOfItemsCollected == _keyInventory.RandomCollect)
@@ -122,8 +116,6 @@ namespace CollectionSystem
                     ItemsLabel.SetActive(true);
                 }
 
-                //ItemsLabel.SetActive(true);
-
                 //Check if number of parts collected is correct
                 if (_keyInventory.NumberOfItemsForOrangeCollected == _keyInventory.RandomCollect)
                 {
@@ -132,16 +124,11 @@ namespace CollectionSystem
                     Debug.Log(_keyInventory.RandomCollect);
 
                     ItemsLabel.SetActive(false);
-                    //_fixSlider.SetActive(true);
+                    _fixSlider.SetActive(true);
 
                     _keyInventory.NumberOfItemsForOrangeCollected -= _keyInventory.RandomCollect;
                     _keyInventory.hasOrangeCar = false;
                     _keyInventory.NumberOfItemsCollected = 0;
-
-                    /*RandomColNum = 0;
-                    Carfixed.CarFixed = true;
-                    Carfixed.Fixing();
-                    _keyInventory.NumberOfCarsFixed();*/
 
 
                 }
@@ -157,26 +144,13 @@ namespace CollectionSystem
                     Debug.Log(_keyInventory.NumberOfItemsForOrangeCollected);
 
                     ItemsLabel.SetActive(false);
-                    //_fixSlider.SetActive(true);
+                    _fixSlider.SetActive(true);
 
                     _keyInventory.NumberOfItemsForOrangeCollected -= _keyInventory.RandomCollect;
                     _keyInventory.hasOrangeCar = false;
                     _keyInventory.NumberOfItemsCollected = _keyInventory.NumberOfItemsForOrangeCollected;
 
-                    /*RandomColNum = 0;
-                    Carfixed.CarFixed = true;
-                    Carfixed.Fixing();
-                    _keyInventory.NumberOfCarsFixed();*/
-
                 }
-            }
-            if (_keyInventory.NumOfCarFixed > 1)
-            {
-                QuestController.instance.QuestCounted();
-            }
-            else if (_keyInventory.NumOfCarFixed > 2)
-            {
-                QuestController.instance.QuestCounted();
             }
             /*else if (_keyInventory.hasBlueCar == true)
             {
@@ -187,7 +161,7 @@ namespace CollectionSystem
         void Update()
         {
             //Get Off Car
-            if (/*_keyInventory.hasBlueCar == true ||*/ _keyInventory.hasTowTruck == true || _keyInventory.hasTesla == true)
+            if ( _keyInventory.hasTowTruck == true || _keyInventory.hasTesla == true)
             {
                 if (Input.GetKeyDown(KeyCode.Backspace))
                 {

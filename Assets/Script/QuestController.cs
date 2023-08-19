@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
-
+//Chloe Chan
 namespace CollectionSystem
 {
+    //Check for quest
     public class QuestController : MonoBehaviour
     {
         public static QuestController instance;
 
         [SerializeField] private TextMeshProUGUI QuestDetails;
         public int QuestCounter { get; set; }
-
-        //[SerializeField] private bool QuestComplete = false;
 
         [SerializeField] private Inventory _keyInventory;
 
@@ -27,7 +26,6 @@ namespace CollectionSystem
 
         void Update()
         {
-            //UpdateQuestDetails();
         }
         //Update current quest
         public void QuestCounted()

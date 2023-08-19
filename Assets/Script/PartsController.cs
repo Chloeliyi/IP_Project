@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
+//Chloe Chan
 namespace CollectionSystem
 {
     public class PartsController : MonoBehaviour
@@ -11,11 +10,6 @@ namespace CollectionSystem
         [SerializeField] private RandomSpawner _Spawner;
 
         [SerializeField] private int WaitTime = 1;
-
-        void Start()
-        {
-
-        }
 
         //Check for parts collected
         public void ItemsCollected()

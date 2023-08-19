@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Chloe Chan
 public class PlayAnimation : MonoBehaviour
 {
+    //Pay door animation
     public Animator doorAnim;
 
     [Header("Animation Names")]

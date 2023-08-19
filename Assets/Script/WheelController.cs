@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
+//Chloe Chan
 namespace CollectionSystem
 {
+    //Move car through use of wheel colliders
     public class WheelController : MonoBehaviour
     {
         [SerializeField] WheelCollider frontRight;

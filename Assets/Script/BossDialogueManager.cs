@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.AI;
-
+//Jae Ng
 namespace CollectionSystem
 {
     public class BossDialogueManager : MonoBehaviour

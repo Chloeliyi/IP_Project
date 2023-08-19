@@ -8,7 +8,7 @@ namespace CollectionSystem
 {
     public class InventoryUI : MonoBehaviour
     {
-        //public text labels
+        //public text labels for items collected
         public TextMeshProUGUI ItemsCollectedLabel;
         public TextMeshProUGUI ItemsForOrangeCollectedLabel;
 
@@ -18,12 +18,12 @@ namespace CollectionSystem
             ItemsForOrangeCollectedLabel = GetComponent<TextMeshProUGUI>();
         }
 
-        //update label of blue car
+        //update items label of blue car
         public void UpdateItemLabel(Inventory Inventory)
         {
             ItemsCollectedLabel.text = Inventory.NumberOfItemsCollected.ToString();
         }
-        //update label of orange car
+        //update items label of orange car
         public void UpdateItemForOrangeLabel(Inventory Inventory)
         {
             ItemsForOrangeCollectedLabel.text = Inventory.NumberOfItemsForOrangeCollected.ToString();

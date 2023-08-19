@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//Chloe Chan
 namespace CollectionSystem
 {
     public class TestSlider : MonoBehaviour
@@ -24,14 +24,9 @@ namespace CollectionSystem
         private QuestController _Quest;
 
         private Money _Money;
-        //private WheelController _Car;
 
         void Awake()
         {
-            //_Car = GetComponent<WheelController>();
-
-          //Carfixed = GetComponent<CarAI>();
-         // _CarController = GetComponent<CarController>();
         }
         //Check in update if slider is pressed, hold left click for 2 seconds while playing spark effect and then turn off afterwards
         private void Update()

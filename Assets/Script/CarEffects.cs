@@ -11,17 +11,14 @@ namespace CollectionSystem
         public ParticleSystem[] Smoke;
         public ParticleSystem[] Spark;
         private CarAI _CarAI;
-
-        //private TestSlider _Slider;
         private CarController _CarController;
 
         private void Start()
         {
             _CarAI = GetComponent<CarAI>();
-            //_Slider = GetComponent<TestSlider>();
             _CarController = GetComponent<CarController>();
         }
-
+        //Start smoke
         public void StartSmoke()
         {
             for (int i = 0; i < Smoke.Length; i++)
@@ -29,7 +26,7 @@ namespace CollectionSystem
                 Smoke[i].Play();
             }
         }
-
+        //Stop smoke
         public void StopSmoke()
         {
             for (int i = 0; i < Smoke.Length; i++)
@@ -37,7 +34,7 @@ namespace CollectionSystem
                 Smoke[i].Stop();
             }
         }
-
+        //Start spark
         public void StartSpark()
         {
             for (int i = 0; i < Spark.Length; i++)
@@ -45,6 +42,7 @@ namespace CollectionSystem
                 Spark[i].Play();
             }
         }
+        //Stop spark
         public void StopSpark()
         {
             for (int i = 0; i < Spark.Length; i++)

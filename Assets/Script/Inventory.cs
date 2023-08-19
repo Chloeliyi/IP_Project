@@ -8,6 +8,7 @@ using UnityEngine.Events;
 
 namespace CollectionSystem
 {
+    //list of items to check for
     public class Inventory : MonoBehaviour
     {
         public static Inventory instance;
@@ -35,6 +36,7 @@ namespace CollectionSystem
             instance = this;
         }
 
+        //items collected
         public void ItemCollected()
         {
             NumberOfItemsCollected++;
@@ -42,6 +44,7 @@ namespace CollectionSystem
             OnItemsCollectedForBlue.Invoke(this);
             Debug.Log("Number of items collected is " + NumberOfItemsCollected);
         }
+        //items collected for orange
         public void ItemCollectedForOrange()
         {
             NumberOfItemsForOrangeCollected++;
@@ -49,11 +52,13 @@ namespace CollectionSystem
             OnItemsCollectedForOrange.Invoke(this);
         }
 
+        //number of cars fixed
         public void NumberOfCarsFixed()
         {
             NumOfCarFixed++;
             Debug.Log("Car Number " + NumOfCarFixed + " Is Fixed");
         }
+        //generate random number of items to be collected
         public void RandomCollectNum()
         {
             RandomCollect = Random.Range(5, 11);

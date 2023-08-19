@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+//Chloe Chan
 namespace CollectionSystem
 {
     public class Player : MonoBehaviour
@@ -48,42 +48,6 @@ namespace CollectionSystem
             verticalInput.x = -value.Get<Vector2>().y;
             verticalInput.x = Mathf.Clamp(verticalInput.x, -90f, 90f);
         }
-
-        /// <summary>
-        /// function for collisions
-        /// </summary>
-        /*private void OnCollisionEnter(Collision collision)
-        {
-            // collide with floor
-            if (collision.gameObject.tag == "Floor")
-            {
-                playerGrounded = true;
-            }
-
-            else if (collision.gameObject.tag == "Task1Item")
-            {
-                Destroy(collision.gameObject);
-                task1CollectibleCount = task1CollectibleCount + 1;
-                if (task1CollectibleCount == 5)
-                {
-                    bossDialogueManager.task1Ongoing = false;
-                    bossDialogueManager.task1Complete = true;
-                }
-            }
-        }*/
-
-        /*void OnEKeyBoard()
-        {
-            RaycastHit hit;
-            if (Physics.Raycast(camera.position, camera.forward, out hit, 3f))
-            {
-                if (hit.transform.tag == "Task2Item" && bossDialogueManager.task1Complete == true)
-                {
-                    bossDialogueManager.task2Ongoing = false;
-                    bossDialogueManager.task2Complete = true;
-                }
-            }
-        }*/
 
         /// <summary>
         /// function for registering shift on keyboard being pressed
@@ -175,6 +139,7 @@ namespace CollectionSystem
         }
         // Update is called once per frame
 
+        //Press resume button on the pause menu
         public void OnResumeButton()
         {
             PlayerMovement = true;

@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
-
+//Chloe Chan
 namespace CollectionSystem
 {
+    //Check for how much money there is
     public class MoneyController : MonoBehaviour
     {
         public static MoneyController instance;
@@ -20,13 +21,13 @@ namespace CollectionSystem
             MoneyAmount = 5000;
             instance = this;
         }
-
+        //Add money earned
         public void PlusMoney()
         {
             MoneyAmount += AddMoney;
             OnMoneyUpdate.Invoke(this);
         }
-
+        //Minus money used
         public void MinusMoney()
         {
             MoneyAmount -= minusMoney;

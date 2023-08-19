@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Chloe Chan
 public class PlaySlideDoors : MonoBehaviour
 {
+    //Pay slide door animation
     public Animator SlidedoorAnim;
 
     [Header("Animation Names")]

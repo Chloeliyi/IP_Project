@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+//Chloe Chan
 namespace CollectionSystem
 {
     public class ItemController : MonoBehaviour
     {
-
+        //Check for items
         [SerializeField] private bool ItemOne = false;
         [SerializeField] private bool ItemTwo = false;
         [SerializeField] private bool ItemThree = false;
@@ -71,6 +71,7 @@ namespace CollectionSystem
                 CheckSlider = GetComponent<TestSlider>();
             }
         }
+        //Raycast object interaction
         public void ObjectInteraction()
         {
             if (ItemOne)

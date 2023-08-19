@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.UI;
-
+//Jae Ng
 namespace CollectionSystem
 {
     public class DealerDialogueManager : MonoBehaviour

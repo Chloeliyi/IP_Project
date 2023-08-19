@@ -1,15 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Jae Ng
 public class LookAtObj : MonoBehaviour
 {
+    //NPC will look in the direction of player
     public GameObject _object;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
