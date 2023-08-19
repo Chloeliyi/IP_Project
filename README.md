@@ -72,6 +72,15 @@ To emerge as the ultimate **Road Master Mechanic**, follow these steps:
 
 ## Credits
 
+1.Car Smoke 
+2.Collection System (I used this more as an example of how to do collection system)
+3.Car Movement
+4.[Brackeys](https://www.youtube.com/@Brackeys).
+5.[SpeedTutor](https://www.youtube.com/@SpeedTutor).
+6.[KapKoder](https://www.youtube.com/@kapcoder9089).
+7.[PpTheBst](https://www.youtube.com/@PpTheBest).
+8.Substance Share
+
 ## Get Ready to Hit the Road!
 
 **Road Master Mechanic** offers a one-of-a-kind gaming experience where car repair and racing collide. Are you prepared to take on the challenges of the garage and the racetrack? Get ready to prove your mettle as a true Road Master Mechanic!
