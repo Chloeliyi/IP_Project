@@ -1,110 +1,186 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using TMPro;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace CollectionSystem
 {
-    [RequireComponent(typeof(CharacterController))]
     public class Player : MonoBehaviour
     {
-        public Camera playerCamera;
-        public float walkSpeed = 1f;
-        public float runSpeed = 3f;
-        public float jumpPower = 4f;
-        public float gravity = 10f;
+        public BossDialogueManager bossDialogueManager;
 
-        public float lookSpeed = 2f;
-        public float lookXLimit = 45f;
+        public int task1CollectibleCount = 0;
 
-        //[SerializeField] private int Test = 0;
+        public float movementSpeed = 0.3f;
 
-        Vector3 moveDirection = Vector3.zero;
-        float rotationX = 0;
+        public float sprintSpeed = 0.1f;
 
-        public bool canMove = true;
+        public Image staminaBar;
+
+        public Rigidbody rb;
 
         public bool PlayerMovement = true;
 
-        public GameObject PauseMenu;
-        public GameObject QuitMenu;
-        CharacterController characterController;
-        // Start is called before the first frame update
-        void Start()
-        {
-            characterController = GetComponent<CharacterController>();
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+        bool sprint;
 
-            PauseMenu.SetActive(false);
+        public bool playerGrounded = true;
+
+        public float jumpHeight = 5f;
+
+        Vector3 movementInput = Vector3.zero;
+
+        Vector3 horizontalInput = Vector3.zero;
+
+        Vector3 verticalInput = Vector3.zero;
+
+        public float mouseSensitivity = 0.1f;
+
+        public Transform camera;
+
+        [SerializeField] private GameObject PauseMenu;
+
+        void OnLook(InputValue value)
+        {
+            horizontalInput.y = value.Get<Vector2>().x;
+            verticalInput.x = -value.Get<Vector2>().y;
+            verticalInput.x = Mathf.Clamp(verticalInput.x, -90f, 90f);
         }
 
-        // Update is called once per frame
+        /// <summary>
+        /// function for collisions
+        /// </summary>
+        /*private void OnCollisionEnter(Collision collision)
+        {
+            // collide with floor
+            if (collision.gameObject.tag == "Floor")
+            {
+                playerGrounded = true;
+            }
+
+            else if (collision.gameObject.tag == "Task1Item")
+            {
+                Destroy(collision.gameObject);
+                task1CollectibleCount = task1CollectibleCount + 1;
+                if (task1CollectibleCount == 5)
+                {
+                    bossDialogueManager.task1Ongoing = false;
+                    bossDialogueManager.task1Complete = true;
+                }
+            }
+        }*/
+
+        /*void OnEKeyBoard()
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(camera.position, camera.forward, out hit, 3f))
+            {
+                if (hit.transform.tag == "Task2Item" && bossDialogueManager.task1Complete == true)
+                {
+                    bossDialogueManager.task2Ongoing = false;
+                    bossDialogueManager.task2Complete = true;
+                }
+            }
+        }*/
+
+        /// <summary>
+        /// function for registering shift on keyboard being pressed
+        /// </summary>
+        void OnSprintStart()
+        {
+            sprint = true;
+        }
+
+        /// <summary>
+        /// function for registering shift on keyboard being let go
+        /// </summary>
+        void OnSprintStop()
+        {
+            sprint = false;
+        }
+
         void Update()
         {
             if (PlayerMovement)
             {
-                //Movement
-                Vector3 forward = transform.TransformDirection(Vector3.forward);
-                Vector3 right = transform.TransformDirection(Vector3.right);
+                // Create a new Vector3
+                Vector3 movementVector = Vector3.zero;
 
-                bool isRunning = Input.GetKey(KeyCode.LeftShift);
-                float curSpeedX = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Vertical") : 0;
-                float curSpeedY = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Horizontal") : 0;
-                float movementDirectionY = moveDirection.y;
-                moveDirection = (forward * curSpeedX) + (right * curSpeedY);
+                // Add the forward direction of the player multiplied by the user's up/down input.
+                movementVector += transform.forward * movementInput.y;
 
-                //Jumping
-                if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
-                {
-                    moveDirection.y = jumpPower;
-                }
-                else
-                {
-                    moveDirection.y = movementDirectionY;
-                }
-                if (!characterController.isGrounded)
-                {
-                    moveDirection.y -= gravity * Time.deltaTime;
-                }
-                //Rotation
-                characterController.Move(moveDirection * Time.deltaTime);
+                // Add the right direction of the player multiplied by the user's right/left input.
+                movementVector += transform.right * movementInput.x;
 
-                if (canMove)
+                // increases movement speed when sprint is held down
+                if (sprint && staminaBar.fillAmount > 0)
                 {
-                    rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
-                    rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
-                    playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
-                    transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
+                    GetComponent<Rigidbody>().MovePosition(transform.position + ((transform.right * movementInput.x) + (transform.forward * movementInput.y)) * sprintSpeed);
+                    staminaBar.fillAmount -= 0.25f * Time.deltaTime;
                 }
 
-              if (Input.GetKey(KeyCode.Backspace))
+                // reduces movement speed to normal walking speed when stamina runs out
+                else if (sprint && staminaBar.fillAmount <= 0)
                 {
-                    canMove = false;
-                    Cursor.lockState = CursorLockMode.None;
-                    PauseMenu.SetActive(true);
+                    GetComponent<Rigidbody>().MovePosition(transform.position + ((transform.right * movementInput.x) + (transform.forward * movementInput.y)) * movementSpeed);
                 }
+
+                // reduces movement speed to normal walking speed when shift key is not held down
+                else if (!sprint && staminaBar.fillAmount >= 0)
+                {
+                    GetComponent<Rigidbody>().MovePosition(transform.position + ((transform.right * movementInput.x) + (transform.forward * movementInput.y)) * movementSpeed);
+                    staminaBar.fillAmount += 0.35f * Time.deltaTime;
+                }
+
+                // jump
+                if (Input.GetButtonDown("Jump") & playerGrounded)
+                {
+                    rb.AddForce(new Vector3(0, jumpHeight, 0), ForceMode.Impulse);
+                    playerGrounded = false;
+                }
+
+                // player look
+                transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + horizontalInput * mouseSensitivity);
+                camera.rotation = Quaternion.Euler(camera.rotation.eulerAngles + new Vector3(verticalInput.x, 0f, 0f) * mouseSensitivity);
+
+                Cursor.lockState = CursorLockMode.Locked;
+            }
+
+            /*if (Input.GetKeyDown(KeyCode.Backspace)) {
+                PlayerMovement = false;
+                Cursor.lockState = CursorLockMode.None;
+                PauseMenu.SetActive(true);
+            }*/
+        }
+
+        /// <summary>
+        /// Called when the Move action is detected.
+        /// </summary>
+        /// <param name="value"></param>
+        void OnMove(InputValue value)
+        {
+            if (PlayerMovement)
+            {
+                movementInput = value.Get<Vector2>();
             }
         }
+
+        // Start is called before the first frame update
+        void Start()
+        {
+            // for jump
+            rb = GetComponent<Rigidbody>();
+        }
+        // Update is called once per frame
+
         public void OnResumeButton()
         {
-            canMove = true;
+            PlayerMovement = true;
             Cursor.lockState = CursorLockMode.Locked;
             PauseMenu.SetActive(false);
         }
-
-        public void OnQuitButton()
-        {
-            QuitMenu.SetActive(true);
-        }
-
-        public void OnYesButton()
-        {
-            Application.Quit();
-        }
-
-        public void OnNoButton()
-        {
-            QuitMenu.SetActive(false);
-        }
     }
 }
+
