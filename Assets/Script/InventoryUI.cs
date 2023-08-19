@@ -3,34 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
-
+//Chloe Chan
 namespace CollectionSystem
 {
     public class InventoryUI : MonoBehaviour
     {
-
+        //public text labels
         public TextMeshProUGUI ItemsCollectedLabel;
-        private TextMeshProUGUI ItemsForOrangeCollectedLabel;
-        //public TextMeshProUGUI PartsLabel;
+        public TextMeshProUGUI ItemsForOrangeCollectedLabel;
 
         void Start()
         {
             ItemsCollectedLabel = GetComponent<TextMeshProUGUI>();
             ItemsForOrangeCollectedLabel = GetComponent<TextMeshProUGUI>();
-            //PartsLabel = GetComponent<TextMeshProUGUI>();
         }
 
+        //update label of blue car
         public void UpdateItemLabel(Inventory Inventory)
         {
             ItemsCollectedLabel.text = Inventory.NumberOfItemsCollected.ToString();
-          //PartsLabel.text = "Parts: " + Inventory.NumberOfItemsCollected.ToString();
         }
-
+        //update label of orange car
         public void UpdateItemForOrangeLabel(Inventory Inventory)
         {
             ItemsForOrangeCollectedLabel.text = Inventory.NumberOfItemsForOrangeCollected.ToString();
-            //PartsLabel.text = "Parts: " + Inventory.NumberOfItemsCollected.ToString();
         }
     }
 }

@@ -23,21 +23,15 @@ namespace CollectionSystem
 
         public int NumberOfItemsCollected { get; set; }
         public int NumberOfItemsForOrangeCollected { get; set; }
+
         public int RandomCollect;
-
         public int NumOfCarFixed;
-
-        //private InventoryUI ItemUI;
-
-        //public TextMeshProUGUI ItemsCollectedLabel;
 
         public UnityEvent<Inventory> OnItemsCollectedForBlue;
         public UnityEvent<Inventory> OnItemsCollectedForOrange;
 
         private void Awake()
         {
-            //ItemsCollectedLabel = GetComponent<TextMeshProUGUI>();
-
             instance = this;
         }
 
@@ -47,7 +41,6 @@ namespace CollectionSystem
 
             OnItemsCollectedForBlue.Invoke(this);
             Debug.Log("Number of items collected is " + NumberOfItemsCollected);
-            //ItemsCollectedLabel.text = NumberOfItemsCollected.ToString();
         }
         public void ItemCollectedForOrange()
         {
@@ -59,6 +52,7 @@ namespace CollectionSystem
         public void NumberOfCarsFixed()
         {
             NumOfCarFixed++;
+            Debug.Log("Car Number " + NumOfCarFixed + " Is Fixed");
         }
         public void RandomCollectNum()
         {
