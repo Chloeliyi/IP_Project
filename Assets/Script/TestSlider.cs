@@ -22,14 +22,13 @@ namespace CollectionSystem
         [SerializeField] private CarController _CarController;
 
         private QuestController _Quest;
+
+        private Money _Money;
         //private WheelController _Car;
 
         void Awake()
         {
             //_Car = GetComponent<WheelController>();
-
-            //_fixSlider.SetActive(false);
-            //GetComponent<TestSlider>().enabled = false;
 
           //Carfixed = GetComponent<CarAI>();
          // _CarController = GetComponent<CarController>();
@@ -53,18 +52,29 @@ namespace CollectionSystem
                         _fixSlider.SetActive(false);
 
                         Debug.Log("Car Is Fixed");
-                        //_CarController.PlayPauseSpark = false;
+                        _CarController.PlayPauseSpark = false;
                         _CarController.RandomColNum = 0;
-                        //Carfixed.CarFixed = true;
-                       // Carfixed.Fixing();
-                       //_keyInventory.NumberOfCarsFixed();
-                        //Debug.Log(_keyInventory.NumOfCarFixed);
-                        //QuestController.instance.QuestCounted();
+                        Carfixed.CarFixed = true;
+                        Debug.Log(Carfixed.CarFixed);
+                        Carfixed.Fixing();
+                       _keyInventory.NumberOfCarsFixed();
 
-                        //_keyInventory.hasBlueCar = false;
-                        //Debug.Log("Has Car is " + _keyInventory.hasCar);
-                        //GetComponent<WheelController>().enabled = true;
-                        //GetComponent<CarControllerAI>().enabled = true;
+                        _keyInventory.hasBlueCar = false;
+
+                        if(Carfixed.CarFixed == true)
+                        {
+                            QuestController.instance.QuestCounted();
+                            MoneyController.instance.PlusMoney();
+                        }
+
+                        /*if(_keyInventory.hasBlueCar == true)
+                        {
+                            _keyInventory.hasBlueCar = false;
+                        }
+                        else if (_keyInventory.hasOrangeCar == true)
+                        {
+                            _keyInventory.hasOrangeCar = false;
+                        }*/
                     }
                 }
                 else if (Input.GetKeyUp(KeyCode.Mouse0))
@@ -76,10 +86,15 @@ namespace CollectionSystem
                 FixSlider.value = pointerDownTimer / requiredHoldTime;
             }
 
-            if (_keyInventory.NumOfCarFixed > 3)
+            /*if (_keyInventory.NumOfCarFixed > 1)
             {
                 QuestController.instance.QuestCounted();
-            }
+                _Money.MoneyPlus();
+            }*/
+            /*else if (_keyInventory.NumOfCarFixed > 2)
+            {
+                QuestController.instance.QuestCounted();
+            }*/
 
         }
         //If left click isn't holding for 2 seconds, reset the slider value
