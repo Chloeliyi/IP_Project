@@ -14,7 +14,6 @@ namespace CollectionSystem
 
         void Start()
         {
-            Debug.Log("Number Of Items Collected At Start : " + _keyInventory.NumberOfItemsCollected);
 
         }
 
@@ -65,7 +64,8 @@ namespace CollectionSystem
             yield return new WaitForSeconds(WaitTime);
 
             _keyInventory.hasItemOne = false;
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
+            Destroy(gameObject);
 
             Debug.Log("Coroutine ended");
             Debug.Log("Has Item One Is " + _keyInventory.hasItemOne);
@@ -76,7 +76,8 @@ namespace CollectionSystem
         {
             Debug.Log("Coroutine Start");
             Debug.Log("Has Item Two Is " + _keyInventory.hasItemTwo);
-            Debug.Log(gameObject.name);
+            //Debug.Log(gameObject.name);
+            Destroy(gameObject);
 
             yield return new WaitForSeconds(WaitTime);
 
@@ -97,7 +98,8 @@ namespace CollectionSystem
             yield return new WaitForSeconds(WaitTime);
 
             _keyInventory.hasItemThree = false;
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
+            Destroy(gameObject);
 
             Debug.Log("Coroutine ended");
             Debug.Log("Has Item Three Is " + _keyInventory.hasItemThree);
@@ -113,7 +115,8 @@ namespace CollectionSystem
             yield return new WaitForSeconds(WaitTime);
 
             _keyInventory.hasItemFour = false;
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
+            Destroy(gameObject);
 
             Debug.Log("Coroutine ended");
             Debug.Log("Has Item Four Is " + _keyInventory.hasItemFour);
