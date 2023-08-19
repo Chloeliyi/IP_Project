@@ -55,6 +55,9 @@ MonoBehaviour:
   IsSlider: 0
   RandomCollect: 0
   NumOfCarFixed: 0
-  OnItemsCollected:
+  OnItemsCollectedForBlue:
+    m_PersistentCalls:
+      m_Calls: []
+  OnItemsCollectedForOrange:
     m_PersistentCalls:
       m_Calls: []
