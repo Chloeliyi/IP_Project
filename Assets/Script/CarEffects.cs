@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//Chloe Chan
 
 namespace CollectionSystem
 {
+    //Car effects for smoke and spark
     public class CarEffects : MonoBehaviour
     {
         public ParticleSystem[] Smoke;
