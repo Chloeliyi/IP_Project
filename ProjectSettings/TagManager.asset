@@ -11,6 +11,9 @@ TagManager:
   - BossNPC
   - Car
   - GarageEntrance
+  - Task1Item
+  - NPC
+  - Task2Item
   layers:
   - Default
   - TransparentFX
@@ -23,7 +26,7 @@ TagManager:
   - Obstacle
   - Junkyard
   - Track
-  - 
+  - Garage
   - 
   - 
   - 
