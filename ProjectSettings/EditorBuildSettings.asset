@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NewMenu.unity
     guid: d638108762e17c543a6e7c7f55c384c8
-  - enabled: 0
-    path: Assets/Scenes/OpenWorldScene.unity
-    guid: 9be9e39a4993bf94da5c7f2f0b941c10
   - enabled: 1
     path: Assets/Scenes/NewWorldScene.unity
     guid: b59a05bfce6078d46bbaa360615d3ee7
+  - enabled: 1
+    path: Assets/Scenes/InsidePlayerGarage.unity
+    guid: f025996e4341c434696a7482c4993068
   m_configObjects: {}

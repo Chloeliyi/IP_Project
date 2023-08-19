@@ -1,11 +1,16 @@
+/*
+ * Author: Chloe
+ * Date: 8/19/2023
+ * Description: Raycast for item collection
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-//Chloe Chan
+using UnityEngine.SceneManagement;
+
 namespace CollectionSystem
 {
-    //Raycast for item collection
     public class Raycast : MonoBehaviour
     {
         [SerializeField] private int rayLength = 5;
@@ -50,9 +55,37 @@ namespace CollectionSystem
                         raycastedObject.ObjectInteraction();
                     }
                 }
+                else if(hitInfo.collider.CompareTag("Shutter"))
+                {
+                    if (!doOnce)
+                    {
+                        CrosshairChange(true);
+                        SceneManager.LoadScene(2);
+                    }
+
+                    isCrosshairActive = true;
+                    doOnce = true;
+                }
+                else if (hitInfo.collider.CompareTag("ShutterBack"))
+                {
+                    if (!doOnce)
+                    {
+                        CrosshairChange(true);
+                        SceneManager.LoadScene(1);
+                    }
+
+                    isCrosshairActive = true;
+                    doOnce = true;
+                }
+
                 else if (hitInfo.collider.CompareTag(NPC))
                 {
+                    if (!doOnce)
+                    {
+                        CrosshairChange(true);
+                    }
                     isCrosshairActive = true;
+                    doOnce = true;
                 }
                 else if(hitInfo.collider.CompareTag("Task1Item"))
                 {
