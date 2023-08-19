@@ -79,7 +79,7 @@ To emerge as the ultimate **Road Master Mechanic**, follow these steps:
 5. [SpeedTutor](https://www.youtube.com/@SpeedTutor)
 6. [KapKoder](https://www.youtube.com/@kapcoder9089)
 7. [PpTheBst](https://www.youtube.com/@PpTheBest)
-8. Substance Share
+8. [Substance Share](https://substance3d.adobe.com/community-assets?assetType=substanceMaterial&ca=metal) (Modular Asset Textures)
 
 ## Get Ready to Hit the Road!
 
