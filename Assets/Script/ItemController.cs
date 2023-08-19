@@ -19,7 +19,11 @@ namespace CollectionSystem
         [SerializeField] private bool Tesla = false;
         [SerializeField] private bool FixSlider = false;
 
+        [SerializeField] private bool TaskOne = false;
+        [SerializeField] private bool TaskTwo = false;
         [SerializeField] private Image Crosshair = null;
+
+        private int Duration;
 
         [SerializeField] private Inventory _keyInventory;
 
@@ -123,6 +127,14 @@ namespace CollectionSystem
             {
                 _keyInventory.IsSlider = true;
                 GetComponent<TestSlider>().enabled = true;
+            }
+            if(TaskOne)
+            {
+                Destroy(gameObject);
+            }
+            if(TaskTwo)
+            {
+                Destroy(gameObject);
             }
         }
         private void Update()
