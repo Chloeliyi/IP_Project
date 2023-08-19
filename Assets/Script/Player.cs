@@ -122,6 +122,12 @@ namespace CollectionSystem
                 Cursor.lockState = CursorLockMode.None;
                 PauseMenu.SetActive(true);
             }*/
+
+            if(Input.GetKey(KeyCode.R))
+            {
+                Debug.Log("Quit");
+                Application.Quit();
+            }
         }
 
         /// <summary>

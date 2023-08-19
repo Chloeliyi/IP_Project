@@ -24,6 +24,9 @@ namespace CollectionSystem
         public TextMeshProUGUI npcDialogueBox;
         public TextMeshProUGUI playerResponse;
 
+        public Transform teleportTarget, Targetplayer;
+        public GameObject thePlayer;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -71,6 +74,10 @@ namespace CollectionSystem
                 else if (npcDialogueBox.text == Race.dialogue[2] && Input.GetKeyDown(KeyCode.Space))
                 {
                     EndDialogue();
+                    thePlayer.SetActive(false);
+                    Targetplayer.position = teleportTarget.position;
+                    Targetplayer.transform.rotation = teleportTarget.rotation;
+                    thePlayer.SetActive(true);
                 }
             }
         }

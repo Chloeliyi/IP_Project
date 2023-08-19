@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028504, g: 0.22571693, b: 0.3069249, a: 1}
+  m_IndirectSpecularColor: {r: 0.18386838, g: 0.22901553, b: 0.30311254, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6367,6 +6367,8 @@ MonoBehaviour:
   TowTruck: 0
   Tesla: 0
   FixSlider: 0
+  TaskOne: 0
+  TaskTwo: 0
   Crosshair: {fileID: 6228751413266505920, guid: 07edf8807a2bd034b815c8063d99d687,
     type: 3}
   _keyInventory: {fileID: 863038050}
@@ -6394,6 +6396,7 @@ MonoBehaviour:
   acceleration: 500
   breakingForce: 300
   maxTurnAngle: 15
+  carMoving: 0
 --- !u!65 &288419821
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6445,7 +6448,7 @@ Transform:
   - {fileID: 2010199932}
   - {fileID: 571273926}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1001 &290506057
 PrefabInstance:
@@ -8063,7 +8066,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 125, z: 0}
 --- !u!1001 &514250071
 PrefabInstance:
@@ -8280,7 +8283,7 @@ Transform:
   - {fileID: 14227487}
   - {fileID: 24559624}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 125, z: 0}
 --- !u!114 &541774687
 MonoBehaviour:
@@ -8300,12 +8303,14 @@ MonoBehaviour:
   brakingDistance: 3
   slowDownDistance: 5
   maxBrakeForce: 30
+  maxTurnAngle: 30
   maxAcceleration: 10
   targetSpeed: 20
   playerInCar: 0
   playerCar: {fileID: 0}
   waypoints:
   - {fileID: 513269349}
+  FinishPoint: {fileID: 0}
 --- !u!195 &541774688
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -14363,6 +14368,8 @@ MonoBehaviour:
   TowTruck: 0
   Tesla: 0
   FixSlider: 0
+  TaskOne: 0
+  TaskTwo: 0
   Crosshair: {fileID: 6228751413266505920, guid: 07edf8807a2bd034b815c8063d99d687,
     type: 3}
   _keyInventory: {fileID: 863038050}
@@ -14390,6 +14397,7 @@ MonoBehaviour:
   acceleration: 500
   breakingForce: 300
   maxTurnAngle: 15
+  carMoving: 0
 --- !u!65 &672205955
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14441,7 +14449,7 @@ Transform:
   - {fileID: 684669220}
   - {fileID: 1916399614}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 4.255, z: 0}
 --- !u!1 &673076338
 GameObject:
@@ -24921,14 +24929,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 798836339}
-  m_LocalRotation: {x: 0.27362633, y: 0.6907005, z: -0.32207888, w: 0.5867936}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: 0, y: -0.9659258, z: 0.2588191, w: 0}
+  m_LocalPosition: {x: -31, y: 482, z: -962}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 50, y: 99.3, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: -180, z: 0}
 --- !u!114 &798836342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36162,7 +36170,7 @@ Transform:
   - {fileID: 462669621}
   - {fileID: 1220232156}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1002740819
 PrefabInstance:
@@ -36322,7 +36330,7 @@ PrefabInstance:
     - target: {fileID: 8286454713287983774, guid: 84abbd6103b5ba04faeac34f3851d5aa,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8286454713287983774, guid: 84abbd6103b5ba04faeac34f3851d5aa,
         type: 3}
@@ -41697,6 +41705,8 @@ MonoBehaviour:
   TowTruck: 0
   Tesla: 0
   FixSlider: 0
+  TaskOne: 0
+  TaskTwo: 0
   Crosshair: {fileID: 6228751413266505920, guid: 07edf8807a2bd034b815c8063d99d687,
     type: 3}
   _keyInventory: {fileID: 863038050}
@@ -41724,6 +41734,7 @@ MonoBehaviour:
   acceleration: 500
   breakingForce: 300
   maxTurnAngle: 15
+  carMoving: 0
 --- !u!65 &1063550089
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41775,7 +41786,7 @@ Transform:
   - {fileID: 1088722726}
   - {fileID: 833351953}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1082259952
 GameObject:
@@ -48942,7 +48953,7 @@ PrefabInstance:
     - target: {fileID: 2200368741555029095, guid: e27ff4818b51c224b8da0af6624833be,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 2200368741555029095, guid: e27ff4818b51c224b8da0af6624833be,
         type: 3}
@@ -50220,7 +50231,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1510812475 stripped
 Transform:
@@ -71717,48 +71728,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22c37e30975d8844e8011c3b1727e68a, type: 3}
---- !u!114 &1819123309 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7478472867345761992, guid: 22c37e30975d8844e8011c3b1727e68a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1819123308}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1819123310 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7478472866342230169, guid: 22c37e30975d8844e8011c3b1727e68a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1819123308}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1819123311 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7478472868266662023, guid: 22c37e30975d8844e8011c3b1727e68a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1819123308}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &1819123312 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7478472868148323725, guid: 22c37e30975d8844e8011c3b1727e68a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1819123308}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1825158870 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2502196258588850731, guid: 072764703d38d6e49ba1029abc4fa9a5,
@@ -97517,7 +97486,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2025291803
 PrefabInstance:
@@ -113048,6 +113017,8 @@ MonoBehaviour:
   TowTruck: 0
   Tesla: 1
   FixSlider: 0
+  TaskOne: 0
+  TaskTwo: 0
   Crosshair: {fileID: 6228751413266505920, guid: 07edf8807a2bd034b815c8063d99d687,
     type: 3}
   _keyInventory: {fileID: 863038050}
@@ -113115,6 +113086,7 @@ MonoBehaviour:
   acceleration: 500
   breakingForce: 300
   maxTurnAngle: 15
+  carMoving: 0
 --- !u!4 &2877859633520477994
 Transform:
   m_ObjectHideFlags: 0
@@ -113132,7 +113104,7 @@ Transform:
   - {fileID: 2877859633899581938}
   - {fileID: 2877859632481936571}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 125, z: 0}
 --- !u!54 &2877859633520477995
 Rigidbody:
@@ -114431,10 +114403,10 @@ MonoBehaviour:
   _Player: {fileID: 6444389951170248124}
   npc: {fileID: 11400000, guid: 23b913d59389f4d42a33091af570206d, type: 2}
   player: {fileID: 6444389951170248123}
-  dialogueUI: {fileID: 1819123312}
-  npcName: {fileID: 1819123311}
-  npcDialogueBox: {fileID: 1819123310}
-  playerResponse: {fileID: 1819123309}
+  dialogueUI: {fileID: 0}
+  npcName: {fileID: 0}
+  npcDialogueBox: {fileID: 0}
+  playerResponse: {fileID: 0}
 --- !u!4 &3098948717065283310
 Transform:
   m_ObjectHideFlags: 0
@@ -114450,7 +114422,7 @@ Transform:
   - {fileID: 1949864949}
   - {fileID: 2380746636690101110}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3098948717065283311
 MeshFilter:
@@ -119032,6 +119004,7 @@ MonoBehaviour:
   acceleration: 500
   breakingForce: 300
   maxTurnAngle: 15
+  carMoving: 0
 --- !u!114 &3925837159496918098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119053,6 +119026,8 @@ MonoBehaviour:
   TowTruck: 1
   Tesla: 0
   FixSlider: 0
+  TaskOne: 0
+  TaskTwo: 0
   Crosshair: {fileID: 6228751413266505920, guid: 07edf8807a2bd034b815c8063d99d687,
     type: 3}
   _keyInventory: {fileID: 863038050}
@@ -119123,7 +119098,7 @@ Transform:
   - {fileID: 774977240}
   - {fileID: 3925837160287114232}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 120, z: 0}
 --- !u!54 &3925837159496918127
 Rigidbody:
@@ -133569,17 +133544,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 366d397c12f949843b7af15a7a6363c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCamera: {fileID: 4719612496634823705}
-  walkSpeed: 1
-  runSpeed: 3
-  jumpPower: 4
-  gravity: 10
-  lookSpeed: 2
-  lookXLimit: 45
-  canMove: 1
+  bossDialogueManager: {fileID: 0}
+  task1CollectibleCount: 0
+  movementSpeed: 0.3
+  sprintSpeed: 0.1
+  staminaBar: {fileID: 0}
+  rb: {fileID: 0}
   PlayerMovement: 1
+  playerGrounded: 1
+  jumpHeight: 5
+  mouseSensitivity: 0.1
+  camera: {fileID: 0}
   PauseMenu: {fileID: 3162347389777592766}
-  QuitMenu: {fileID: 6623747104308152804}
+  PlayerAnim: {fileID: 0}
 --- !u!143 &6444389951170248125
 CharacterController:
   m_ObjectHideFlags: 0
@@ -133613,7 +133590,7 @@ Transform:
   - {fileID: 6444389950460016346}
   - {fileID: 4719612496634823706}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6450000939150365878
 MeshFilter:
@@ -141442,7 +141419,7 @@ RectTransform:
   - {fileID: 1247150179678478567}
   - {fileID: 5659670676734465067}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -143681,7 +143658,7 @@ Transform:
   - {fileID: 998432704}
   - {fileID: 1943473926}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &8522078428049986564
 MonoBehaviour:
@@ -143731,6 +143708,7 @@ MonoBehaviour:
   acceleration: 500
   breakingForce: 300
   maxTurnAngle: 15
+  carMoving: 0
 --- !u!114 &8522078428049986567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143752,6 +143730,8 @@ MonoBehaviour:
   TowTruck: 0
   Tesla: 0
   FixSlider: 0
+  TaskOne: 0
+  TaskTwo: 0
   Crosshair: {fileID: 6228751413266505920, guid: 07edf8807a2bd034b815c8063d99d687,
     type: 3}
   _keyInventory: {fileID: 863038050}

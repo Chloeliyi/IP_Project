@@ -3,7 +3,17 @@ guid: d94e7055354523b45b4a75ed4c15f625
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - playerScript: {instanceID: 0}
+  - Race: {instanceID: 0}
+  - player: {instanceID: 0}
+  - dialogueUI: {instanceID: 0}
+  - npcName: {instanceID: 0}
+  - npcDialogueBox: {instanceID: 0}
+  - playerResponse: {instanceID: 0}
+  - teleportTarget: {instanceID: 0}
+  - Targetplayer: {instanceID: 0}
+  - thePlayer: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
