@@ -54,6 +54,13 @@ namespace CollectionSystem
             // Find all player GameObjects in the scene and store them in the players array
             players = GameObject.FindGameObjectsWithTag("Player");
 
+            /*currentState = "Roaming";
+            nextState = currentState;
+            SwitchState();*/
+        }
+
+        public void RoamStart()
+        {
             currentState = "Roaming";
             nextState = currentState;
             SwitchState();
@@ -112,7 +119,7 @@ namespace CollectionSystem
                 AvoidOtherCars();
                 PlayerCheck();
 
-                needsService = Random.value < .5f;
+                needsService = Random.value < 1f;
 
                 if (needsService)
                 {
