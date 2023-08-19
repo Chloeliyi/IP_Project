@@ -1,3 +1,9 @@
+/*
+ * Author: Jae Ng Ky Earn
+ * Date: 8/19/2023
+ * Description: The BossDialogueManager class is used for control of garage boss NPC dialogue
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,34 +11,91 @@ using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.AI;
-//Jae Ng
+
 namespace CollectionSystem
 {
     public class BossDialogueManager : MonoBehaviour
     {
+        /// <summary>
+        /// to have Player game object assigned in inspector
+        /// </summary>
         public Player playerScript;
 
+        /// <summary>
+        /// to have tutorial dialogue object assigned in inspector
+        /// </summary>
         public NPC Tutorial;
 
+        /// <summary>
+        /// bool to determine whether NPC is being spoken to
+        /// </summary>
         bool isTalking = false;
+
+        /// <summary>
+        /// bool to determine whether task 1 is ongoing
+        /// </summary>
         public bool task1Ongoing = false;
+
+        /// <summary>
+        /// bool to determine whether task 1 is complete
+        /// </summary>
         public bool task1Complete = false;
+
+        /// <summary>
+        /// bool to determine whether task 2 is ongoing
+        /// </summary>
         public bool task2Ongoing = false;
+
+        /// <summary>
+        /// bool to determine whether task 1 is complete
+        /// </summary>
         public bool task2Complete = false;
 
+        /// <summary>
+        /// float to check distance between player and NPC
+        /// </summary>
         private float distance;
 
+        /// <summary>
+        /// to have Player game object assigned in inspector
+        /// </summary>
         public GameObject player;
+
+        /// <summary>
+        /// to have dialogue UI assigned in inspector
+        /// </summary>
         public GameObject dialogueUI;
 
+        /// <summary>
+        /// to have NPC name text assigned in inspector
+        /// </summary>
         public TextMeshProUGUI npcName;
+
+        /// <summary>
+        /// to have NPC dialogue text assigned in inspector
+        /// </summary>
         public TextMeshProUGUI npcDialogueBox;
+
+        /// <summary>
+        /// to have NPC player response text assigned in inspector
+        /// </summary>
         public TextMeshProUGUI playerResponse;
 
         public NavMeshAgent agent;
+
+        /// <summary>
+        /// to have NPC NavMesh waypoints assigned in inspector
+        /// </summary>
         public Transform[] waypoints; // Array of waypoint transforms
+
+        /// <summary>
+        /// int to keep track of which waypoint the NPC is currently on
+        /// </summary>
         private int currentWaypointIndex = 0;
 
+        /// <summary>
+        /// to have the waypoint that the boss NPC despawns at assigned in inspector
+        /// </summary>
         public Transform destroyBossHere;
 
         [SerializeField] private RandomSpawner ItemSpawn;
@@ -51,7 +114,7 @@ namespace CollectionSystem
             distance = Vector3.Distance(player.transform.position, this.transform.position);
             if (distance <= 3f)
             {
-                //trigger dialogue
+                //dialogue triggers
                 if (Input.GetKeyDown(KeyCode.E) && isTalking == false && currentWaypointIndex == 0)
                 {
                     LookAtPlayer();
@@ -319,6 +382,9 @@ namespace CollectionSystem
             currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
         }
 
+        /// <summary>
+        /// function to start tutorial dialogue with the garage boss
+        /// </summary>
         void StartTutorialConversation()
         {
             playerScript.PlayerMovement = false;
@@ -329,6 +395,9 @@ namespace CollectionSystem
             npcDialogueBox.text = Tutorial.dialogue[0];
         }
 
+        /// <summary>
+        /// function to end tutorial dialogue with the garage boss
+        /// </summary>
         void EndDialogue()
         {
             isTalking = false;
@@ -336,13 +405,17 @@ namespace CollectionSystem
 
             playerScript.PlayerMovement = true;
         }
-
+        /// <summary>
+        /// function for quest number to increase after tutorial ends
+        /// </summary>
         void QuestCounter()
         {
-            Debug.Log("Quest Counter");
             QuestController.instance.QuestCounted();
         }
 
+        /// <summary>
+        /// function for spawning items after tutorial ends
+        /// </summary>
         void SpawnItemsNow()
         {
             ItemSpawn.SpawnItemOneAtStart();
@@ -351,6 +424,10 @@ namespace CollectionSystem
             ItemSpawn.SpawnItemFourAtStart();
 
         }
+
+        /// <summary>
+        /// function to make NPC look at player when spoken to
+        /// </summary>
         void LookAtPlayer()
         {
             transform.rotation = Quaternion.LookRotation(player.transform.position - transform.position);
@@ -358,12 +435,9 @@ namespace CollectionSystem
 
         void Update()
         {
-            Debug.Log(currentWaypointIndex);
-            Debug.Log(isTalking);
-
+            // despawns garage boss NPC when reaches final waypoint
             if (Vector3.Distance(transform.position, destroyBossHere.position) < 1f)
             {
-                Debug.Log("die");
                 Destroy(gameObject);
             }
         }
