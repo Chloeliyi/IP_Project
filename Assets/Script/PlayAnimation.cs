@@ -10,7 +10,6 @@ public class PlayAnimation : MonoBehaviour
     [SerializeField] private string openAnimationName = "DoorOpen";
 
     [SerializeField] private int waitTimer = 3;
-    //[SerializeField] private bool pauseInteraction = false;
 
     [SerializeField] private bool PlayOnce = false;
 
@@ -21,7 +20,7 @@ public class PlayAnimation : MonoBehaviour
 
     void OnTriggerEnter(Collider coll)
     {
-        if (coll.tag == "Player")
+        if (coll.tag == "Player" || coll.tag == "NPC")
         {
             Debug.Log("Player is in range of Door");
             if (!PlayOnce)
