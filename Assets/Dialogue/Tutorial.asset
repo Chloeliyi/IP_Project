@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55a92e7198bf38440bb1e113e077eee2, type: 3}
+  m_Name: Tutorial
+  m_EditorClassIdentifier: 
+  name: Boss Greg
+  dialogue:
+  - You're hired!
+  - Our first customer should be here soon.
+  - Let's get to work.
+  - Here they are.
+  - The number above the car shows how many parts we need to gather.
+  - Let's go to the Junkyard.
+  - This is the Junkyard where we collect parts to repair cars.
+  - Collect 5 car scraps.
+  - Collect more scraps.
+  - Good job. Let's head back to the garage.
+  - Now let's fix up the customer's car.
+  - Fix the car by pressing e on it.
+  - Good job!
+  - Welp that's all you need to know about working the garage.
+  - Anyways, something came up and I gotta leave the garage for a week or two.
+  - Take care of it for me okay?
+  - With the money you earn, you can go to the car dealership and get yourself a
+    new ride.
+  - The company also provides you your own garage to store and upgrade your vehicles.
+  - If you looking for a bit of thrill maybe go check out the race track where you
+    know.
+  - You can race.
+  - Well that's about it. I gotta get going.
+  - Take care.
+  playerDialogue:
+  - 
