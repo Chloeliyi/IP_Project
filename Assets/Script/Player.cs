@@ -117,11 +117,11 @@ namespace CollectionSystem
             }
             PlayerAnim.SetBool("m_walk", false);
 
-            /*if (Input.GetKeyDown(KeyCode.Backspace)) {
+            if (Input.GetKeyDown(KeyCode.Backspace)) {
                 PlayerMovement = false;
                 Cursor.lockState = CursorLockMode.None;
                 PauseMenu.SetActive(true);
-            }*/
+            }
 
             if(Input.GetKey(KeyCode.R))
             {
@@ -156,6 +156,11 @@ namespace CollectionSystem
             PlayerMovement = true;
             Cursor.lockState = CursorLockMode.Locked;
             PauseMenu.SetActive(false);
+        }
+
+        public void OnQuitButton()
+        {
+            Application.Quit();
         }
     }
 }
