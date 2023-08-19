@@ -39,7 +39,8 @@ In **Road Master Mechanic**, you step into the shoes of a talented mechanic work
 - Sprint: Shift
 - Mouse Click: Interact
 - E: Interact
-- Esc: Open pause menu
+- Backspace: Open pause menu
+- R: Quit game
 
 #### Car Controls
 - W: Accelerate
