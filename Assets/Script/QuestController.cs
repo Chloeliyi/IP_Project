@@ -51,11 +51,15 @@ namespace CollectionSystem
             }
             else if (QuestCounter == 3)
             {
-                QuestDetails.text = "Fix Three Cars";
+                QuestDetails.text = "Go To The Dealership To Buy Car";
             }
             else if (QuestCounter == 4)
             {
-                QuestDetails.text = "Go To The RaceTrack";
+                QuestDetails.text = "Do Your First Race.";
+            }
+            else if (QuestCounter == 5)
+            {
+                QuestDetails.text = "Do Your First Race.";
             }
         }
     }
