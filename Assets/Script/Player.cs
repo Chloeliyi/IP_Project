@@ -41,6 +41,8 @@ namespace CollectionSystem
         public Transform camera;
 
         [SerializeField] private GameObject PauseMenu;
+        //Player walk animation
+        public Animator PlayerAnim;
 
         void OnLook(InputValue value)
         {
@@ -69,6 +71,8 @@ namespace CollectionSystem
         {
             if (PlayerMovement)
             {
+                PlayerAnim.SetBool("m_walk", true);
+
                 // Create a new Vector3
                 Vector3 movementVector = Vector3.zero;
 
@@ -111,6 +115,7 @@ namespace CollectionSystem
 
                 Cursor.lockState = CursorLockMode.Locked;
             }
+            PlayerAnim.SetBool("m_walk", false);
 
             /*if (Input.GetKeyDown(KeyCode.Backspace)) {
                 PlayerMovement = false;
