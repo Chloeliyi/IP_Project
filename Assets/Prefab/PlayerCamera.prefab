@@ -137,4 +137,7 @@ MonoBehaviour:
     m_Bits: 64
   excluseLayerName: 
   Collection: 323
-  crosshair: {fileID: 0}
+  crosshair: {fileID: 6228751413266505920, guid: 07edf8807a2bd034b815c8063d99d687,
+    type: 3}
+  playerScript: {fileID: 0}
+  bossDialogueManager: {fileID: 0}
