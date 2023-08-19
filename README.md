@@ -47,6 +47,7 @@ In **Road Master Mechanic**, you step into the shoes of a talented mechanic work
 - A: Steer left
 - D: Steer right
 - Space: Handbrake
+- Back Space: Get out of Car
 
 ### Desired Settings
 
