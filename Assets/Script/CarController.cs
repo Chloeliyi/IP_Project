@@ -33,9 +33,8 @@ namespace CollectionSystem
 
         public float RandomColNum = 0;
 
-        private CarControllerAI Carfixed;
+       //[SerializeField] private CarAI Carfixed;
 
-        private ItemController _ItemController;
 
         public bool PlayPauseSpark = false;
 
@@ -47,8 +46,6 @@ namespace CollectionSystem
     }
         void Awake()
         {
-            Carfixed = GetComponent<CarControllerAI>();
-            _ItemController = GetComponent<ItemController>();
         }
 
         //Check For Car Parts
@@ -70,20 +67,21 @@ namespace CollectionSystem
                 //Check if number of parts collected is correct
                 if (_keyInventory.NumberOfItemsCollected == _keyInventory.RandomCollect)
                 {
-                    Debug.Log("Car can be fixed");
+                    Debug.Log("Blue Car can be fixed");
                     Debug.Log(_keyInventory.NumberOfItemsCollected);
                     Debug.Log(_keyInventory.RandomCollect);
 
                     ItemsLabel.SetActive(false);
-                    //_fixSlider.SetActive(true);
+                    _fixSlider.SetActive(true);
 
                     _keyInventory.NumberOfItemsCollected -= _keyInventory.RandomCollect;
                     _keyInventory.hasBlueCar = false;
                     _keyInventory.NumberOfItemsForOrangeCollected = 0;
-                    RandomColNum = 0;
-                    //GetComponent<CarControllerAI>().enabled = true;
-                    //GetComponent<ItemController>().enabled = false;
-                    //GetComponent<CarController>().enabled = false;
+
+                    /*RandomColNum = 0;
+                    Carfixed.CarFixed = true;
+                    Carfixed.Fixing();
+                    _keyInventory.NumberOfCarsFixed();*/
 
                 }
                 else if (_keyInventory.NumberOfItemsCollected <= _keyInventory.RandomCollect)
@@ -104,7 +102,12 @@ namespace CollectionSystem
                     _keyInventory.NumberOfItemsCollected -= _keyInventory.RandomCollect;
                     _keyInventory.hasBlueCar = false;
                     _keyInventory.NumberOfItemsForOrangeCollected = _keyInventory.NumberOfItemsCollected;
-                    RandomColNum = 0;
+
+                    /*RandomColNum = 0;
+                    Carfixed.CarFixed = true;
+                    Carfixed.Fixing();
+                    _keyInventory.NumberOfCarsFixed();*/
+
                 }
             }
 
@@ -124,8 +127,8 @@ namespace CollectionSystem
                 //Check if number of parts collected is correct
                 if (_keyInventory.NumberOfItemsForOrangeCollected == _keyInventory.RandomCollect)
                 {
-                    Debug.Log("Car can be fixed");
-                    //Debug.Log(_keyInventory.NumberOfItemsForOrangeCollected);
+                    Debug.Log("Orange Car can be fixed");
+                    Debug.Log(_keyInventory.NumberOfItemsForOrangeCollected);
                     Debug.Log(_keyInventory.RandomCollect);
 
                     ItemsLabel.SetActive(false);
@@ -134,7 +137,12 @@ namespace CollectionSystem
                     _keyInventory.NumberOfItemsForOrangeCollected -= _keyInventory.RandomCollect;
                     _keyInventory.hasOrangeCar = false;
                     _keyInventory.NumberOfItemsCollected = 0;
-                    RandomColNum = 0;
+
+                    /*RandomColNum = 0;
+                    Carfixed.CarFixed = true;
+                    Carfixed.Fixing();
+                    _keyInventory.NumberOfCarsFixed();*/
+
 
                 }
                 else if (_keyInventory.NumberOfItemsForOrangeCollected <= _keyInventory.RandomCollect)
@@ -146,8 +154,7 @@ namespace CollectionSystem
                 else if (_keyInventory.NumberOfItemsForOrangeCollected >= _keyInventory.RandomCollect)
                 {
                     Debug.Log("More than needed parts");
-                    Debug.Log(_keyInventory.NumberOfItemsCollected);
-                    Debug.Log(_keyInventory.NumberOfItemsCollected);
+                    Debug.Log(_keyInventory.NumberOfItemsForOrangeCollected);
 
                     ItemsLabel.SetActive(false);
                     //_fixSlider.SetActive(true);
@@ -155,8 +162,21 @@ namespace CollectionSystem
                     _keyInventory.NumberOfItemsForOrangeCollected -= _keyInventory.RandomCollect;
                     _keyInventory.hasOrangeCar = false;
                     _keyInventory.NumberOfItemsCollected = _keyInventory.NumberOfItemsForOrangeCollected;
-                    RandomColNum = 0;
+
+                    /*RandomColNum = 0;
+                    Carfixed.CarFixed = true;
+                    Carfixed.Fixing();
+                    _keyInventory.NumberOfCarsFixed();*/
+
                 }
+            }
+            if (_keyInventory.NumOfCarFixed > 1)
+            {
+                QuestController.instance.QuestCounted();
+            }
+            else if (_keyInventory.NumOfCarFixed > 2)
+            {
+                QuestController.instance.QuestCounted();
             }
             /*else if (_keyInventory.hasBlueCar == true)
             {
