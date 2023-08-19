@@ -9,6 +9,7 @@ public class RacerControllerAi : MonoBehaviour
     public float brakingDistance = 3f; // Distance at which the AI car should start braking
     public float slowDownDistance = 5f;
     public float maxBrakeForce = 30f; // Maximum brake force
+    public float maxTurnAngle = 30f;
 
     public float maxAcceleration = 10f; // Maximum acceleration
     public float targetSpeed = 20f; // Target speed
@@ -19,6 +20,7 @@ public class RacerControllerAi : MonoBehaviour
 
     public Transform[] waypoints; // Array of waypoint transforms
     private int currentWaypointIndex = 0;
+    public Transform FinishPoint;
 
     private void Start()
     {
@@ -82,6 +84,9 @@ public class RacerControllerAi : MonoBehaviour
         }
 
         agent.SetDestination(waypoints[currentWaypointIndex].position);
+        Vector3 targetDirection = (waypoints[currentWaypointIndex].position - transform.position).normalized;
+        Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, maxTurnAngle * Time.deltaTime);
         currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
     }
 

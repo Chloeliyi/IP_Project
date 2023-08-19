@@ -25,14 +25,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2614130234135322810}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.5369999, y: -0.68, z: -0.7349995}
   m_LocalScale: {x: 1.2999998, y: 1.3, z: 1.2999998}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2614130234395306004}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2614130234135322809
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -635,9 +635,13 @@ MonoBehaviour:
   ItemTwo: 0
   ItemThree: 0
   ItemFour: 0
-  Car: 0
+  BlueCar: 0
+  OrangeCar: 0
   TowTruck: 1
+  Tesla: 0
   FixSlider: 0
+  TaskOne: 0
+  TaskTwo: 0
   Crosshair: {fileID: 6228751413266505920, guid: 07edf8807a2bd034b815c8063d99d687,
     type: 3}
   _keyInventory: {fileID: 0}

@@ -2372,7 +2372,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: High-Fedility
+  m_text: High-Fidelity
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5208,7 +5208,7 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: High-Fedility
+    - m_Text: High-Fidelity
       m_Image: {fileID: 0}
     - m_Text: Balanced
       m_Image: {fileID: 0}
@@ -7238,65 +7238,78 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7732502871566660524, guid: de2f2aa90885e094e9f39b6a76a9b746,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: sounds.Array.size
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 7732502871566660524, guid: de2f2aa90885e094e9f39b6a76a9b746,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: sounds.Array.data[0].Clip
       value: 
       objectReference: {fileID: 8300000, guid: f83aa42b6bd2e6b40838125551b3bcca, type: 3}
-    - target: {fileID: 7732502871566660524, guid: de2f2aa90885e094e9f39b6a76a9b746,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: sounds.Array.data[0].name
       value: button Sound
       objectReference: {fileID: 0}
-    - target: {fileID: 7732502871566660524, guid: de2f2aa90885e094e9f39b6a76a9b746,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: sounds.Array.data[1].Clip
       value: 
       objectReference: {fileID: 8300000, guid: f31bcd5e95e72714997c8a1f2eba8a06, type: 3}
-    - target: {fileID: 7732502871566660524, guid: de2f2aa90885e094e9f39b6a76a9b746,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: sounds.Array.data[1].loop
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7732502871566660524, guid: de2f2aa90885e094e9f39b6a76a9b746,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: sounds.Array.data[1].name
       value: Theme
       objectReference: {fileID: 0}
-    - target: {fileID: 7732502871566660524, guid: de2f2aa90885e094e9f39b6a76a9b746,
-        type: 3}
+    - target: {fileID: 0}
+      propertyPath: sounds.Array.data[2].Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: f31bcd5e95e72714997c8a1f2eba8a06, type: 3}
+    - target: {fileID: 0}
+      propertyPath: sounds.Array.data[2].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: sounds.Array.data[2].name
+      value: Theme
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: sounds.Array.data[0].pitch
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7732502871566660524, guid: de2f2aa90885e094e9f39b6a76a9b746,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: sounds.Array.data[1].pitch
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7732502871566660524, guid: de2f2aa90885e094e9f39b6a76a9b746,
-        type: 3}
+    - target: {fileID: 0}
+      propertyPath: sounds.Array.data[2].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: sounds.Array.data[0].volume
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7732502871566660524, guid: de2f2aa90885e094e9f39b6a76a9b746,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: sounds.Array.data[1].volume
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7732502871566660524, guid: de2f2aa90885e094e9f39b6a76a9b746,
-        type: 3}
+    - target: {fileID: 0}
+      propertyPath: sounds.Array.data[2].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: sounds.Array.data[0].audioMixerGroup
       value: 
       objectReference: {fileID: 6067459863550010913, guid: 1e8dfa99f119efc4383dc1bda7976118,
         type: 2}
-    - target: {fileID: 7732502871566660524, guid: de2f2aa90885e094e9f39b6a76a9b746,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: sounds.Array.data[1].audioMixerGroup
+      value: 
+      objectReference: {fileID: -1263334639741945397, guid: 1e8dfa99f119efc4383dc1bda7976118,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: sounds.Array.data[2].audioMixerGroup
       value: 
       objectReference: {fileID: -1263334639741945397, guid: 1e8dfa99f119efc4383dc1bda7976118,
         type: 2}

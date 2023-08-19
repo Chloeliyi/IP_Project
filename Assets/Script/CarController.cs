@@ -175,6 +175,7 @@ namespace CollectionSystem
                     CarCamera.gameObject.SetActive(false);
                     Player.SetActive(true);
                     Crosshair.gameObject.SetActive(true);
+                    FindObjectOfType<AudioManager>().StopPlaying("button Sound");
                 }
                 else
                 {

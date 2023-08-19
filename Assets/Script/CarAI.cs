@@ -88,7 +88,7 @@ namespace CollectionSystem
             {
                 AvoidOtherCars();
                 PlayerCheck();
-
+                FindObjectOfType<AudioManager>().Play("engine");
                 // Check if the car has reached its destination (waypoint)
                 if (!navAgent.pathPending && navAgent.remainingDistance <= navAgent.stoppingDistance)
                 {
@@ -177,7 +177,7 @@ namespace CollectionSystem
                     {
                         navAgent.enabled = false; // Disable NavMeshAgent movement
                     }
-
+                    FindObjectOfType<AudioManager>().StopPlaying("engine");
                     //Check if car fixed then go back to roaming
                     if (CarFixed)
                     {

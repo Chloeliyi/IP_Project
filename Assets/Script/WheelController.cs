@@ -27,6 +27,7 @@ namespace CollectionSystem
         private float currentBreakForce = 0f;
         private float currentTurnAngle = 0f;
 
+        public bool carMoving;
         private void FixedUpdate()
         {
             CarMovement();
@@ -36,6 +37,7 @@ namespace CollectionSystem
         {
             CarCamera.gameObject.SetActive(false);
             GetComponent<WheelController>().enabled = false;
+            carMoving = false;
         }
 
         public void CarMovement()
@@ -68,6 +70,8 @@ namespace CollectionSystem
             UpdateWheel(frontRight, frontRightTransform);
             UpdateWheel(backLeft, backLeftTransform);
             UpdateWheel(backRight, backRightTransform);
+
+            carMoving = true;
         }
 
         void UpdateWheel(WheelCollider col, Transform trans)
@@ -77,8 +81,19 @@ namespace CollectionSystem
             Quaternion rotation;
             col.GetWorldPose(out position, out rotation);
 
-            //Set wheel transform state
-            trans.position = position;
+            if (carMoving)
+            {
+                FindObjectOfType<AudioManager>().Play("engine");
+            }
+            if (Input.GetKeyDown(KeyCode.Backspace))
+            {
+                carMoving = false;
+                FindObjectOfType<AudioManager>().StopPlaying("engine");
+            }
+
+
+           //Set wheel transform state
+           trans.position = position;
             trans.rotation = rotation;
         }
     }

@@ -34,6 +34,7 @@ namespace CollectionSystem
         {
             SceneManager.LoadScene(1);
             FindObjectOfType<AudioManager>().StopPlaying("Theme");
+            FindObjectOfType<AudioManager>().Play("CityMusic");
 
         }
 
@@ -51,10 +52,7 @@ namespace CollectionSystem
         {
             FindObjectOfType<AudioManager>().Play("button Sound");
         }
-        public void OnQuitButton()
-        {
-
-        }
+       
         private void Update()
         {
             if (Input.GetKey(KeyCode.Backspace))

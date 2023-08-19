@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7732502871566660527}
-  - component: {fileID: 7732502871566660524}
+  - component: {fileID: -1544204977491053878}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7732502871566660524
+--- !u!114 &-1544204977491053878
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,3 +45,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 1e8dfa99f119efc4383dc1bda7976118, type: 2}
+  sounds:
+  - name: button Sound
+    Clip: {fileID: 8300000, guid: f83aa42b6bd2e6b40838125551b3bcca, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixerGroup: {fileID: 6067459863550010913, guid: 1e8dfa99f119efc4383dc1bda7976118,
+      type: 2}
+    source: {fileID: 0}
+  - name: Theme
+    Clip: {fileID: 8300000, guid: f31bcd5e95e72714997c8a1f2eba8a06, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    audioMixerGroup: {fileID: -1263334639741945397, guid: 1e8dfa99f119efc4383dc1bda7976118,
+      type: 2}
+    source: {fileID: 0}
+  - name: CityMusic
+    Clip: {fileID: 8300000, guid: 48980fcb0114291498e36eaced5f7c18, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    audioMixerGroup: {fileID: -1263334639741945397, guid: 1e8dfa99f119efc4383dc1bda7976118,
+      type: 2}
+    source: {fileID: 0}
+  - name: engine
+    Clip: {fileID: 8300000, guid: f42ee6c61e2b5a049b588a485b2f267f, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    audioMixerGroup: {fileID: -1263334639741945397, guid: 1e8dfa99f119efc4383dc1bda7976118,
+      type: 2}
+    source: {fileID: 0}
