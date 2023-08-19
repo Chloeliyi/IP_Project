@@ -1,9 +1,13 @@
+/*
+ * Author: Chloe
+ * Date: 8/19/2023
+ * Description: The Car Controller to check if the correct amount of objects were collected
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-//Chloe Chan
 namespace CollectionSystem
 {
     public class CarController : MonoBehaviour
