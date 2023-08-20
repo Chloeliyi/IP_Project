@@ -14,7 +14,7 @@ public class RacerControllerAi : MonoBehaviour
     public float maxAcceleration = 10f; // Maximum acceleration
     public float targetSpeed = 20f; // Target speed
     public bool playerInCar;
-    private bool raceEnds;
+    public bool raceEnds;
     public GameObject playerCar;
     private NavMeshAgent agent;
 
@@ -62,7 +62,6 @@ public class RacerControllerAi : MonoBehaviour
                 }
             }
         }
-        
     }
 
     private void OnTriggerEnter(Collider other)

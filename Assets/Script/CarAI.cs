@@ -1,3 +1,9 @@
+/*
+ * Author: Pang Le Xin (with reference to KapKoder on YT)
+ * Date: 19/08/2023
+ * Description: Car Racing AI
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
